@@ -1,8 +1,8 @@
-# OilMetagenomesDB
+ OilMetagenomesDB
 Community curated database of oil metagenomes
 
 <p align="center">
-<img src="https://github.com/rakhmanov-tr/bioinf_agni/blob/main/github_img_top.png" width="300">
+<img src="https://github.com/rakhmanov-tr/bioinf_agni/blob/main/git_img_top.png" width="300">
 </p>
 
 ---
