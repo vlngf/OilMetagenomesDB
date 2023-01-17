@@ -4,7 +4,7 @@
 
 This page describes columns definitions for all library-level lists. Icons indicate columns that are specific to specific columns.
 
-- 🏞: oilfielf environmental metagenomes
+- 🏞: oilfield environmental metagenomes
 - 🦠: crude oil metagenomes
 
 Numeric fields (e.g. `read_count`), can be filled with `NA` to indicate 'no
