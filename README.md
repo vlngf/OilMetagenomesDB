@@ -1,9 +1,13 @@
- OilMetagenomesDB
-Community curated database of oil metagenomes
+<link href="head-readme.css" rel="stylesheet" type="text/css">
 
-<p align="center">
-<img src="https://github.com/rakhmanov-tr/bioinf_agni/blob/main/git_img_top.png" width="300">
-</p>
+<div class="header">
+  <h1 align="center"> OilMetagenomesDB <img src="/image/git_img_top.png" alt="logo" class="object logo move-right" width="200"/></h1>
+  <!-- <img alt="logo" src="/image/git_img_top.png"  class="apps" width="150"/>
+  <h1 align="center">OilMetagenomesDB Project</h1> -->
+</div>
+
+<!-- <h1 align="center"> OilMetagenomesDB <img src="/image/git_img_top.png" alt="logo" width="300"/></h1> -->
+<h1 align="center">Community curated database of oil metagenomes</h1>
 
 ---
 ![check_dataset paasing](https://img.shields.io/badge/check__dataset-passing-brightgreen) ![slack oilmetagenomedir](https://img.shields.io/badge/slack-oilmetagenomedir-blue) ![Latest Release](https://img.shields.io/badge/Latest__Release-v0.1-orange)
