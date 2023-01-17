@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/image/git_img_top.png" width="250" height="125" />
+  <img src="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/image/git_img_top.png" width="300" height="125" />
 </p>
 
 <h1 align="center">Community curated database of oil metagenomes</h1>
