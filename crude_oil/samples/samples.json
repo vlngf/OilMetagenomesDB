@@ -122,11 +122,9 @@
                 //нужна ссылка
                 "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/study_primary_focus.json",
                 "examples": [
-                    "floral",
-                    "faunal",
-                    "microbial",
-                    "floral,faunal,microbial",
-                    "floral,microbial"
+                    "industrial",
+                    "ecological",
+                    "industrial,ecological",
                 ]
             },
             "sequence_name": {
