@@ -242,6 +242,9 @@ Library columns are as follows:
 
 > ⚠️ Mandatory value
 
+## amplicon_variable_region
+123
+> ⚠️ Mandatory value
 ## read_count
 
 - Number of reads or pairs in library, i.e. how deep sequenced, or how many
@@ -263,17 +266,6 @@ Library columns are as follows:
   data as possible (i.e. should start with `ERR` or `SRR`).
 - If non-NCBI/ENA, use as close to sequencing run-level as possible.
   - For example, use the unique file name (without file suffix).
-
-> ⚠️ Mandatory value
-
-## file_Type
-
-> 🦠 host-associated single genome only!
-
-- Contents of downloadable file
-- Some groups upload only mapped reads to the organism of interest's reference
-  genome. This is specified here alongside the file format (e.g. `fastq_all`,
-  or `mapped_all`).
 
 > ⚠️ Mandatory value
 
