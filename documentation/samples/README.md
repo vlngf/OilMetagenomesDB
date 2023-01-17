@@ -1,4 +1,4 @@
-# agni_metagenomes - Samples Column Specifications
+# OilMetagenomesDB - Samples Column Specifications
 
 ![check_dataset](https://github.com/spaam-community/AncientMetagenomeDir/workflows/check_dataset/badge.svg) !ЭТУ ССЫЛКУ НУЖНО ПОМЕНЯТЬ!
 
