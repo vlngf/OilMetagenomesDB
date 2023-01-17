@@ -13,10 +13,6 @@
 
 🛢️Small description about OilMetagenomeDir🧬
 
-<p align="center">
-  <img src="image\git_img_topdna.png" width="1800" height="160" />
-</p>
-
 + [Description](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#description)
 + [Usage](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#usage)
 + [Citation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#citation)
