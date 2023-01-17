@@ -3,9 +3,9 @@
 </p>
 <h2 align="center">Community curated database of oil metagenomes</h2>
 
-![check_dataset paasing](https://img.shields.io/badge/check__dataset-passing-brightgreen) ![slack oilmetagenomedir](https://img.shields.io/badge/slack-oilmetagenomedir-blue) ![Latest Release](https://img.shields.io/badge/Latest__Release-v0.1-orange)
+![check_dataset paasing](https://img.shields.io/badge/check__dataset-passing-brightgreen) ![Latest Release](https://img.shields.io/badge/Latest__Release-v0.1-orange)
 
-Small description about OilMetagenomeDir
+🛢️Small description about OilMetagenomeDir🧬
 
 + [Description](https://github.com/rakhmanov-tr/bioinf_agni/edit/main/README.md#description)
 + [Usage](https://github.com/rakhmanov-tr/bioinf_agni/edit/main/README.md#usage)
@@ -20,7 +20,11 @@ Small description about OilMetagenomeDir
   + [Guidelines and Conventions](https://github.com/rakhmanov-tr/bioinf_agni/edit/main/README.md#guidelines-and-conventions)
 
 ## Description
-123
+```diff
++ пример
+- пример
+@@ пример @@
+```
 ## Usage
 123
 ## Citation
