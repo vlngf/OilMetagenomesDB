@@ -1,4 +1,4 @@
-# agni_metagenomes - Libraries Column Specifications
+# OilMetagenomesDB - Libraries Column Specifications
 
 ![check_dataset paasing](https://img.shields.io/badge/check__dataset-passing-brightgreen)
 
