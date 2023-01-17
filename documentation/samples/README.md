@@ -18,8 +18,7 @@ All column with 'defined categories' should be validated against
 Dental calculus samples are listed as `dental calculus` (as defined in
 `assets/enums/<column>.json`). This is to ensure data consistency.
 
-If you wish to a new category, please consult with the [SPAAM
-community](spaam-community.github.io), and then add it to
+If you wish to a new category, please consult with the [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab), and then add it to
 `assets/enums/<column>.json`.
 
 Sample columns are as follows:
