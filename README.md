@@ -1,4 +1,4 @@
-![git_img_top.png](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/image/git_img_top.png)
+![git_img_top.png](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/image/git_img_top.png =100x20)
 <h1 align="center">Community curated database of oil metagenomes</h1>
 
 ---
