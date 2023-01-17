@@ -1,12 +1,4 @@
-<link href="head-readme.css" rel="stylesheet" type="text/css">
-
-<div class="header">
-  <h1 align="center"> OilMetagenomesDB <img src="./image/git_img_top.png" alt="logo" class="object logo move-right" width="200"/></h1>
-  <!-- <img alt="logo" src="/image/git_img_top.png"  class="apps" width="150"/>
-  <h1 align="center">OilMetagenomesDB Project</h1> -->
-</div>
-
-<!-- <h1 align="center"> OilMetagenomesDB <img src="/image/git_img_top.png" alt="logo" width="300"/></h1> -->
+![git_img_top.png]([https://img.shields.io/badge/check__dataset-passing-brightgreen](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/image/git_img_top.png))
 <h1 align="center">Community curated database of oil metagenomes</h1>
 
 ---
