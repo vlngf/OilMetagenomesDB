@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/image/git_img_top.png" width="300" height="125" />
 </p>
-<p align="center"">Community curated database of oil metagenomes</p>
+<p align="center";font-size:18px>Community curated database of oil metagenomes</p>
 
 ---
 ![check_dataset paasing](https://img.shields.io/badge/check__dataset-passing-brightgreen) ![slack oilmetagenomedir](https://img.shields.io/badge/slack-oilmetagenomedir-blue) ![Latest Release](https://img.shields.io/badge/Latest__Release-v0.1-orange)
