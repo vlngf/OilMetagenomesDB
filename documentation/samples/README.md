@@ -98,10 +98,8 @@ Sample columns are as follows:
 
 ## study_primary_focus
 
-> 🏞 environmental ancient metagenome only!
-
-- The primary 'organism' category that the sequences was originally generated for
-- These are generalised categories such as 'floral', or 'faunal', 'microbial',
+- What area of research was the focus of the study
+- These are generalised categories such as 'ecological', or 'industrial',
   with a combination of those (in that order) also allowed.
 
 > ⚠️ this does NOT necessarily imply that the data can only be used for
@@ -110,16 +108,12 @@ Sample columns are as follows:
 
 ## sequence_name
 
-> 🏞 environmental ancient metagenome only!
-
 - Sediment cores only
 - Identifier for sequence sample was taken from, e.g. core_3, or zone_a19
 - Typically cores, or quadrant/square of excavation
 - Missing value: `Unknown`
 
 ## depth
-
-> 🏞 environmental ancient metagenome only!
 
 - Sediment only
 - Depth of sample from top of sequence (cm)
@@ -136,8 +130,6 @@ Sample columns are as follows:
 > ⚠️ Mandatory value
 
 ## feature
-
-> 🏞 environmental ancient metagenome only!
 
 - Description of the object, site, or immediate environment the sample was obtained from, following [Environment
   Ontology](https://www.ebi.ac.uk/ols/ontologies/envo)
@@ -174,24 +166,10 @@ Sample columns are as follows:
 
 ## sampling_date
 
-> 🏞 environmental metagenome only!
-
 - Year of sampling of (sub-)sample for DNA analysis in YYYY format
 - Missing value: `NA`
 
 > ⚠️ [MIxS v5](https://gensc.org/mixs/) compliant field
-
-## archive
-
-- The archive the sample's data is stored on.
-  - Should be an established long-term stable archive
-  - Generally set up academic institutions e.g. EBI or Universities (rather than companies, e.g. GitHub)
-- e.g. [ENA](https://www.ebi.ac.uk/ena),
-  [SRA](https://www.ncbi.nlm.nih.gov/sra), [OAGR](https://www.oagr.org/)
-
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
-
-> ⚠️ Mandatory value
 
 ## archive
 
