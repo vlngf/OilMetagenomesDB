@@ -1,4 +1,7 @@
-<img src="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/image/git_img_top.png" width="50" height="50" />
+<p align="center">
+  <img src="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/image/git_img_top.png" width="200" height="100" />
+</p>
+
 <h1 align="center">Community curated database of oil metagenomes</h1>
 
 ---
