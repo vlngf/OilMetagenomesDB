@@ -135,57 +135,6 @@ Sample columns are as follows:
 
 > ⚠️ Mandatory value
 
-## sample_host
-
-> 🧫 host-associated metagenome or 🦠 host-associated single genome only!
-
-- Linnean latin name
-- Follow [NCBI taxonomy](https://www.ncbi.nlm.nih.gov/Taxonomy/) where possible
-
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
-
-## sample_age
-
-> ⚠️ if a sample has no age, and cannot be inferred (sediment only) it cannot
-> be included in AncientMetagenomeDir!
-
-- In Before Present (BP) format i.e. since 1950 AD
-  - When in doubt:
-    [https://nikhausmann.shinyapps.io/BP_to_BC_and_more/](https://nikhausmann.shinyapps.io/BP_to_BC_and_more/)
-- Radiocarbon dates
-  - Uncalibrated dates are preferred, but if only calibrated reported can be
-    used
-- Single date rounded to nearest century (i.e. end in '00')
-  - For samples more recent than 1850, the age should be assigned as 100
-  - e.g. something only 50 years old would be assigned as 100
-  - Therefore the minimum age possible is 100!
-- In most cases, report the date in the publication of the given sample, even if
-  the date is from an older publication (we assume the original citation can be
-  found by looking at submitted article). _However_:
-  - If a more recent and accurate date has been published this can be used!
-  - Ensure to also update `sample_age_doi`
-- If date _ranges_ reported, take approximate mid-point
-- Dates for specific individual preferred.
-- Proxy dates are allowed e.g.
-  - from other individuals in stratum/burial
-  - period of occupation of site
-  - via coin or historical records
-- For environmental metagenomes (sediment only):
-  - If a layer is not directly dated, 'inferred' ages are allowed if there are at least two direct dates in the relevant sequence
-
-> ⚠️ Mandatory value
-
-## sample_age_doi
-
-- DOI of publication that the sample_age is derived from
-- In most cases, please duplicate the DOI of the publication under submission,
-  even if the date is from an older publication (we assume the original citation
-  can be found by looking at submitted article). _However_:
-  - If a more recent and accurate date has been published this can be used!
-- Or library permalink
-  - e.g. [worldcat](https://www.worldcat.org/), [HAL](hal.archives-ouvertes.fr)
-    etc.
-
 ## feature
 
 > 🏞 environmental ancient metagenome only!
@@ -196,35 +145,6 @@ Sample columns are as follows:
 
 > ⚠️ partly [MIxS v5](https://gensc.org/mixs/) compliant field, following
 > [Environment Ontology](http://www.environmentontology.org/Browse-EnvO)
-
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
-
-> ⚠️ Mandatory value
-
-## community_type
-
-> 🧫 host-associated metagenome only!
-
-- The type of community from the host's original body the sample is derived from.
-  - e.g. oral, gut
-
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
-
-## pathogen_domain
-
-> 🦠 host-associated single genome only!
-
-- Which domain of life (or equivalent) the species comes from: bacteria, archea,
-  virus, eukaryota
-
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
-
-## pathogen_species
-
-> 🦠 host-associated single genome only!
-
-- Linnean latin name
-- Follow [NCBI taxonomy](https://www.ncbi.nlm.nih.gov/Taxonomy/) where possible
 
 > ⚠️ Must follow categories specified in `assets/enums/<column>.json`
 
@@ -252,25 +172,6 @@ Sample columns are as follows:
 
 > ⚠️ Mandatory value
 
-## genome_type
-
-> 🦠 host-associated single genome only!
-
-- We are primarily interested in listing reconstructed whole genomes of
-  microbes, however in some cases researchers may only be able to analyse
-  smaller cell components.
-- Specify one of two levels of genome reconstruction
-  - `organelle`: if the study has only published a microbial mitochondrial
-    genome (e.g. for _Plasmodium_ sp.) or a bacterial plasmid sequence
-  - `chromosome`: if the study a published the complete genome (chromosome and
-    plasmid) or just the chromosome
-- In both cases the aim of the study must have been to attempt to reconstruct
-  the _complete_ genome sequence, not gene or single amplicon sequences.
-
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
-
-> ⚠️ Mandatory value
-
 ## sampling_date
 
 > 🏞 environmental metagenome only!
@@ -292,44 +193,22 @@ Sample columns are as follows:
 
 > ⚠️ Mandatory value
 
-## data_type
+## archive
 
-> 🦠 host-associated single genome only!
+- In most cases should correspond to the `archive` of the publication in the
+  corresponding sample metadata table!
+- The archive the library's data is stored on.
+  - Should be an established long-term stable archive.
+  - Generally set up academic institutions e.g. EBI or Universities (rather than
+    companies, e.g. GitHub).
+- e.g. [ENA](https://www.ebi.ac.uk/ena),
+  [SRA](https://www.ncbi.nlm.nih.gov/sra), [OAGR](https://www.oagr.org/).
+- In some cases this will vary, for example if there IS an ERS code, however
+  only consensus sequences are uploaded
 
-- The type of data available under sample accession
-  - In some cases researchers are unable to upload raw data, or upload a
-    combination of types
-  - This field indicates what type of data are available by the uploaded
-    accession
-  - Can include combinations (in comma separated list), but use single
-    upper-level accessions where possible (e.g. ERS/SRS codes, which can be used
-    when searching on the ENA to direct you to both raw files and genbank
-    entries)
-  - If only lower down accession are available, this is acceptable (e.g. NCBI
-    GenBank accessions for consensus)
+> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
 
-> ⚠️ Must follow categories specific in `assets/enums/<column>.json`
-
-Definitions of possible categories are as follows:
-
-- `raw`: shotgun or whole-genome-enrichment data in FASTQ format without any
-  type of depletion or computational manipulation of read/data composition, with
-  exception of adapters being trimmed (as per ENA submission specifications).
-- `assembly`: anything that is derived of a de-novo assembly process,
-  independent of the completeness.
-- `binned_mag`: a single-taxon assembly (derived from above) based on one or
-  more binned metagenomes that meet certain quality requirements, and can be
-  assumed to represent contigs from one bin of a metagenome.
-- `binned_cag`: reads recruited by ancient co-abundant genes.
-- `reference_aligned:` target reads derived from alignment (mapping) of
-  metagenomic data to a reference sequence. Typically uploaded in BAM format
-  without unmapped reads.
-- `consensus`: Any sequence derived from a consensus calling algorithm applied
-  to `reference_aligned` data (typically a FASTA style file, as can be found on
-  e.g. NCBI GenBank).
-
-For example, if only a consensus is available from GenBank, this can be given
-the archive_accesion as: `MG585269.1`
+> ⚠️ Mandatory value
 
 ## archive_project
 
