@@ -1,9 +1,8 @@
 <p align="center">
   <img src="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/image/git_img_top.png" width="300" height="125" />
 </p>
-<p align="center";font-size:18px>Community curated database of oil metagenomes</p>
+<h1 align="center">Community curated database of oil metagenomes</h1>
 
----
 ![check_dataset paasing](https://img.shields.io/badge/check__dataset-passing-brightgreen) ![slack oilmetagenomedir](https://img.shields.io/badge/slack-oilmetagenomedir-blue) ![Latest Release](https://img.shields.io/badge/Latest__Release-v0.1-orange)
 
 Small description about OilMetagenomeDir
@@ -20,25 +19,25 @@ Small description about OilMetagenomeDir
   + [Contributing previously published publications](https://github.com/rakhmanov-tr/bioinf_agni/edit/main/README.md#contributing-previously-published-publications)
   + [Guidelines and Conventions](https://github.com/rakhmanov-tr/bioinf_agni/edit/main/README.md#guidelines-and-conventions)
 
-# Description
+## Description
 123
-# Usage
+## Usage
 123
-# Citation
+## Citation
 123
-# Current Status
+## Current Status
 123
-## Samples
+### Samples
 123
-## Libraries
+### Libraries
 123
-## Interactive samples map
+### Interactive samples map
 123
-# Contributing
+## Contributing
 123
-## Contributing your own Publications
+### Contributing your own Publications
 123
-## Contributing previously published publications
+### Contributing previously published publications
 123
-## Guidelines and Conventions
+### Guidelines and Conventions
 123
