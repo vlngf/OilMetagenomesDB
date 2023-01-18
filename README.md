@@ -23,11 +23,11 @@
 This list contains information on crude oil metagenome and environmental metagenome in oil fields. Here you can find the name of publications, years of publications, DOI, type of samples, geographic location of sample collection, and associated conditions.
 
 ## Usage
-Чтобы загрузить последнюю стабильную версию списка примеров OilMetagenomeBD и добавить данные, необходимо выполнить следующие шаги:
-1. Перейти в репозиторий OilMetagenomeBD;
-2. Скопировать SSH ключ во вкладке "<> Code";
-3. Скачать с помощью командной строки директорию;
-4. Перейдите в интересующий список образцов и дополните файл .tsv в программе для работы с электронными таблицами (например, LibreOffice Calc, Microsoft Excel) или на выбранном вами языке программирования (например, R);
+To download the latest stable version of the OilMetagenomeBD example list and add data, follow these steps:
+1. Go to the OilMetagenomeBD repository;
+2. Copy the SSH key in the "<> Code" tab;
+3. Use the command line to download the directory;
+4. Go to the sample list of interest and complete the .tsv file in your spreadsheet program (for example, LibreOffice Calc, Microsoft Excel) or in the programming language of your choice (for example, R);
 
 Основные команды для командной строки:
 * `git` - check if Git installed
