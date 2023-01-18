@@ -30,14 +30,15 @@ This list contains information on crude oil metagenome and environmental metagen
 2. Скопировать SSH ключ во вкладке "<> Code";
 3. Скачать с помощью командной строки директорию;
 4. Перейдите в интересующий список образцов и дополните файл .tsv в программе для работы с электронными таблицами (например, LibreOffice Calc, Microsoft Excel) или на выбранном вами языке программирования (например, R);
+
 Основные команды для командной строки:
-* git - check if Git installed
-* git clone <link> - cloning repo on your computer
-* git status - check the changes
-* git commit -m "add script.py with greeting" - save change in repository (-m is some message of what you’ve done)
-* git status - check that commit is created 
-* git push - update the GitHub repository
-4. В извлеченной папке 
+* `git` - check if Git installed
+* `git clone` <link> - cloning repo on your computer
+* `git status` - check the changes
+* `git commit -m "add script.py with greeting"` - save change in repository (-m is some message of what you’ve done)
+* `git status` - check that commit is created 
+* `git push` - update the GitHub repository
+ 
 ## Samples Column Specifications
 The SAMPLE tables stores information about the sample, its type, date of collection, geographic coordinates, depth of sample extraction, etc.
 
