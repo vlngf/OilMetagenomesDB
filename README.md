@@ -57,7 +57,7 @@ consistency.
 If you wish to a new category, please make a separate pull-request with your
 modification in the corresponding `assets/enums/<column>.json` file.
 
-Library columns are as follows:
+Library columns are as follows (.[documentation].(https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/documentation/libraries)):
 * project name
 * publication year
 * data publication doi
