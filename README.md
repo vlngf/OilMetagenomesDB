@@ -10,16 +10,12 @@
   
 </div>
  
-
-🛢️Small description about OilMetagenomeDir🧬
+:octocat: Community curated database of the metagenome of oil and oil fields🛢️🦠
 
 + [Description](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#description)
 + [Usage](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#usage)
-+ [Citation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#citation)
-+ [Current Status](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#current-status)
-  + [Samples](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#samples)
-  + [Libraries](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#libraries)
-  + [Interactive samples map](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#interactive-samples-map)
++ [Samples Column Specifications](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#samples-column-specifications)
++ [Libraries Column Specifications](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#libraries-column-specifications)
 + [Contributing](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#contributing)
   + [Contributing your own Publications](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#contributing-your-own-publications)
   + [Contributing previously published publications](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#contributing-previously-published-publications)
@@ -29,15 +25,9 @@
 123
 ## Usage
 123
-## Citation
+## Samples Column Specifications
 123
-## Current Status
-123
-### Samples
-123
-### Libraries
-123
-### Interactive samples map
+## Libraries Column Specifications
 123
 ## Contributing
 123
