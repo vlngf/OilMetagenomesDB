@@ -29,7 +29,7 @@ To download the latest stable version of the OilMetagenomeBD example list and ad
 3. Use the command line to download the directory;
 4. Go to the sample list of interest and complete the .tsv file in your spreadsheet program (for example, LibreOffice Calc, Microsoft Excel) or in the programming language of your choice (for example, R);
 
-Основные команды для командной строки:
+Basic commands for the command line:
 * `git` - check if Git installed
 * `git clone` <link> - cloning repo on your computer
 * `git status` - check the changes
