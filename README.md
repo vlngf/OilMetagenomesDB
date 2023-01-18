@@ -39,7 +39,7 @@
 * git push - update the GitHub repository
 4. В извлеченной папке 
 ## Samples Column Specifications
-The SAMPLE table stores information about the sample, its type, date of collection, geographic coordinates, depth of sample extraction, etc.
+The SAMPLE tables stores information about the sample, its type, date of collection, geographic coordinates, depth of sample extraction, etc.
 
 - 🏞: oilfield environmental metagenomes
 - 🦠: crude oil metagenomes
@@ -76,7 +76,7 @@ Sample columns are as follows:
 * archive accession
 
 ## Libraries Column Specifications
-The libraries tables store information about each specific reed from the library - id_ in databases, sequencing type (paired-end, single-end), sequencing strategy (WGS, RNA-Seq, amplicon), links to downloads and publications, etc.
+  The LIBRARIES tables store information about each specific reed from the library - id_ in databases, sequencing type (paired-end, single-end), sequencing strategy (WGS, RNA-Seq, amplicon), links to downloads and publications, etc.
 
 - 🏞: oilfield environmental metagenomes
 - 🦠: crude oil metagenomes
