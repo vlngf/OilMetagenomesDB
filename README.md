@@ -39,7 +39,42 @@
 * git push - update the GitHub repository
 4. В извлеченной папке 
 ## Samples Column Specifications
-123
+The SAMPLE table stores information about the sample, its type, date of collection, geographic coordinates, depth of sample extraction, etc.
+
+- 🏞: oilfield environmental metagenomes
+- 🦠: crude oil metagenomes
+
+Numeric fields (e.g. latitude), can be filled with `NA` to indicate 'no
+reported value'. Free text fields (e.g. `geo_loc_name`) can be indicated with
+`Unknown`, and restricted category columns sometimes will have an `unknown`
+option.
+
+All column with 'defined categories' should be validated against
+`assets/enums/<column>.json`. This is to ensure data consistency, e.g. all
+Dental calculus samples are listed as `dental calculus` (as defined in
+`assets/enums/<column>.json`). This is to ensure data consistency.
+
+If you wish to a new category, please consult with the [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab), and then add it to `assets/enums/<column>.json`.
+
+Sample columns are as follows:
+* project name
+* publication year
+* data publication doi
+* sample name
+* latitude
+* longitude
+* geo loc name
+* study  primary focus
+* sequence  name
+* depth
+* sample name
+* feature
+* material
+* sampling date
+* archive
+* archive project
+* archive accession
+
 ## Libraries Column Specifications
 The libraries tables store information about each specific reed from the library - id_ in databases, sequencing type (paired-end, single-end), sequencing strategy (WGS, RNA-Seq, amplicon), links to downloads and publications, etc.
 
