@@ -25,7 +25,16 @@
 Этот список содержит информацию о метагеноме сырой нефти и метагенома окружающей среды в месторождениях нефти. Здесь можно найти название публикаций, годы публикаций, DOI, тип образцов, географическое местоположение взятия образца, сопутствующие условия. 
 
 ## Usage
-123
+Чтобы загрузить последнюю стабильную версию списка примеров OilMetagenomeBD и добавить данные, необходимо выполнить следующие шаги:
+1. Перейти в репозиторий OilMetagenomeBD;
+2. Скопировать SSH ключ во вкладке "<> Code";
+3. Основные команды для командной строки:
+  * git - check if Git installed
+  * git clone <link> - cloning repo on your computer
+  * git status - check the changes
+  * git commit -m "add script.py with greeting" - save change in repository (-m is some message of what you’ve done)
+  * git status - check that commit is created 
+  * git push - update the GitHub repository
 ## Samples Column Specifications
 123
 ## Libraries Column Specifications
