@@ -57,7 +57,7 @@ Dental calculus samples are listed as `dental calculus` (as defined in
 
 If you wish to a new category, please consult with the [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab), and then add it to `assets/enums/<column>.json`.
 
-Sample columns are as follows:
+Sample columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/documentation/samples)):
 * project name
 * publication year
 * data publication doi
