@@ -22,7 +22,7 @@
   + [Guidelines and Conventions](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#guidelines-and-conventions)
   
 ## Description
-Этот список содержит информацию о метагеноме сырой нефти и метагенома окружающей среды в месторождениях нефти. Здесь можно найти название публикаций, годы публикаций, DOI, тип образцов, географическое местоположение взятия образца, сопутствующие условия. 
+This list contains information on crude oil metagenome and environmental metagenome in oil fields. Here you can find the name of publications, years of publications, DOI, type of samples, geographic location of sample collection, and associated conditions.
 
 ## Usage
 Чтобы загрузить последнюю стабильную версию списка примеров OilMetagenomeBD и добавить данные, необходимо выполнить следующие шаги:
