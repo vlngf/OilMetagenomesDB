@@ -120,10 +120,14 @@ Library columns are as follows ([documentation](https://github.com/agni-bioinfor
 * download sizes
 
 ## Contributing
-123
-### Contributing your own Publications
-123
-### Contributing previously published publications
-123
-### Guidelines and Conventions
-123
+Samples added to the AncientMetagenomeDir should come from published studies. Samples should also be available in publicly accessible databases (e.g., EBI ENA or NCBI SRA).
+
+When filling in the data, each sample from the publication will get a new row. For guidance on what information to add to each column see the README.md for a handy guide (each list, e.g. ancientmetagenome-anthropogenic has its own README.md, so make sure you’re checking the right one).
+
+### Some tips
+* Do not add spaces at the end of data entries, for example the "geo_loc_name" column is checked against a predetermined list of countries, so if you type “Netherlands ” rather than just “Netherlands” they’ll be an issue as it won’t match.
+* To check the columns that must match a predefined list, see enums
+* If latitude and longitude are not specified, if the publication has only a very approximate location (such as a region), then click in the center of that region and record the latitude and longitude to 2 decimal places only.
+  * If only a country with no additional information is specified as a sample location, enter the coordinates of the middle of that particular country, but without the decimal places.
+* Be sure to record the correct archive_accession. Check out the README.md. These normally should be ‘SRA sample’ IDs (i.e. ERS or SRS for the ENA and NCBI SRA respectively), however please ask the coreteam if you are in doubt or have a different archive. Careful: You may have multiple ERS/SRS codes per sample as some people upload each library as a different ‘sample’. If this is the case be sure to include all the sample accessions comma separated list: ERRXXXX,ERRXXXXX,ERRXXXX. Always go with the sample accession rather than the run accession.
+
