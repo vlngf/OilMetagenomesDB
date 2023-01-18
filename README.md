@@ -38,7 +38,48 @@
 ## Samples Column Specifications
 123
 ## Libraries Column Specifications
-123
+The libraries tables store information about each specific reed from the library - id_ in databases, sequencing type (paired-end, single-end), sequencing strategy (WGS, RNA-Seq, amplicon), links to downloads and publications, etc.
+
+- 🏞: oilfield environmental metagenomes
+- 🦠: crude oil metagenomes
+
+Numeric fields (e.g. `read_count`), can be filled with `NA` to indicate 'no
+reported value'. Free text fields (e.g. `library_name`) can be indicated with
+`Unknown`, and restricted category columns sometimes will have an `unknown`
+option.
+
+All column with 'defined categories' should be validated against
+`assets/enums/<column>.json`. This is to ensure data consistency. E.g., all
+libraries sequenced on Illumina NextSeq 500s are listed as `NextSeq 500` (as
+defined in `assets/enums/instrument_models.json`). This is to ensure data
+consistency.
+
+If you wish to a new category, please make a separate pull-request with your
+modification in the corresponding `assets/enums/<column>.json` file.
+
+Library columns are as follows:
+* project name
+* publication year
+* data publication doi
+* sample name
+* archive
+* archive project
+* archive sample accession
+* library name
+* strand type
+* library polymerase
+* library treatment
+* library concentration
+* instrument model
+* library layout
+* library strategy
+* amplicon variable region
+* read count
+* archive data accession
+* download links
+* download md5s
+* download sizes
+
 ## Contributing
 123
 ### Contributing your own Publications
