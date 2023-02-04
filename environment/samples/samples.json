@@ -2,7 +2,7 @@
     //используем 7-ой драфт, поддерживающий наши инструменты для работы со схемой
     "$schema": "http://json-schema.org/draft-07/schema",
     //ссылка на схему
-    "$id": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/crude_oil/samples/samples.json",
+    "$id": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/environment/samples/samples.json",
     "type": "array",
     "title": "JSON schema for agni_metagenomes environmental metagenome data",
     "description": "The JSON schema for agni_metagenomes environmental metagenome data",
@@ -115,8 +115,7 @@
                 "$id": "#/items/properties/geo_loc_name",
                 "type": "string",
                 "title": "Country name",
-                "description": "Based on modern day definitions, based on INDSC Country list",
-                //поменял ссылку
+                "description": "Based on modern day definitions, based on INDSC Country list",               
                 "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/geo_loc_name.json",
                 "examples": [
                     "Germany"
@@ -126,13 +125,12 @@
                 "$id": "#/items/properties/study_primary_focus",
                 "type": "string",
                 "title": "Original study's primary focus",
-                "description": "What area of research was the focus of the study",
-                //нужна ссылка
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/study_primary_focus.json",
+                "description": "What area of research was the focus of the study",                
+                "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/study_primary_focus.json",
                 "examples": [
-                    "ecological",
-                    "industrial",
-                    "ecological,industrial
+                    "ecology",
+                    "industry",
+                    "ecology/industry
                 ]
             },
             "sequence_name": {
@@ -231,26 +229,26 @@
                 "$id": "#/items/properties/feature",
                 "type": "string",
                 "title": "The component of a given site material metagenome is from",
-                "description": "Description of the object, site, or immediate environment the sample was obtained from following ENVO ontology",
-                //нужна ссылка
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/feature.json",
+                "description": "Description of the object, site, or immediate environment the sample was obtained from following ENVO ontology",                
+                "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/feature.json",
                 "examples": [
-                    "lake",
-                    "cave",
-                    "rock shelter",
-                    "oil reservoir"
+                    "oil reservoir",
+                    "formation brine",
+                    "oil well",
+                    "soil",
+                    "мarine sediment cores"
                 ]
             },
             "material": {
                 "$id": "#/items/properties/material",
                 "type": "string",
                 "title": "Type of material metagenome is from",
-                "description": "Sample type DNA was extracted from, derived from ENVO ontology terms ",
-                //нужна ссылка
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/material.json",
+                "description": "Sample type DNA was extracted from, derived from ENVO ontology terms ",                
+                "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/material.json",
                 "examples": [
-                    "lake sediment",
-                    "soil",
+                    "unknown",
+                    "filtered produced water from oil",
+                    "water and oil"
                 ]
             },
             "sampling_date": {
@@ -272,10 +270,10 @@
                 "type": "string",
                 "title": "Archiving platform",
                 "description": "Name of the nucleotide data archiving platform",
-                //нужна ссылка
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/archive.json",
+                "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/archive.json",
                 "examples": [
-                    "ENA"
+                    "ENA",
+                    "SRA"
                 ]
             },
             "archive_project": {
