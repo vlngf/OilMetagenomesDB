@@ -1,7 +1,5 @@
 {
-    //используем 7-ой драфт, поддерживающий наши инструменты для работы со схемой
-    "$schema": "http://json-schema.org/draft-07/schema",
-    //ссылка на схему
+    "$schema": "http://json-schema.org/draft-07/schema",    
     "$id": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/environment/samples/samples.json",
     "type": "array",
     "title": "JSON schema for agni_metagenomes environmental metagenome data",
@@ -130,7 +128,7 @@
                 "examples": [
                     "ecology",
                     "industry",
-                    "ecology/industry
+                    "ecology/industry"
                 ]
             },
             "sequence_name": {
