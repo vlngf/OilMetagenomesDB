@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/environment/libraries/libraries.json",
+  "$id": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/crude_oil/libraries/libraries.json",
   "type": "array",
   "title": "JSON schema for agni_metagenomes crude oil metagenome data",
   "description": "The JSON schema for agni_metagenomes crude oil metagenome data",
