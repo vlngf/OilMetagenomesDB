@@ -1,0 +1,11 @@
+{
+    "enum": [
+        "unknown",
+        "filtered produced water from oil",
+        "water and oil",
+        "produced water",
+        "oil field soil",
+        "injected water",
+        "мarine sediment"
+    ]
+}
