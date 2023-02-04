@@ -1,8 +1,6 @@
 {
-    //нужна ссылка
-    "$schema": "http://json-schema.org/draft-07/schema",
-    //нужна ссылка
-    "$id": "https://___.json",
+    "$schema": "http://json-schema.org/draft-07/schema",    
+    "$id": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/crude_oil/samples/samples.json",
     "type": "array",
     "title": "JSON schema for agni_metagenomes crude oil metagenome data",
     "description": "The JSON schema for agni_metagenomes crude oil metagenome data",
