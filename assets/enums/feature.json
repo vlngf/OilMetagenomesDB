@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "oil reservoir",
+    "formation brine",
+    "oil well",
+    "soil",
+    "мarine sediment cores",
+  ]
+}
