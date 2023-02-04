@@ -1,0 +1,7 @@
+{
+  "enum": [
+      "ecology",
+      "industy",
+      "ecology/industy"
+  ]
+}
