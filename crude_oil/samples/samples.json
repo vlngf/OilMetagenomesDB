@@ -105,9 +105,8 @@
                 "$id": "#/items/properties/geo_loc_name",
                 "type": "string",
                 "title": "Country name",
-                "description": "Based on modern day definitions, based on INDSC Country list",
-                //нужна ссылка
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/geo_loc_name.json",
+                "description": "Based on modern day definitions, based on INDSC Country list",                
+                "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/geo_loc_name.json",
                 "examples": [
                     "Germany"
                 ]
@@ -116,13 +115,12 @@
                 "$id": "#/items/properties/study_primary_focus",
                 "type": "string",
                 "title": "Original study's primary focus",
-                "description": "What area of research was the focus of the study",
-                //нужна ссылка
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/study_primary_focus.json",
+                "description": "What area of research was the focus of the study",                
+                "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/study_primary_focus.json",
                 "examples": [
-                    "industrial",
-                    "ecological",
-                    "industrial,ecological",
+                    "ecology",
+                    "industry",
+                    "ecology/industry",
                 ]
             },
             "sequence_name": {
@@ -156,15 +154,14 @@
                 "title": "Name of the sample",
                 "description": "In most cases this should be the name of the host individual",
                 "examples": ["B9 Reservoir"]
-            },
-            */нужна ли эта информация?
+            },         
             "sample_age": {
                 "$id": "#/items/properties/sample_age",
-                "type": "integer",
+                "type": ["integer", "null"],
                 "minimum": 100,
                 "title": "Age of the sample, BP",
                 "description": "Age of the sample in year before present (BP 1950), to the closest century",
-                "examples": [900]
+                "examples": [900, "NA"]
             },
             "sample_age_doi": {
                 "$id": "#/items/properties/sample_age_doi",
@@ -174,53 +171,30 @@
                 "description": "A valid DOI code (not as an URL)",
                 "examples": ["10.1038/ng.2906"]
             },
-            */
-            // можно добавить эти параметры?
-            */
-            "singlegenome_domain": {
-                "$id": "#/items/properties/singlegenome_domain",
-                "type": "string",
-                "title": "Domain of the microbial species",
-                "description": "Taxonomic domain (or equvilient) that the the microbial species is derived from",
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/singlegenome_domain.json",
-                "examples": [
-                "bacteria",
-                "virus"
-                ]
-              },
-              "singlegenome_species": {
-                "$id": "#/items/properties/singlegenome_species",
-                "type": "string",
-                "title": "Latin name of the microbiome species",
-                "description": "Linnean latin name, follows NCBI taxonomy where possible",
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/singlegenome_species.json",
-                "examples": ["Yersinia pestis"]
-              },
-            */
             "feature": {
                 "$id": "#/items/properties/feature",
                 "type": "string",
                 "title": "The component of a given site material metagenome is from",
-                "description": "Description of the object, site, or immediate environment the sample was obtained from following ENVO ontology",
-                //нужна ссылка
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/feature.json",
+                "description": "Description of the object, site, or immediate environment the sample was obtained from following ENVO ontology",               
+                "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/feature.json",
                 "examples": [
-                    "lake",
-                    "cave",
-                    "rock shelter",
-                    "oil reservoir"
+                    "oil reservoir",
+                    "formation brine",
+                    "oil well",
+                    "soil",
+                    "мarine sediment cores"
                 ]
             },
             "material": {
                 "$id": "#/items/properties/material",
                 "type": "string",
                 "title": "Type of material metagenome is from",
-                "description": "Sample type DNA was extracted from, derived from ENVO ontology terms ",
-                //нужна ссылка
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/material.json",
+                "description": "Sample type DNA was extracted from, derived from ENVO ontology terms ",               
+                "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/material.json",
                 "examples": [
-                    "lake sediment",
-                    "soil",
+                    "unknown",
+                    "filtered produced water from oil",
+                    "water and oil"
                 ]
             },
             "sampling_date": {
@@ -241,11 +215,11 @@
                 "$id": "#/items/properties/archive",
                 "type": "string",
                 "title": "Archiving platform",
-                "description": "Name of the nucleotide data archiving platform",
-                //нужна ссылка
-                "$ref": "https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/archive.json",
+                "description": "Name of the nucleotide data archiving platform",                
+                "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/archive.json",
                 "examples": [
-                    "ENA"
+                    "ENA",
+                    "SRA"
                 ]
             },
             "archive_project": {
