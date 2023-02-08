@@ -23,4 +23,45 @@ jobs:
         with:
           python-version: "3.9"
           architecture: "x64"
-      - name: # далее нужно создать Py пакет
+      - name: Install dependencies # далее нужно создать Py пакет
+        run: |
+          python -m pip install --upgrade pip
+          pip install OilMetagenomesDBCheck==1.0
+      - name: Make validation results directory
+        run: mkdir validation/
+      - name: Add 'dir check version
+        run: |
+          echo "$(OilMetagenomesDBCheck --version)" >> validation/validation_results.txt
+      - name: SAMPLES test crude_oil metagenome
+        run: |
+          echo "# Oil Metagenomes crude_oil Samples" >> validation/validation_results.txt
+          OilMetagenomesDBCheck -v -m crude_oil/samples/crude_oil_samples.tsv crude_oil/samples/samples.json >> validation/validation_results.txt
+      - name: LIBRARIES test crude_oil metagenome
+        run: |
+          echo "# Oil Metagenomes crude_oil Libraries" >> validation/validation_results.txt
+          OilMetagenomesDBCheck -v -m crude_oil/libraries/crude_oil_libraries.tsv crude_oil/libraries/libraries.json >> validation/validation_results.txt
+      - name: SAMPLES test environment metagenome
+        run: |
+          echo "# Oil Metagenomes environment Samples" >> validation/validation_results.txt
+          OilMetagenomesDBCheck -v -m environment/samples/enviromental_samples.tsv environment/samples/samples.json >> validation/validation_results.txt
+      - name: LIBRARIES test environment metagenome
+        run: |
+          echo "# Oil Metagenomes environment Libraries" >> validation/validation_results.txt
+          OilMetagenomesDBCheck -v -m environment/libraries/enviromental_libraries.tsv environment/libraries/libraries.json >> validation/validation_results.txt
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: results
+          path: validation/validation_results.txt
+      - uses: actions/download-artifact@v3
+        if: always()
+        with:
+          name: results
+      # action that makes a pr comment from a file artifact
+      - name: comment PR
+        if: always()
+        uses: machine-learning-apps/pr-comment@1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path: validation/validation_results.txt
