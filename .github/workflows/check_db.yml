@@ -4,9 +4,8 @@
 name: check table columns
 
 # тут список событий, на который экшен должен запускаться
-on: 
-  # пусть гоняется на пулл-реквест
-  pull_request:
+# пусть гоняется на пулл-реквест
+on: [pull_request]
   
 # список того, что нужно делать
 # каждый job будет выводиться отдельным элементом слева UI
@@ -27,7 +26,7 @@ jobs:
           architecture: "x64"
       # https://github.com/dhimmel/plostime/blob/master/tsv-to-json.ipynb
       - name: tsv to json (crude_samples)
-      - run: |
+        run: |
           import pandas as pd
           import json
           df = pd.read_table('OilMetagenomesDB/crude_oil/samples/crude_oil_samples.tsv')
