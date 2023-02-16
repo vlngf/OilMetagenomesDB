@@ -2,15 +2,17 @@
 
 # имя, чтобы отображалось в интерфейсе
 name: check table columns
+
 # тут список событий, на который экшен должен запускаться
 on: 
   # пусть гоняется на пулл-реквест
   pull_request:
+  
 # список того, что нужно делать
 # каждый job будет выводиться отдельным элементом слева UI
 jobs:
   # уникальное имя элемента слева UI
-  test-job:
+  Install_Py:
     # указываем на какое машине гоняем
     runs-on: ubuntu-latest
     # список упорядоченных шагов, которые будут последовательно выполняться
@@ -23,45 +25,13 @@ jobs:
         with:
           python-version: "3.9"
           architecture: "x64"
-      - name: Install dependencies # далее нужно создать Py пакет, но проблемы есть с ==1.0
-        run: |
-          python -m pip install --upgrade pip
-          pip install --upgrade --force-reinstall git+https://github.com/agni-bioinformatics-lab/OilMetagenomesDBCheck.git
-      - name: Make validation results directory
-        run: mkdir validation/
-      - name: Add dir check version
-        run: |
-          echo "$(OilMetagenomesDBCheck --version)" >> validation/validation_results.txt
-      - name: SAMPLES test crude_oil metagenome
-        run: |
-          echo "# Oil Metagenomes crude_oil Samples" >> validation/validation_results.txt
-          OilMetagenomesDBCheck -v -m crude_oil/samples/crude_oil_samples.tsv crude_oil/samples/samples.json >> validation/validation_results.txt
-      - name: LIBRARIES test crude_oil metagenome
-        run: |
-          echo "# Oil Metagenomes crude_oil Libraries" >> validation/validation_results.txt
-          OilMetagenomesDBCheck -v -m crude_oil/libraries/crude_oil_libraries.tsv crude_oil/libraries/libraries.json >> validation/validation_results.txt
-      - name: SAMPLES test environment metagenome
-        run: |
-          echo "# Oil Metagenomes environment Samples" >> validation/validation_results.txt
-          OilMetagenomesDBCheck -v -m environment/samples/enviromental_samples.tsv environment/samples/samples.json >> validation/validation_results.txt
-      - name: LIBRARIES test environment metagenome
-        run: |
-          echo "# Oil Metagenomes environment Libraries" >> validation/validation_results.txt
-          OilMetagenomesDBCheck -v -m environment/libraries/enviromental_libraries.tsv environment/libraries/libraries.json >> validation/validation_results.txt
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: results
-          path: validation/validation_results.txt
-      - uses: actions/download-artifact@v3
-        if: always()
-        with:
-          name: results
-      # action that makes a pr comment from a file artifact
-      - name: comment PR
-        if: always()
-        uses: machine-learning-apps/pr-comment@1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          path: validation/validation_results.txt
+  
+  Convert_TSV_to_JSON:
+    runs-on: ubuntu-latest
+    steps:
+      # https://github.com/papb/tsv-json
+      - name: Install_tsv-json
+        run: | 
+            $ npm install tsv-json
+            const { tsv2json, json2tsv } = require('tsv-json')
+            console.log(tsv2json('OilMetagenomesDB/crude_oil/samples/samples.json'))
