@@ -29,7 +29,7 @@ jobs:
           pip install --upgrade --force-reinstall git+https://github.com/agni-bioinformatics-lab/OilMetagenomesDBCheck.git
       - name: Make validation results directory
         run: mkdir validation/
-      - name: Add 'dir check version
+      - name: Add dir check version
         run: |
           echo "$(OilMetagenomesDBCheck --version)" >> validation/validation_results.txt
       - name: SAMPLES test crude_oil metagenome
