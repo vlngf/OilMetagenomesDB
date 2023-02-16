@@ -32,6 +32,6 @@ jobs:
       # https://github.com/papb/tsv-json
       - name: Install_tsv-json
         run: | 
-            $ npm install tsv-json
+            pip install --upgrade --force-reinstall git+https://github.com/papb/tsv-json.git
             const { tsv2json, json2tsv } = require('tsv-json')
             console.log(tsv2json('OilMetagenomesDB/crude_oil/samples/samples.json'))
