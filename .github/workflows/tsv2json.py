@@ -1,4 +1,3 @@
-pip install pandas
 import pandas as pd
 import json
 def tsv_to_json():
