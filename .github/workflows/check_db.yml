@@ -18,15 +18,17 @@ jobs:
     steps:
       # checkout делает pull репозитория и ветки, в котором запущен. Таким образом мы получаем доступ к коду
       - uses: actions/checkout@v3
-      # setup-python устанавливает Py
-      - uses: actions/setup-python@v4
-        # передаем параметры при установке данного экшена
+      - name: setup python
+        uses: actions/setup-python@v2
         with:
-          python-version: "3.9"
+          python-version: 3.9.7
           architecture: "x64"
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip pandas
       # https://github.com/dhimmel/plostime/blob/master/tsv-to-json.ipynb
-      - name: Run script tsv to json
-        run: python .github/workflows/tsv2json.py
+      - name: execute py script
+        run: |
+          python .github/workflows/tsv2json.py
       - uses: actions/checkout@v1
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
