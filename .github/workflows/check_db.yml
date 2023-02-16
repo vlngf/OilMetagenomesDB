@@ -26,7 +26,7 @@ jobs:
           python-version: "3.9"
           architecture: "x64"
       # https://github.com/dhimmel/plostime/blob/master/tsv-to-json.ipynb
-      - name: tsv2json_crude_samples
+      - name: tsv to json (crude_samples)
       - run: |
           import pandas as pd
           import json
@@ -37,3 +37,9 @@ jobs:
           datatables_format = {'data': rows}
           with open('OilMetagenomesDB/crude_oil/samples/crude_oil_samples.json', 'w') as write_file:
             json.dump(datatables_format, write_file, indent=2)
+      - uses: actions/checkout@v1
+      - name: Validate JSON
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: OilMetagenomesDB/crude_oil/samples/samples.json
+          INPUT_JSONS: OilMetagenomesDB/crude_oil/samples/crude_oil_samples.json
