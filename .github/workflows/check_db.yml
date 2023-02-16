@@ -12,7 +12,7 @@ on:
 # каждый job будет выводиться отдельным элементом слева UI
 jobs:
   # уникальное имя элемента слева UI
-  Install_Py:
+  Check_tsv:
     # указываем на какое машине гоняем
     runs-on: ubuntu-latest
     # список упорядоченных шагов, которые будут последовательно выполняться
@@ -25,13 +25,15 @@ jobs:
         with:
           python-version: "3.9"
           architecture: "x64"
-  
-  Convert_TSV_to_JSON:
-    runs-on: ubuntu-latest
-    steps:
-      # https://github.com/papb/tsv-json
-      - name: Install_tsv-json
-        run: | 
-            pip install --upgrade --force-reinstall git+https://github.com/papb/tsv-json.git
-            const { tsv2json, json2tsv } = require('tsv-json')
-            console.log(tsv2json('OilMetagenomesDB/crude_oil/samples/samples.json'))
+      # https://github.com/dhimmel/plostime/blob/master/tsv-to-json.ipynb
+      - name: tsv2json_crude_samples
+      - run: |
+          import pandas as pd
+          import json
+          df = pd.read_table('OilMetagenomesDB/crude_oil/samples/crude_oil_samples.tsv')
+          columns = df.columns.values.tolist()
+          converters = [str, int, str, str, float, float, str, str, str, float, str, float, str, str, str, float, str, str, str]
+          rows = [[fxn(x) for x, fxn in zip(row, converters)] for i, row in df[columns].iterrows()]
+          datatables_format = {'data': rows}
+          with open('OilMetagenomesDB/crude_oil/samples/crude_oil_samples.json', 'w') as write_file:
+            json.dump(datatables_format, write_file, indent=2)
