@@ -1,7 +1,7 @@
-
+pip install pandas
+import pandas as pd
+import json
 def tsv_to_json():
-  import pandas as pd
-  import json
   df = pd.read_table('OilMetagenomesDB/crude_oil/samples/crude_oil_samples.tsv')
   columns = df.columns.values.tolist()
   converters = [str, int, str, str, float, float, str, str, str, float, str, float, str, str, str, float, str, str, str]
