@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 def tsv_to_json():
-  df = pd.read_table('OilMetagenomesDB/crude_oil/samples/crude_oil_samples.tsv')
+  df = pd.read_table('https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/crude_oil/samples/crude_oil_samples.tsv')
   columns = df.columns.values.tolist()
   converters = [str, int, str, str, float, float, str, str, str, float, str, float, str, str, str, float, str, str, str]
   rows = [[fxn(x) for x, fxn in zip(row, converters)] for i, row in df[columns].iterrows()]
