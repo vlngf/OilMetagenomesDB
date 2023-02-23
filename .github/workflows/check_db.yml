@@ -28,7 +28,7 @@ jobs:
       
       - name: Convert TSV to JSON
         run: |
-          python .github/workflows/tsv2json.py crude_oil_samples.tsv crude_oil_samples.json
+          python tsv2json.py crude_oil_samples.tsv crude_oil_samples.json
         working-directory: crude_oil/samples
   
       - name: Commit changes
