@@ -27,12 +27,12 @@ jobs:
         run: python -m pip install --upgrade pip pandas
       - name: Convert TSV to JSON
         run: |
-          python tsv2json.py crude_oil_samples.tsv crude_oil_samples.json
+          python tsv2json.py crude_oil_samples.tsv output_file.json
         working-directory: crude_oil/samples
       - name: Save artifact
         run: |  
-          echo "::set-output name=json_path::crude_oil_samples.json"
-          upload-artifact crude_oil_samples.json
+          echo "::set-output name=json_path::output_file.json"
+          upload-artifact output_file.json
       - uses: actions/checkout@v1
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
