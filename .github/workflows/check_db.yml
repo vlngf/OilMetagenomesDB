@@ -31,11 +31,11 @@ jobs:
         working-directory: crude_oil/samples
       - name: Save artifact
         run: |  
-          echo "::set-output name=crude_oil_samples::crude_oil_samples.json"
+          echo "::set-output name=json_path::crude_oil_samples.json"
           upload-artifact crude_oil_samples.json
       - uses: actions/checkout@v1
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
           INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
-          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/crude_oil_samples.json
+          INPUT_JSONS: ${{ github.workspace }}/${{ env.json_path }}
