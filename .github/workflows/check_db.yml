@@ -41,7 +41,7 @@ jobs:
           path: crude_oil/samples/output_file.json
       - uses: actions/checkout@v1
       - name: Validate JSON
-        uses: docker://orrosenblatt/validate-json-action@v2.2.2
+        uses: docker://orrosenblatt/validate-json-action:latest
         env:
           INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
           INPUT_JSONS: crude_oil/samples/output_file.json
