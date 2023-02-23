@@ -11,6 +11,3 @@ with open('crude_oil_samples.tsv', 'r') as tsvfile:
 with open('crude_oil_samples.json', 'w') as jsonfile:
     # Записываем данные в формате JSON
     json.dump(rows, jsonfile)
-
-if __name__ == '__main__':
-  tsv_to_json()
