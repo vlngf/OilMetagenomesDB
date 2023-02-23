@@ -28,20 +28,15 @@ jobs:
       - name: Convert TSV to JSON
         run: |
           python tsv2json.py crude_oil_samples.tsv output_file.json
-        working-directory: crude_oil/samples
-      - name: Save artifact
-        run: |  
-          echo "::set-output name=output_file::output_file.json"
-          echo "::set-output name=artifact_name::output-json"
-          echo "::set-output name=artifact_path::output_file.json"
+        working-directory: /github/workspace/crude_oil/samples
       - name: Upload output file as artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ steps.set_output.outputs.artifact_name }}
-          path: crude_oil/samples/output_file.json
+          name: output_file.json
+          path: /github/workspace/crude_oil/samples/output_file.json
       - uses: actions/checkout@v1
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
-          INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
-          INPUT_JSONS: crude_oil/samples/output_file.json
+          INPUT_SCHEMA: /github/workspace/crude_oil/samples/samples.json
+          INPUT_JSONS: /github/workspace/crude_oil/samples/output_file.json
