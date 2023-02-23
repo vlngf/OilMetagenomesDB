@@ -38,10 +38,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.set_output.outputs.artifact_name }}
-          path: ${{ steps.set_output.outputs.artifact_path }}
+          path: crude_oil/samples/output_file.json
       - uses: actions/checkout@v1
       - name: Validate JSON
-        uses: docker://orrosenblatt/validate-json-action:latest
+        uses: docker://orrosenblatt/validate-json-action@v2.2.2
         env:
           INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
-          INPUT_JSONS: ${{ steps.convert_tsv_to_json.outputs.output_file }}
+          INPUT_JSONS: crude_oil/samples/output_file.json
