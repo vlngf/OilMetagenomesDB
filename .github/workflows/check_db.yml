@@ -33,5 +33,5 @@ jobs:
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
-          INPUT_SCHEMA: OilMetagenomesDB/crude_oil/samples/samples.json
-          INPUT_JSONS: OilMetagenomesDB/crude_oil/samples/crude_oil_samples.json
+          INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
+          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/crude_oil_samples.json
