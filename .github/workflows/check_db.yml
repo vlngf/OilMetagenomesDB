@@ -29,6 +29,10 @@ jobs:
         run: |
           python tsv2json.py crude_oil_samples.tsv crude_oil_samples.json
         working-directory: crude_oil/samples
+      - name: Save artifact
+        run: |  
+          echo "::set-output name=crude_oil_samples::crude_oil_samples.json"
+          upload-artifact crude_oil_samples.json
       - uses: actions/checkout@v1
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
