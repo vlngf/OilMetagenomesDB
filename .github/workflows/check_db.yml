@@ -35,12 +35,10 @@ jobs:
           echo "::set-output name=artifact_name::output-json"
           echo "::set-output name=artifact_path::output_file.json"
       - name: Upload output file as artifact
-        run: |  
-          echo "Uploading artifact..."
-          uses: actions/upload-artifact@v2
-          with:
-            name: ${{ steps.set_output.outputs.artifact_name }}
-            path: ${{ steps.set_output.outputs.artifact_path }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.set_output.outputs.artifact_name }}
+          path: ${{ steps.set_output.outputs.artifact_path }}
       - uses: actions/checkout@v1
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
