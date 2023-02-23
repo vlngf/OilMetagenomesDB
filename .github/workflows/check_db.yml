@@ -31,11 +31,19 @@ jobs:
         working-directory: crude_oil/samples
       - name: Save artifact
         run: |  
-          echo "::set-output name=json_path::output_file.json"
-          upload-artifact output_file.json
+          echo "::set-output name=output_file::output_file.json"
+          echo "::set-output name=artifact_name::output-json"
+          echo "::set-output name=artifact_path::output_file.json"
+      - name: Upload output file as artifact
+        run: |  
+          echo "Uploading artifact..."
+          uses: actions/upload-artifact@v2
+          with:
+            name: ${{ steps.set_output.outputs.artifact_name }}
+            path: ${{ steps.set_output.outputs.artifact_path }}
       - uses: actions/checkout@v1
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
           INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
-          INPUT_JSONS: ${{ github.workspace }}/${{ env.json_path }}
+          INPUT_JSONS: ${{ steps.convert_tsv_to_json.outputs.output_file }}
