@@ -25,12 +25,13 @@ jobs:
           architecture: "x64"
       - name: Install Python dependencies
         run: python -m pip install --upgrade pip pandas
-      
+      - name: Install required modules
+        run: |
+          pip install csv json
       - name: Convert TSV to JSON
         run: |
           python tsv2json.py crude_oil_samples.tsv crude_oil_samples.json
         working-directory: crude_oil/samples
-  
       - name: Commit changes
         uses: EndBug/add-and-commit@v7.0.0
         with:
