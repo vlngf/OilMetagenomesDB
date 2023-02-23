@@ -35,7 +35,7 @@ jobs:
         uses: EndBug/add-and-commit@v7.0.0
         with:
           message: "Convert TSV to JSON"
-          add: "example.json"
+          add: "crude_oil_samples.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v1
