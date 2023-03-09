@@ -37,7 +37,7 @@ jobs:
         id: Save_artifact
         run: |  
           echo "::set-output name=output_file::crude_oil_samples.json"
-          echo "::set-output name=artifact_name::output-json"
+          echo "::set-output name=artifact_name::crude_oil_samples"
           echo "::set-output name=artifact_path::${{ github.workspace }}/crude_oil/samples/crude_oil_samples.json"
       - name: Check output file path
         run: |
@@ -52,7 +52,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: output-json
+          name: crude_oil_samples
           path: crude_oil/samples
       - name: Debug file path
         run: |
@@ -62,4 +62,4 @@ jobs:
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
           INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
-          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/output-json.json
+          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/crude_oil_samples.json
