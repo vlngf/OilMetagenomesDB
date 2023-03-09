@@ -39,6 +39,9 @@ jobs:
           echo "::set-output name=output_file::output_file.json"
           echo "::set-output name=artifact_name::output-json"
           echo "::set-output name=artifact_path::crude_oil/samples/output_file.json"
+      - name: Check output file path
+        run: |
+          ls crude_oil/samples/output_file.json
       - name: Upload output file as artifact
         uses: actions/upload-artifact@v3
         with:
