@@ -37,8 +37,8 @@ jobs:
       - name: Upload output file as artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ steps.set_output.outputs.artifact_name }}
-          path: ${{ steps.set_output.outputs.artifact_path }}
+          name: ${{ steps.Save_artifact.outputs.artifact_name }}
+          path: ${{ steps.Save_artifact.outputs.artifact_path }}
       - uses: actions/checkout@v1
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
