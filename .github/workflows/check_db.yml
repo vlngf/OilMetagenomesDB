@@ -38,7 +38,7 @@ jobs:
         run: |  
           echo "::set-output name=output_file::output_file.json"
           echo "::set-output name=artifact_name::output-json"
-          echo "::set-output name=artifact_path::crude_oil/samples/output_file.json"
+          echo "::set-output name=artifact_path::${{ github.workspace }}/crude_oil/samples/output_file.json"
       - name: Check output file path
         run: |
           ls crude_oil/samples/*
