@@ -29,6 +29,10 @@ jobs:
         run: |
           python tsv2json.py crude_oil_samples.tsv output_file.json
         working-directory: crude_oil/samples
+      - name: Debug file path
+        run: |
+          pwd
+          ls crude_oil/samples
       - name: Save artifact
         id: Save_artifact
         run: |  
