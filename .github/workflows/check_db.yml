@@ -27,7 +27,7 @@ jobs:
         run: python -m pip install --upgrade pip pandas
       - name: Convert TSV to JSON
         run: |
-          python tsv2json.py crude_oil_samples.tsv output_file.json
+          python tsv2json.py crude_oil_samples.tsv crude_oil_samples.json
         working-directory: crude_oil/samples
       - name: Debug file path
         run: |
@@ -36,9 +36,9 @@ jobs:
       - name: Save artifact
         id: Save_artifact
         run: |  
-          echo "::set-output name=output_file::output_file.json"
+          echo "::set-output name=output_file::crude_oil_samples.json"
           echo "::set-output name=artifact_name::output-json"
-          echo "::set-output name=artifact_path::${{ github.workspace }}/crude_oil/samples/output_file.json"
+          echo "::set-output name=artifact_path::${{ github.workspace }}/crude_oil/samples/crude_oil_samples.json"
       - name: Check output file path
         run: |
           ls crude_oil/samples/*
@@ -47,9 +47,25 @@ jobs:
         with:
           name: ${{ steps.Save_artifact.outputs.artifact_name }}
           path: ${{ steps.Save_artifact.outputs.artifact_path }}
-      - uses: actions/checkout@v1
+  # создаем джоб для валидации
+  Validate_JSON:
+    # указываем на какое машине гоняем
+    runs-on: ubuntu-latest
+    # список упорядоченных шагов, которые будут последовательно выполняться
+    steps:
+      # checkout делает pull репозитория и ветки, в котором запущен. Таким образом мы получаем доступ к коду
+      - uses: actions/checkout@v2
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: output-json
+          path: crude_oil/samples
+      - name: Debug file path
+        run: |
+          pwd
+          ls crude_oil/samples
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
           INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
-          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/output_file.json
+          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/crude_oil_samples.json
