@@ -47,12 +47,6 @@ jobs:
         with:
           name: ${{ steps.Save_artifact.outputs.artifact_name }}
           path: ${{ steps.Save_artifact.outputs.artifact_path }}
-  # создаем джоб для валидации
-  Validate_JSON:
-    # указываем на какое машине гоняем
-    runs-on: ubuntu-latest
-    # список упорядоченных шагов, которые будут последовательно выполняться
-    steps:
       # checkout делает pull репозитория и ветки, в котором запущен. Таким образом мы получаем доступ к коду
       - uses: actions/checkout@v2
       - name: Download artifact
@@ -68,4 +62,4 @@ jobs:
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
           INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
-          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/crude_oil_samples.json
+          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/output-json.json
