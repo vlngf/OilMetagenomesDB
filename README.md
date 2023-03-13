@@ -50,8 +50,6 @@ option.
 
 All column with 'defined categories' should be validated against
 `assets/enums/<column>.json`. This is to ensure data consistency, e.g. all
-Dental calculus samples are listed as `dental calculus` (as defined in
-`assets/enums/<column>.json`). This is to ensure data consistency.
 
 If you wish to a new category, please consult with the [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab), and then add it to `assets/enums/<column>.json`.
 
@@ -59,13 +57,21 @@ Sample columns are as follows ([documentation](https://github.com/agni-bioinform
 * project name
 * publication year
 * data publication doi
-* sample name
+* site name
 * latitude
 * longitude
 * geo loc name
 * study  primary focus
 * sequence  name
 * depth
+* temprature
+* pH
+* salinity
+* nitrate ions
+* phosphate ions
+* sulfate ions
+* Ca2+
+* Mg2+
 * sample name
 * feature
 * material
@@ -118,9 +124,9 @@ Library columns are as follows ([documentation](https://github.com/agni-bioinfor
 * download sizes
 
 ## Contributing
-Samples added to the AncientMetagenomeDir should come from published studies. Samples should also be available in publicly accessible databases (e.g., EBI ENA or NCBI SRA).
+Samples added to the OilMetagenomeBD should come from published studies. Samples should also be available in publicly accessible databases (e.g., EBI ENA or NCBI SRA).
 
-When filling in the data, each sample from the publication will get a new row. For guidance on what information to add to each column see the README.md for a handy guide (each list, e.g. ancientmetagenome-anthropogenic has its own README.md, so make sure you’re checking the right one).
+When filling in the data, each sample from the publication will get a new row. For guidance on what information to add to each column see the README.md for a handy guide (each list, e.g. oilMetagenome-anthropogenic has its own README.md, so make sure you’re checking the right one).
 
 ### Some tips
 * Do not add spaces at the end of data entries, for example the "geo_loc_name" column is checked against a predetermined list of countries, so if you type “Netherlands ” rather than just “Netherlands” they’ll be an issue as it won’t match.
