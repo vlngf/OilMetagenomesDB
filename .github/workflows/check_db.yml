@@ -64,5 +64,5 @@ jobs:
           INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/samples.json
           INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/samples/crude_oil_samples.json
       - name: Validate archive_accession
-        working-directory: OilMetagenomesDB/crude_oil/samples/
+        working-directory: crude_oil/samples
         run: python validate_archive_accession.py
