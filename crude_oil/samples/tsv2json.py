@@ -2,7 +2,7 @@ import csv
 import json
 
 # Открываем TSV-файл для чтения
-with open('my_data.tsv', 'r') as tsvfile:
+with open('crude_oil_samples.tsv', 'r') as tsvfile:
     reader = csv.DictReader(tsvfile, delimiter='\t')
     # Преобразуем данные в список словарей, приводя значения полей к нужным типам данных
     rows = [
@@ -31,6 +31,6 @@ with open('my_data.tsv', 'r') as tsvfile:
     ]
 
 # Открываем JSON-файл для записи
-with open('my_data.json', 'w') as jsonfile:
+with open('crude_oil_samples.json', 'w') as jsonfile:
     # Записываем данные в формате JSON
     json.dump(rows, jsonfile, indent=4, ensure_ascii=False)
