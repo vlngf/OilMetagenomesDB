@@ -34,9 +34,11 @@ with open('crude_oil_samples.tsv', 'r') as tsvfile:
 with open('crude_oil_samples.json', 'w') as jsonfile:
     # Записываем данные в формате JSON
     json.dump(rows, jsonfile, indent=4, ensure_ascii=False)
-
-with open('crude_oil_samples.json', 'r') as f:
-    data = json.load(f)
+    
+# Open and read the JSON file
+with open('crude_oil_samples.json', 'r') as jsonfile:
+    # Load the JSON data as a dictionary object
+    data = json.loads(jsonfile.read())
     
 # Check uniqueness of "archive_accession" values
 archive_accession = data['archive_accession']
