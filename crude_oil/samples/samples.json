@@ -246,7 +246,8 @@
 				"description": "Samples archive accession numbers, multiple records can be separated with commas. No spaces allowed",
 				"examples": [
 					"SRS473742,SRS473743,SRS473744,SRS473745"
-				]
+				],
+				"unique": true
 			}
 		}
 	}
