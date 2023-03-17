@@ -39,9 +39,10 @@ with open('crude_oil_samples.json', 'w') as jsonfile:
 with open('crude_oil_samples.json', 'r') as jsonfile:
     # Load the JSON data as a dictionary object
     data = json.loads(jsonfile.read())
-    
-# Check uniqueness of "archive_accession" values
-archive_accession = data['archive_accession']
+# Loop through the list of dictionaries and validate the archive_accession key
+for item in data:
+    archive_accession = item['archive_accession']    
+
 if archive_accession:
     values = set(archive_accession.split(','))
     if len(values) != len(archive_accession):
