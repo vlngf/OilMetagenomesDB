@@ -44,7 +44,7 @@ for item in data:
     archive_accession = item['archive_accession']    
 
 if archive_accession:
-    values = set(archive_accession.split(','))
+    values = set(map(str.strip, archive_accession.split(',')))
     if len(values) != len(archive_accession):
         print('Error: Duplicate values found in "archive_accession"')
         exit(1)
