@@ -22,7 +22,7 @@ with open('crude_oil_samples.tsv', 'r') as tsvfile:
             "sample_age_doi": row["sample_age_doi"],
             "feature": row["feature"],
             "material": row["material"],
-            "sampling_date": row["sampling_date"],
+            "sampling_date": int(row["sampling_date"]),
             "archive": row["archive"],
             "archive_project": row["archive_project"],
             "archive_accession": row["archive_accession"]
