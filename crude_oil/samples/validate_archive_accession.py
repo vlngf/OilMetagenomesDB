@@ -44,9 +44,13 @@ for item in data:
     archive_accession = item['archive_accession']    
 
 if archive_accession:
-    values = set(map(str.strip, archive_accession.split(',')))
-    if len(values) != len(archive_accession):
+    # Удаляем пустые значения из списка
+    accession_list = [value.strip() for value in archive_accession.split(',') if value.strip()]
+    # Создаем множество из списка и проверяем, что количество значений не изменилось
+    values = set(accession_list)
+    if len(values) != len(accession_list):
         print('Error: Duplicate values found in "archive_accession"')
         exit(1)
     else:
-      print('All archive_accession are unique')
+        print('All archive_accession are unique')
+
