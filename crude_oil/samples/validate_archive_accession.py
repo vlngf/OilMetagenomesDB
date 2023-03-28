@@ -39,17 +39,17 @@ with open('crude_oil_samples.json', 'w') as jsonfile:
 with open('crude_oil_samples.json', 'r') as jsonfile:
     # Load the JSON data as a dictionary object
     data = json.loads(jsonfile.read())
-# Loop through the list of dictionaries and validate the archive_accession key
+
+# Create a set of all values in the "archive_accession" column
+all_accessions = set()
 for item in data:
-    archive_accession = item['archive_accession']    
-
+    archive_accession = item['archive_accession']
     if archive_accession:
-        # Удаляем пустые значения из списка
         accession_list = [value.strip() for value in archive_accession.split(',') if value.strip()]
-        # Создаем множество из списка и проверяем, что количество значений не изменилось
-        values = set(accession_list)
-        if len(values) != len(accession_list):
-            print('Error: Duplicate values found in "archive_accession"')
-            exit(1)
-print('All archive_accession are unique')
+        all_accessions.update(accession_list)
 
+# Check if the number of unique values in the set is equal to the total number of values in the "archive_accession" column
+if len(all_accessions) != sum(1 for item in data if item['archive_accession']):
+    print('Error: Duplicate values found in "archive_accession"')
+else:
+    print('All archive_accession are unique')
