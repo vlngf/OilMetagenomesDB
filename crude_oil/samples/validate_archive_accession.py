@@ -51,6 +51,5 @@ for item in data:
         if len(values) != len(accession_list):
             print('Error: Duplicate values found in "archive_accession"')
             exit(1)
-        else:
-            print('All archive_accession are unique')
+print('All archive_accession are unique')
 
