@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # Загрузка файла данных
-data = pd.read_csv('имя_файла.tsv', delimiter='\t')
+data = pd.read_csv('crude_oil_samples.tsv', delimiter='\t')
 
 # Проверка на наличие пустых ячеек (исключая ячейки со значением 'NA')
 empty_cells = np.where((pd.isnull(data)) & ~(data.values == 'NA'))
