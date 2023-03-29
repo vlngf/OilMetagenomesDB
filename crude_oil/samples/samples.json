@@ -165,7 +165,7 @@
 			},
 			"sample_age_doi": {
 				"$id": "#/items/properties/sample_age_doi",
-				"type": ["string"],
+				"type": ["string", "null"],
 				"pattern": "^10.\\d{4,9}\\/[^,]+$",
 				"title": "Digital Object Identifier (DOI) of the sample dating publication",
 				"description": "A valid DOI code (not as an URL)",
