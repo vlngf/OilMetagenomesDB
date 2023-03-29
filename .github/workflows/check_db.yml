@@ -25,10 +25,6 @@ jobs:
           architecture: "x64"
       - name: Install Python dependencies
         run: python -m pip install --upgrade pip pandas
-      - name: Validate gaps in data
-        working-directory: crude_oil/samples
-        run: |
-          python validate_gaps.py
       - name: Convert TSV to JSON
         run: |
           python tsv2json.py crude_oil_samples.tsv crude_oil_samples.json
@@ -70,3 +66,7 @@ jobs:
       - name: Validate archive_accession
         working-directory: crude_oil/samples
         run: python validate_archive_accession.py
+      - name: Validate gaps in data
+        working-directory: crude_oil/samples
+        run: |
+          python validate_gaps.py
