@@ -12,5 +12,6 @@ if len(empty_cells[0]) > 0:
     print('Пустые ячейки найдены в следующих местах:')
     for row, col in zip(empty_cells[0], empty_cells[1]):
         print(f"Строка {row}, колонка {col}")
+    exit(1)
 else:
     print('Пустых ячеек не найдено')
