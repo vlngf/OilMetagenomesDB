@@ -136,7 +136,7 @@
 			"depth": {
 				"$id": "#/items/properties/depth",
 				"type": [
-					"integer",
+					"number",
 					"null"
 				],
 				"minimum": 0,
