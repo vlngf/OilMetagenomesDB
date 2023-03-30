@@ -5,7 +5,7 @@ import numpy as np
 data = pd.read_csv('crude_oil_samples.tsv', delimiter='\t')
 
 # Проверка на наличие пустых ячеек (исключая ячейки со значением 'NA')
-empty_cells = np.where((pd.isnull(data)) & ~(data.values == 'NA'))
+empty_cells = np.where((pd.isnull(data)) & ~(data.values.astype(str) == 'NA'))
 
 # Вывод номеров строк и колонок с пустыми ячейками
 if len(empty_cells[0]) > 0:
