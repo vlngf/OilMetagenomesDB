@@ -15,7 +15,7 @@ for index, item in enumerate(data):
         accession_list = [value.strip() for value in archive_accession.split(',') if value.strip()]
         for accession in accession_list:
             if accession in all_accessions:
-                print(f'Duplicate value {accession} found in rows {accession_dict[accession]} and {index}')
+                print(f'Duplicate value {accession} found in rows {accession_dict[accession]+2} and {index+2}')
             else:
                 all_accessions.add(accession)
                 accession_dict[accession] = index
