@@ -8,11 +8,17 @@ with open('crude_oil_samples.json', 'r') as jsonfile:
 
 # Create a set of all values in the "archive_accession" column
 all_accessions = set()
-for item in data:
+accession_dict = {}
+for index, item in enumerate(data):
     archive_accession = item['archive_accession']
     if archive_accession:
         accession_list = [value.strip() for value in archive_accession.split(',') if value.strip()]
-        all_accessions.update(accession_list)
+        for accession in accession_list:
+            if accession in all_accessions:
+                print(f'Duplicate value {accession} found in rows {accession_dict[accession]} and {index}')
+            else:
+                all_accessions.add(accession)
+                accession_dict[accession] = index
 
 # Check if the number of unique values in the set is equal to the total number of values in the "archive_accession" column
 if len(all_accessions) != sum(1 for item in data if item['archive_accession']):
