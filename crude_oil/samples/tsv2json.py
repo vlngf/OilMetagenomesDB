@@ -7,25 +7,25 @@ with open('crude_oil_samples.tsv', 'r') as tsvfile:
     # Преобразуем данные в список словарей, приводя значения полей к нужным типам данных
     rows = [
         {
-            "project_name": str(row["project_name"]),
-            "publication_year": int(row["publication_year"]),
-            "publication_doi": str(row["publication_doi"]),
-            "site_name": str(row["site_name"]),
-            "latitude": float(row["latitude"].replace(",", ".")) if isinstance(row["latitude"], str) and row["latitude"].replace(".", "", 1).isdigit() else None,
-            "longitude": float(row["longitude"].replace(",", ".")) if isinstance(row["longitude"], str) and row["longitude"].replace(".", "", 1).isdigit() else None,
-            "geo_loc_name": str(row["geo_loc_name"]),
-            "study_primary_focus": str(row["study_primary_focus"]),
-            "sequence_name": str(row["sequence_name"]),
-            "depth": float(row["depth"].replace(",", ".")) if isinstance(row["depth"], str) and row["depth"].replace(".", "", 1).isdigit() else None,
-            "sample_name": str(row["sample_name"]),
-            "sample_age": int(row["sample_age"]) if row["sample_age"] != "NA" else None,
-            "sample_age_doi": str(row["sample_age_doi"]) if row["sample_age_doi"] != "NA" else None,
-            "feature": str(row["feature"]),
-            "material": str(row["material"]),
-            "sampling_date": int(row["sampling_date"]) if row["sampling_date"] != "NA" else None,
-            "archive": str(row["archive"]),
-            "archive_project": str(row["archive_project"]),
-            "archive_accession": str(row["archive_accession"])
+            "project_name": str(row["project_name"]) if row["project_name"] != "None",
+            "publication_year": int(row["publication_year"]) if row["publication_year"] != "None",
+            "publication_doi": str(row["publication_doi"]) if row["publication_doi"] != "None",
+            "site_name": str(row["site_name"]) if row["site_name"] != "None",
+            "latitude": float(row["latitude"].replace(",", ".")) if isinstance(row["latitude"], str) and row["latitude"].replace(".", "", 1).isdigit(),
+            "longitude": float(row["longitude"].replace(",", ".")) if isinstance(row["longitude"], str) and row["longitude"].replace(".", "", 1).isdigit(),
+            "geo_loc_name": str(row["geo_loc_name"]) if row["geo_loc_name"] != "None",
+            "study_primary_focus": str(row["study_primary_focus"]) if row["study_primary_focus"] != "None",
+            "sequence_name": str(row["sequence_name"]) if row["sequence_name"] != "None",
+            "depth": float(row["depth"].replace(",", ".")) if isinstance(row["depth"], str) and row["depth"].replace(".", "", 1).isdigit(),
+            "sample_name": str(row["sample_name"]) if row["sample_name"] != "None",
+            "sample_age": int(row["sample_age"]) if row["sample_age"] != "None",
+            "sample_age_doi": str(row["sample_age_doi"]) if row["sample_age_doi"] != "None",
+            "feature": str(row["feature"]) if row["feature"] != "None",
+            "material": str(row["material"]) if row["material"] != "None",
+            "sampling_date": int(row["sampling_date"]) if row["sampling_date"] != "None",
+            "archive": str(row["archive"]) if row["archive"] != "None",
+            "archive_project": str(row["archive_project"]) if row["archive_project"] != "None",
+            "archive_accession": str(row["archive_accession"]) if row["archive_accession"] != "None"
         }
         for row in reader
     ]
