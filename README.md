@@ -37,7 +37,7 @@ Basic commands for the command line:
 * `git status` - check that commit is created 
 * `git push` - update the GitHub repository
  
-In TSV file please use None instead of NA. If you find dataset validation errors or come up with a new dataset validation, then write me @rakhmanovtr 
+In TSV file please use None instead of NA. If you find dataset validation errors or think of a new dataset validation, then write me @rakhmanovtr 
  
 ## Samples Column Specifications
 The SAMPLE tables stores information about the sample, its type, date of collection, geographic coordinates, depth of sample extraction, etc.
