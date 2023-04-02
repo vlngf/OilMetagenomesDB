@@ -33,6 +33,6 @@ with open('crude_oil_libraries.tsv', 'r') as tsvfile:
     ]
 
 # Открываем JSON-файл для записи
-with open('crude_oil_samples.json', 'w') as jsonfile:
+with open('crude_oil_libraries.json', 'w') as jsonfile:
     # Записываем данные в формате JSON
     json.dump(rows, jsonfile, indent=4, ensure_ascii=False)
