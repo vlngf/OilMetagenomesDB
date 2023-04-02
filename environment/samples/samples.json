@@ -20,7 +20,6 @@
             "longitude",
             "geo_loc_name",
             "study_primary_focus",
-            "sequence_name",
             "depth",
             "temp",
             "pH",
@@ -129,16 +128,6 @@
                     "ecology",
                     "industry",
                     "ecology/industry"
-                ]
-            },
-            "sequence_name": {
-                "$id": "#/items/properties/sequence_name",
-                "type": "string",
-                "title": "Name of the sedimentary sequence",
-                "description": "For cores or sedimentary sequences only - e.g. core name or excavation quadrant/race",
-                "examples": [
-                    "core_1",
-                    "zone_a19"
                 ]
             },
             "depth": {
