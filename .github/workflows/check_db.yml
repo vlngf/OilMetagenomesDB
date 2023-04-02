@@ -128,3 +128,119 @@ jobs:
       - name: Validate archive_accession
         working-directory: environment/samples
         run: python validate_archive_accession.py
+  Check_crude_oil_libraries:
+    # указываем на какое машине гоняем
+    runs-on: ubuntu-latest
+    # список упорядоченных шагов, которые будут последовательно выполняться
+    steps:
+      # checkout делает pull репозитория и ветки, в котором запущен. Таким образом мы получаем доступ к коду
+      - uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+          architecture: "x64"
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip pandas
+      - name: Validate data gaps
+        working-directory: crude_oil/libraries
+        run: python validate_gaps.py
+      - name: Convert TSV to JSON
+        run: |
+          python tsv2json.py crude_oil_libraries.tsv crude_oil_libraries.json
+        working-directory: crude_oil/libraries
+      - name: Debug file path
+        run: |
+          pwd
+          ls crude_oil/libraries
+      - name: Save artifact
+        id: Save_artifact
+        run: |  
+          echo "::set-output name=output_file::crude_oil_libraries.json"
+          echo "::set-output name=artifact_name::crude_oil_libraries"
+          echo "::set-output name=artifact_path::${{ github.workspace }}/crude_oil/libraries/crude_oil_libraries.json"
+      - name: Check output file path
+        run: |
+          ls crude_oil/libraries/*
+      - name: Upload output file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.Save_artifact.outputs.artifact_name }}
+          path: ${{ steps.Save_artifact.outputs.artifact_path }}
+      # checkout делает pull репозитория и ветки, в котором запущен. Таким образом мы получаем доступ к коду
+      - uses: actions/checkout@v2
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: crude_oil_libraries
+          path: crude_oil/libraries
+      - name: Debug file path
+        run: |
+          pwd
+          ls crude_oil/libraries
+      - name: Validate JSON
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/crude_oil/libraries/libraries.json
+          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/crude_oil/libraries/crude_oil_libraries.json
+      - name: Validate archive_accession
+        working-directory: crude_oil/libraries
+        run: python validate_archive_accession.py  
+  Check_environment_libraries:
+    # указываем на какое машине гоняем
+    runs-on: ubuntu-latest
+    # список упорядоченных шагов, которые будут последовательно выполняться
+    steps:
+      # checkout делает pull репозитория и ветки, в котором запущен. Таким образом мы получаем доступ к коду
+      - uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+          architecture: "x64"
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip pandas
+      - name: Validate data gaps
+        working-directory: environment/libraries
+        run: python validate_gaps.py
+      - name: Convert TSV to JSON
+        run: |
+          python tsv2json.py enviromental_libraries.tsv enviromental_libraries.json
+        working-directory: environment/libraries
+      - name: Debug file path
+        run: |
+          pwd
+          ls environment/libraries
+      - name: Save artifact
+        id: Save_artifact
+        run: |  
+          echo "::set-output name=output_file::enviromental_libraries.json"
+          echo "::set-output name=artifact_name::enviromental_libraries"
+          echo "::set-output name=artifact_path::${{ github.workspace }}/environment/libraries/enviromental_libraries.json"
+      - name: Check output file path
+        run: |
+          ls environment/libraries/*
+      - name: Upload output file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.Save_artifact.outputs.artifact_name }}
+          path: ${{ steps.Save_artifact.outputs.artifact_path }}
+      # checkout делает pull репозитория и ветки, в котором запущен. Таким образом мы получаем доступ к коду
+      - uses: actions/checkout@v2
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: enviromental_libraries
+          path: environment/libraries
+      - name: Debug file path
+        run: |
+          pwd
+          ls environment/libraries
+      - name: Validate JSON
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: ${{ env.GITHUB_WORKSPACE }}/environment/libraries/libraries.json
+          INPUT_JSONS: ${{ env.GITHUB_WORKSPACE }}/environment/libraries/enviromental_libraries.json
+      - name: Validate archive_accession
+        working-directory: environment/libraries
+        run: python validate_archive_accession.py
