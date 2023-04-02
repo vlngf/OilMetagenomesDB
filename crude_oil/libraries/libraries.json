@@ -69,7 +69,10 @@
       },
       "archive": {
         "$id": "#/items/properties/archive",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "title": "Archiving platform",
         "description": "Name of the nucleotide data archiving platform",        
         "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/archive.json",
@@ -77,22 +80,32 @@
       },
       "archive_project": {
         "$id": "#/items/properties/archive_project",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "title": "Archive project accession platform",
         "description": "Name of the nucleotide data archiving platform. Must match a agni_metagenomes samples table entry",
         "examples": ["PRJNA438985", "mgp13354"]
       },
       "archive_sample_accession": {
         "$id": "#/items/properties/archive_sample_accession",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "pattern": "^[\\S]+$",
         "title": "Archive accession number",
         "description": "Samples archive accession numbers, multiple records can be separated with commas. No spaces allowed. . Must match a agni_metagenomes samples table entry",
-        "examples": ["SRS473742,SRS473743,SRS473744,SRS473745"]
+        "examples": ["SRS473742,SRS473743,SRS473744,SRS473745"],
+				"unique": true
       },
       "library_name": {
         "$id": "#/items/properties/library_name",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "pattern": "^[\\S]+$",
         "title": "Name of the sequencing library",
         "description": "Name of the sequencing library generated from the sample. Typically matches the corresponding FASTQ file name",
@@ -100,7 +113,10 @@
       },
       "strand_type": {
         "$id": "#/items/properties/strand_type",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "pattern": "^[\\S]+$",
         "title": "Strandedness of library",
         "description": "Strandedness of the DNA in the library, i.e. whether single or double stranded.",         
@@ -109,7 +125,10 @@
       },
       "library_polymerase": {
         "$id": "#/items/properties/library_polymerase",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "title": "Polymerases used during initial indexing PCR",         
         "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/library_polymerase.json",
         "description": "Comma separated list of polymerases used in the the indexing PCR step of library construction. Check against: https://spaam-community.github.io/AncientMetagenomeDir/assets/enums/library_polymerase.json. This can indicate whether damaged nucleotides are expected to be visible.",
@@ -139,7 +158,10 @@
       },
       "instrument_model": {
         "$id": "#/items/properties/instrument_model",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "title": "Model of sequencing machine",
         "description": "Model of sequencing machine based on ENA controlled vocabulary (https://www.ebi.ac.uk/ena/portal/api/controlledVocab?field=instrument_model",         
         "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/instrument_model.json",
@@ -153,7 +175,10 @@
       },
       "library_layout": {
         "$id": "#/items/properties/library_layout",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "title": "Sequencing layout of library",
         "description": "Sequencing layout of library, i.e. either single or paired end, based on ENA controlled vocabulary (https://www.ebi.ac.uk/ena/portal/api/controlledVocab?field=library_layout",        
         "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/library_layout.json",
@@ -161,7 +186,10 @@
       },
       "library_strategy": {
         "$id": "#/items/properties/library_strategy",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "title": "Type of sequencing library",
         "description": "Type of sequencing library. Whether shotgun sequenced (WGS) or enriched using 'Target-Capture' protocols and similar.",        
         "$ref": "https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/assets/enums/library_strategy.json",
@@ -169,7 +197,7 @@
       },
       "amplicon_variable_region": {
         "$id": "#/items/properties/amplicon_variable_region",
-        "type": ["integer", "null"],
+        "type": ["string", "null"],
         "title": "Variable region of the amplicon",
         "description": "",
         "examples": ["NA"]
@@ -183,7 +211,10 @@
       },
       "archive_data_accession": {
         "$id": "#/items/properties/archive_data_accession",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "pattern": "^[\\S]+$",
         "title": "Archive run accession number",
         "description": "Run archive accession numbers, single run accession per line. TODO: improve regex",
@@ -191,7 +222,10 @@
       },
       "download_links": {
         "$id": "#/items/properties/download_links",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "pattern": "^[\\S]+$;^[\\S]+;[\\S]+$|^[\\S]+;[\\S]+$|^[\\S]+$",
         "title": "Download link to raw data files",
         "description": "Download link to raw data files. Can be semi-colon separated list for paired end. Link must allow direct download of files via command-line utility e.g. with wget or curl. TODO: improve regex",
@@ -202,7 +236,10 @@
       },
       "download_md5": {
         "$id": "#/items/properties/download_md5s",
-        "type": "string",
+        "type": [
+					"string",
+					"null"
+				],
         "pattern": "^[a-z0-9]+$|^[a-z0-9]+;[a-z0-9]+$|^[a-z0-9]+;[a-z0-9]+;[a-z0-9]+$",
         "title": "MD5 checksums of downloads",
         "description": "MD5 checksums of corresponding download files, to allow data integrity. Can be semi-colon separated list for paired end. TODO: improve regex",
