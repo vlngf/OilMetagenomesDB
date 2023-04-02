@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # Загрузка файла данных
-data = pd.read_csv('crude_oil_samples.tsv', delimiter='\t')
+data = pd.read_csv('crude_oil_libraries.tsv', delimiter='\t')
 # unique использовал, чтобы узнать какие значения воспринимает код (None, nan (для NA и пустых строк))
 # print(data.iloc[:, 2].unique())
 # Проверка на наличие пустых ячеек (исключая ячейки со значением 'None')
