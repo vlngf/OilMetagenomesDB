@@ -9,7 +9,7 @@ with open('crude_oil_libraries.tsv', 'r') as tsvfile:
         {
             "project_name": str(row["project_name"]) if row["project_name"] != "None" else None,
             "publication_year": int(row["publication_year"]) if row["publication_year"] != "None" else None,
-            "data_publication_doi": str(row["publication_doi"]) if row["publication_doi"] != "None" else None,
+            "data_publication_doi": str(row["data_publication_doi"]) if row["data_publication_doi"] != "None" else None,
             "sample_name": str(row["sample_name"]) if row["sample_name"] != "None" else None,
             "archive": str(row["archive"]) if row["archive"] != "None" else None,
             "archive_project": str(row["archive_project"]) if row["archive_project"] != "None" else None,
