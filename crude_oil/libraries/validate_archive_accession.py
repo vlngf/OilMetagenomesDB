@@ -2,7 +2,7 @@ import csv
 import json
     
 # Open and read the JSON file
-with open('enviromental_libraries.json', 'r') as jsonfile:
+with open('crude_oil_samples.json', 'r') as jsonfile:
     # Load the JSON data as a dictionary object
     data = json.loads(jsonfile.read())
 
