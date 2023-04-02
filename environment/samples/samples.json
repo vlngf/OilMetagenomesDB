@@ -147,7 +147,7 @@
             },
             "temp":{
                 "$id": "#/items/properties/temp",
-                "type": "integer",
+                "type": ["integer", "null"],
                 "title": "Temperature of the sample",
                 "examples": [
                     "30"
@@ -155,7 +155,7 @@
             },
             "pH":{
                 "$id": "#/items/properties/pH",
-                "type": "integer",
+                "type": ["integer", "null"],
                 "minimum": 0,
                 "maximum": 14,
                 "title": "pH of the sample",
@@ -165,7 +165,7 @@
             },
             "salinity":{
                 "$id": "#/items/properties/salinity",
-                "type": "integer",
+                "type": ["integer", "null"],
                 "title": "Salinity of the sample",
                 "examples": [
                     "10916.1"
@@ -173,7 +173,7 @@
             },
             "NO3-":{
                 "$id": "#/items/properties/NO3-",
-                "type": "integer",
+                "type": ["integer", "null"],
                 "title": "",
                 "examples": [
                     "1.4"
@@ -181,7 +181,7 @@
             },
             "PO43-":{
                 "$id": "#/items/properties/PO43-",
-                "type": "integer",
+                "type": ["integer", "null"],
                 "title": "",
                 "examples": [
                     "2.1"
@@ -189,7 +189,7 @@
             },
             "Ca2+":{
                 "$id": "#/items/properties/Ca2+",
-                "type": "integer",
+                "type": ["integer", "null"],
                 "title": "",
                 "examples": [
                     "17.4"
@@ -197,7 +197,7 @@
             },
             "Mg2+":{
                 "$id": "#/items/properties/Mg2+",
-                "type": "integer",
+                "type": ["integer", "null"],
                 "title": "",
                 "examples": [
                     "13.6"
@@ -288,6 +288,7 @@
                 "examples": [
                     "SRS473742,SRS473743,SRS473744,SRS473745"
                 ]
+                "unique": true
             }
         }
     }
