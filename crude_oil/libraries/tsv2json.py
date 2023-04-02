@@ -2,7 +2,7 @@ import csv
 import json
 
 # Открываем TSV-файл для чтения
-with open('crude_oil_samples.tsv', 'r') as tsvfile:
+with open('crude_oil_libraries.tsv', 'r') as tsvfile:
     reader = csv.DictReader(tsvfile, delimiter='\t')
     # Преобразуем данные в список словарей, приводя значения полей к нужным типам данных
     rows = [
