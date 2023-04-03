@@ -23,8 +23,8 @@
 This list contains information on crude oil metagenome and environmental metagenome in oil fields. Here you can find the name of publications, years of publications, DOI, type of samples, geographic location of sample collection, and associated conditions.
 
 ## Usage
-To download the latest stable version of the OilMetagenomeBD example list and add data, follow these steps:
-1. Go to the OilMetagenomeBD repository;
+To download the latest stable version of the OilMetagenomeDB example list and add data, follow these steps:
+1. Go to the OilMetagenomeDB repository;
 2. Copy the SSH key in the "<> Code" tab;
 3. Use the command line to download the directory;
 4. Go to the sample list of interest and complete the .tsv file in your spreadsheet program (for example, LibreOffice Calc, Microsoft Excel) or in the programming language of your choice (for example, R);
@@ -120,7 +120,7 @@ Library columns are as follows ([documentation](https://github.com/agni-bioinfor
 * download sizes
 
 ## Contributing
-Samples added to the OilMetagenomeBD should come from published studies. Samples should also be available in publicly accessible databases (e.g., EBI ENA or NCBI SRA).
+Samples added to the OilMetagenomeDB should come from published studies. Samples should also be available in publicly accessible databases (e.g., EBI ENA or NCBI SRA).
 
 When filling in the data, each sample from the publication will get a new row. For guidance on what information to add to each column see the README.md for a handy guide.
 
