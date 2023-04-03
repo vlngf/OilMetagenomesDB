@@ -37,7 +37,7 @@ Basic commands for the command line:
 * `git status` - check that commit is created 
 * `git push` - update the GitHub repository
  
-In TSV file please use None instead of NA. If you find dataset validation errors or think of a new dataset validation, then write me @rakhmanovtr 
+If you find dataset validation errors or think of a new dataset validation, then write me @rakhmanovtr 
  
 ## Samples Column Specifications
 The SAMPLE tables stores information about the sample, its type, date of collection, geographic coordinates, depth of sample extraction, etc.
@@ -45,10 +45,7 @@ The SAMPLE tables stores information about the sample, its type, date of collect
 - 🏞: oilfield environmental metagenomes
 - 🦠: crude oil metagenomes
 
-Numeric fields (e.g. latitude), can be filled with `NA` to indicate 'no
-reported value'. Free text fields (e.g. `geo_loc_name`) can be indicated with
-`Unknown`, and restricted category columns sometimes will have an `unknown`
-option.
+Numeric and text fields must be filled in with 'None' to indicate 'value not reported'.
 
 All column with 'defined categories' should be validated against
 `assets/enums/<column>.json`. This is to ensure data consistency, e.g. all
@@ -88,10 +85,7 @@ Sample columns are as follows ([documentation](https://github.com/agni-bioinform
 - 🏞: oilfield environmental metagenomes
 - 🦠: crude oil metagenomes
 
-Numeric fields (e.g. `read_count`), can be filled with `NA` to indicate 'no
-reported value'. Free text fields (e.g. `library_name`) can be indicated with
-`Unknown`, and restricted category columns sometimes will have an `unknown`
-option.
+Numeric and text fields must be filled in with 'None' to indicate 'value not reported'.
 
 All column with 'defined categories' should be validated against
 `assets/enums/<column>.json`. This is to ensure data consistency. E.g., all
@@ -128,7 +122,7 @@ Library columns are as follows ([documentation](https://github.com/agni-bioinfor
 ## Contributing
 Samples added to the OilMetagenomeBD should come from published studies. Samples should also be available in publicly accessible databases (e.g., EBI ENA or NCBI SRA).
 
-When filling in the data, each sample from the publication will get a new row. For guidance on what information to add to each column see the README.md for a handy guide (each list, e.g. oilMetagenome-anthropogenic has its own README.md, so make sure you’re checking the right one).
+When filling in the data, each sample from the publication will get a new row. For guidance on what information to add to each column see the README.md for a handy guide.
 
 ### Some tips
 * Do not add spaces at the end of data entries, for example the "geo_loc_name" column is checked against a predetermined list of countries, so if you type “Netherlands ” rather than just “Netherlands” they’ll be an issue as it won’t match.
