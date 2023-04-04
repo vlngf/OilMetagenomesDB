@@ -27,11 +27,11 @@ Library columns are as follows:
 - Format: surnameYYYY (YYYY in numeric format)
 - Due to restrictions in regex (used for validation checks), **punctuation (e.g.
   hyphens or spaces) or characters with accents cannot be used**.
-  - Use the non-accented version.
+  - Use the non-accented version (e.g. ã or ä become a).
   - If the first author has multiple or hyphenated surnames, write them all
     together capitalising each surname.
 - If a same author/year combination already exists, please append a single lower
-  case character (b,c,d etc.) to the key.
+  case character (`b`, `c`, `d` etc.) to the key.
   - The already existing key does not need to be updated. `b` indicates the
     'second' key added.
   - e.g. surnameYYYY (original), surnameYYYYb (first duplicate),
@@ -49,7 +49,7 @@ Library columns are as follows:
 
 > ⚠️ Mandatory value
 
-## data_publication_doi
+## publication_doi
 
 - Must correspond to the `publication_doi` of the publication in the
   corresponding sample metadata table!

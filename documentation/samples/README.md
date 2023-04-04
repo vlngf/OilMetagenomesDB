@@ -8,20 +8,13 @@ that are specific to specific columns.
 - 🏞: oilfield environmental metagenomes
 - 🦠: crude oil metagenomes
 
-Numeric fields (e.g. latitude), can be filled with `NA` to indicate 'no
-reported value'. Free text fields (e.g. `geo_loc_name`) can be indicated with
-`Unknown`, and restricted cateogory columns sometimes will have an `unknown`
-option.
+Numeric and text fields must be filled in with `None` to indicate 'value not reported'.
 
 All column with 'defined categories' should be validated against
-`assets/enums/<column>.json`. This is to ensure data consistency, e.g. all
-Dental calculus samples are listed as `dental calculus` (as defined in
-`assets/enums/<column>.json`). This is to ensure data consistency.
+`assets/enums/<column>.json`. This is to ensure data consistency.
 
 If you wish to a new category, please consult with the [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab), and then add it to
 `assets/enums/<column>.json`.
-
-Sample columns are as follows:
 
 ## project_name
 
@@ -32,11 +25,11 @@ Sample columns are as follows:
   - If the first author has multiple or hyphenated surnames, write them all
     together capitalising each surname.
 - If a same author/year combination already exists, please append a single lower
-  case character (b,c,d etc.) to the key.
+  case character (`b`, `c`, `d` etc.) to the key.
   - The already existing key does not need to be updated. `b` indicates the
     'second' key added.
-  - e.g. Muhlemann2018 (original), Muhlemann2018b (first duplicate),
-    Muhlemann2018c (second duplicate) etc.
+  - e.g. SurnameYYYY (original), SurnameYYYYb (first duplicate),
+    SurnameYYYYc (second duplicate) etc.
 
 > ⚠️ [MIxS v5](https://gensc.org/mixs/) compliant field
 
@@ -44,16 +37,17 @@ Sample columns are as follows:
 
 ## publication_year
 
-- YYYY format
+- Must correspond to the `publication_year` of the publication in the
+  corresponding libraries metadata table!
+- YYYY format.
 
 > ⚠️ Mandatory value
 
 ## publication_doi
 
-- Publication DOI
-- Or library permalink
-  - e.g. [worldcat](https://www.worldcat.org/), [HAL](hal.archives-ouvertes.fr)
-    etc.
+- Must correspond to the `publication_doi` of the publication in the
+  corresponding libraries metadata table!
+- Publication DOI.
 
 > ⚠️ Mandatory value
 
@@ -61,7 +55,7 @@ Sample columns are as follows:
 
 - As reported in publication
 - Accents are allowed
-- Missing name: `Unknown`
+- Missing name: `None`
 
 ## latitude
 
@@ -71,7 +65,7 @@ Sample columns are as follows:
   90 to -90)
 - Can be searched in wider literature, rough location is acceptable but use
   fewer decimals
-- Missing value: `NA`
+- Missing value: `None`
 
 ## longitude
 
@@ -81,13 +75,13 @@ Sample columns are as follows:
   180 to -180)
 - Can be searched in wider literature, rough location is acceptable but use
   fewer decimals
-- Missing value: `NA`
+- Missing value: `None`
 
 ## geo_loc_name
 
 - Based on modern day definitions
 - Must be based on [INDSC Country list](http://www.insdc.org/country.html)
-- Missing name: `Unknown`
+- Missing name: `None`
 
 > ⚠️ [MIxS v5](https://gensc.org/mixs/) compliant field
 
@@ -110,14 +104,14 @@ Sample columns are as follows:
 - Sediment cores only
 - Identifier for sequence sample was taken from, e.g. core_3, or zone_a19
 - Typically cores, or quadrant/square of excavation
-- Missing value: `Unknown`
+- Missing value: `None`
 
 ## depth
 
 - Sediment only
 - Depth of sample from top of sequence (cm)
 - If reported as a range (e.g. 130-132 cm), take approximate mid-point
-- Use NA if not a sequence (e.g. from surface of an open site)
+- Use `None` if not a sequence (e.g. from surface of an open site)
 
 ## sample_name
 
@@ -135,7 +129,6 @@ Sample columns are as follows:
   - e.g. midden, cave, ocean, lake, archeological site
 
 > ⚠️ partly [MIxS v5](https://gensc.org/mixs/) compliant field, following
-> [Environment Ontology](http://www.environmentontology.org/Browse-EnvO)
 
 > ⚠️ Must follow categories specified in `assets/enums/<column>.json`
 
@@ -153,7 +146,6 @@ Sample columns are as follows:
   - If genome is derived from multiple tissue types from the same individual (e.g. bone and soft tissue) then the entry should simply be listed as 'tissue'
 
 > ⚠️ Partly [MIxS v5](https://gensc.org/mixs/) compliant field, i.e. term
-> from an [ontology](https://www.ebi.ac.uk/ols/index), and ideally either
 > [UBERON](https://www.ebi.ac.uk/ols/ontologies/uberon) (anatomy) or
 > [ENVO](https://www.ebi.ac.uk/ols/ontologies/envo) (everything else). If you
 > can't find something close enough, please ping
@@ -166,14 +158,14 @@ Sample columns are as follows:
 ## sampling_date
 
 - Year of sampling of (sub-)sample for DNA analysis in YYYY format
-- Missing value: `NA`
+- Missing value: `None`
 
 > ⚠️ [MIxS v5](https://gensc.org/mixs/) compliant field
 
 ## archive
 
 - In most cases should correspond to the `archive` of the publication in the
-  corresponding sample metadata table!
+  corresponding libraries metadata table!
 - The archive the library's data is stored on.
   - Should be an established long-term stable archive.
   - Generally set up academic institutions e.g. EBI or Universities (rather than
@@ -196,7 +188,7 @@ Sample columns are as follows:
   - Archive: MG-RAST: should be accession code beginning with `mgp`. [Example](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp13354).
   - Archive: Dryad/FIGSHARE etc.: use the dataset's overall DOI as archive project accession.
 
-- Missing value: `Unknown`
+- Missing value: `None`
 
 ## archive_accession
 
