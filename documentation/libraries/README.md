@@ -237,8 +237,8 @@ Library columns are as follows:
 
 - Variable regions of the 16S rRNA gene that are used to identify bacterial and archaeal taxa present in oil and environmental samples. Examples are `V1-V2`, `V3-V4` and `V4-V5`.
 
-> ⚠️ Must follow categories specified in
-> `assets/enums/amplicon_variable_region.json`
+> ⚠️ Must follow categories specified in `assets/enums/amplicon_variable_region.json`
+
 > ⚠️ Mandatory value
 
 ## read_count
