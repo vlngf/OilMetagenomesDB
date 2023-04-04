@@ -45,7 +45,7 @@ The SAMPLE tables stores information about the sample, its type, date of collect
 - 🏞: oilfield environmental metagenomes
 - 🦠: crude oil metagenomes
 
-Numeric and text fields must be filled in with 'None' to indicate 'value not reported'.
+Numeric and text fields must be filled in with `None` to indicate 'value not reported'.
 
 All column with 'defined categories' should be validated against
 `assets/enums/<column>.json`. This is to ensure data consistency, e.g. all
@@ -85,7 +85,7 @@ Sample columns are as follows ([documentation](https://github.com/agni-bioinform
 - 🏞: oilfield environmental metagenomes
 - 🦠: crude oil metagenomes
 
-Numeric and text fields must be filled in with 'None' to indicate 'value not reported'.
+Numeric and text fields must be filled in with `None` to indicate 'value not reported'.
 
 All column with 'defined categories' should be validated against
 `assets/enums/<column>.json`. This is to ensure data consistency. E.g., all

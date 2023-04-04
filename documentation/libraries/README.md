@@ -7,10 +7,7 @@ This page describes columns definitions for all library-level lists. Icons indic
 - 🏞: oilfield environmental metagenomes
 - 🦠: crude oil metagenomes
 
-Numeric fields (e.g. `read_count`), can be filled with `NA` to indicate 'no
-reported value'. Free text fields (e.g. `library_name`) can be indicated with
-`Unknown`, and restricted category columns sometimes will have an `unknown`
-option.
+Numeric and text fields must be filled in with `None` to indicate 'value not reported'.
 
 All column with 'defined categories' should be validated against
 `assets/enums/<column>.json`. This is to ensure data consistency. E.g., all
@@ -37,8 +34,8 @@ Library columns are as follows:
   case character (b,c,d etc.) to the key.
   - The already existing key does not need to be updated. `b` indicates the
     'second' key added.
-  - e.g. Muhlemann2018 (original), Muhlemann2018b (first duplicate),
-    Muhlemann2018c (second duplicate) etc.
+  - e.g. surnameYYYY (original), surnameYYYYb (first duplicate),
+    surnameYYYYc (second duplicate) etc.
 
 > ⚠️ [MIxS v5](https://gensc.org/mixs/) compliant field
 
@@ -57,9 +54,6 @@ Library columns are as follows:
 - Must correspond to the `publication_doi` of the publication in the
   corresponding sample metadata table!
 - Publication DOI.
-- Or library permalink:
-  - e.g. [worldcat](https://www.worldcat.org/), [HAL](hal.archives-ouvertes.fr)
-    etc.
 
 > ⚠️ Mandatory value
 
@@ -68,7 +62,6 @@ Library columns are as follows:
 - Must correspond to the `sample_name` of the publication in the corresponding
   sample metadata table.
 - Unique identifier for that sample as used in publication.
-  - In most cases this should be the name of the host _individual_.
 
 > ⚠️ Mandatory value
 
@@ -81,7 +74,7 @@ Library columns are as follows:
   - Generally set up academic institutions e.g. EBI or Universities (rather than
     companies, e.g. GitHub).
 - e.g. [ENA](https://www.ebi.ac.uk/ena),
-  [SRA](https://www.ncbi.nlm.nih.gov/sra), [OAGR](https://www.oagr.org/).
+  [SRA](https://www.ncbi.nlm.nih.gov/sra).
 - In some cases this will vary, for example if there IS an ERS code, however
   only consensus sequences are uploaded
 
@@ -99,10 +92,8 @@ Library columns are as follows:
 
   - Archive: ENA/SRA/DDBJ: should be _primary_ accession code beginning with
     `PRJ`. [Example](https://www.ebi.ac.uk/ena/browser/view/PRJNA438985).
-  - Archive: MG-RAST: should be accession code beginning with `mgp`.
-    [Example](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp13354).
 
-- Missing value: `Unknown`
+- Missing value: `None`
 
 ## archive_sample_accession
 
@@ -127,7 +118,7 @@ Library columns are as follows:
 - Should be the lab ID used at sequencing as referred to in the publication (in
   cases when these differ, list both separated with a `/`).
 - Can be sometimes inferred from the `Submitted Files` column of the ENA/SRA table
-- If no library name is reported on the ENA/SRA, list as `unspecified`.
+- If no library name is reported on the ENA/SRA, list as `None`.
 - Replace any spaces with underscores.
 - ⚠️ in some cases sequencing centers will assign different library_ids
   for libraries sequenced multiple times (e.g. across different machines).
@@ -151,7 +142,7 @@ Library columns are as follows:
 
 > ⚠️ Must follow categories specified in `assets/enums/strand_type.json`
 
-> ⚠️ If unknown and cannot be inferred from the publication, specify `unknown`
+> ⚠️ If unknown and cannot be inferred from the publication, specify `None`
 
 > ⚠️ Mandatory value
 
@@ -171,26 +162,26 @@ Library columns are as follows:
 - If not directly specified in the manuscript, it is OK to take this from a
   primary source protocol if referenced (e.g. if 'libraries prepared as described in Meyer
   and Kircher', use polymerase cited there. If you go down a citation chain,
-  'as in X, as in Y, as in Z', specify `Unknown`.
+  'as in X, as in Y, as in Z', specify `None`.
 
 > ⚠️ Must follow categories specified in
 > `assets/enums/library_polymerase.json`
 
 > ⚠️ If unknown and cannot be
-> inferred from the publication, specify `Unknown`
+> inferred from the publication, specify `None`
 
 ## library_treatment
 
 - Type of damage-removal treatment that may have been performed on the libraries.
   - When performed, typically via partial- or full- USER or UDG treatment.
-  - If no treatment performed, indicate as `none`.
-  - If in doubt, or different treated libraries are merged into one FASTQ/BAM file, record as `Unknown`.
+  - If no treatment performed, indicate as `None`.
+  - If in doubt, or different treated libraries are merged into one FASTQ/BAM file, record as `None`.
 
 > ⚠️ Must follow categories specified in
 > `assets/enums/library_treatment.json`
 
 > ⚠️ If unknown and cannot be
-> inferred from the publication, specify `Unknown`
+> inferred from the publication, specify `None`
 
 > ⚠️ Mandatory value
 
@@ -202,7 +193,7 @@ Library columns are as follows:
   - Be aware of a single library sequenced multiple times. In such cases it is
     OK to duplicate the value for each library.
 
-> ⚠️ If not reported in the paper, specify: `NA`
+> ⚠️ If not reported in the paper, specify: `None`
 
 ## instrument_model
 
@@ -210,7 +201,7 @@ Library columns are as follows:
 - Follows [ENA categories](https://www.ebi.ac.uk/ena/portal/api/controlledVocab?field=instrument_model).
 - In most cases for aDNA labs will be some form of Illumina platform.
 
-> ⚠️ If not described in the ENA table, or there is discrepency with the paper, specify: `unspecified`
+> ⚠️ If not described in the ENA table, or there is discrepency with the paper, specify: `None`
 
 > ⚠️ Must follow categories specified in
 > `assets/enums/instrument_model.json`
@@ -243,8 +234,13 @@ Library columns are as follows:
 > ⚠️ Mandatory value
 
 ## amplicon_variable_region
-123
+
+- Variable regions of the 16S rRNA gene that are used to identify bacterial and archaeal taxa present in oil and environmental samples. Examples are `V1-V2`, `V3-V4` and `V4-V5`.
+
+> ⚠️ Must follow categories specified in
+> `assets/enums/amplicon_variable_region.json`
 > ⚠️ Mandatory value
+
 ## read_count
 
 - Number of reads or pairs in library, i.e. how deep sequenced, or how many
@@ -254,7 +250,7 @@ Library columns are as follows:
 - Use only what is reported on SRA or ENA tables (i.e., what is physically
   in the FASTQ files), else use the missing value.
 
-> ⚠️ If not described in the ENA table, specify: `NA`
+> ⚠️ If not described in the ENA table, specify: `None`
 
 ## archive_data_accession
 
@@ -299,4 +295,4 @@ Library columns are as follows:
 - File sizes of corresponding download files in bytes.
 - This can be used to estimated HDD space that will be used after download.
 - Can be semi-colon separated list for paired end.
-- Missing value: `NA`
+- Missing value: `None`
