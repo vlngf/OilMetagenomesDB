@@ -15,16 +15,17 @@ libraries sequenced on Illumina NextSeq 500s are listed as `NextSeq 500` (as
 defined in `assets/enums/instrument_models.json`). This is to ensure data
 consistency.
 
-If you wish to a new category, please make a separate pull-request with your
+🤝 If you wish to a new category, please make a separate pull-request with your
 modification in the corresponding `assets/enums/<column>.json` file.
 
 Library columns are as follows:
 
 ## project_name
 
-- Must correspond to a `project_name` in the corresponding sample metadata
-  table!
-- Format: surnameYYYY (YYYY in numeric format)
+:heavy_check_mark: Must correspond to a `project_name` in the corresponding samples metadata
+  table
+
+- Format: `SurnameYYYY` (YYYY in numeric format)
 - Due to restrictions in regex (used for validation checks), **punctuation (e.g.
   hyphens or spaces) or characters with accents cannot be used**.
   - Use the non-accented version (e.g. ã or ä become a).
@@ -43,32 +44,36 @@ Library columns are as follows:
 
 ## publication_year
 
-- Must correspond to the `publication_year` of the publication in the
-  corresponding sample metadata table!
+:heavy_check_mark: Must correspond to the `publication_year` of the publication in the
+  corresponding samples metadata table!
+
 - YYYY format.
 
 > ⚠️ Mandatory value
 
 ## publication_doi
 
-- Must correspond to the `publication_doi` of the publication in the
-  corresponding sample metadata table!
+:heavy_check_mark: Must correspond to the `publication_doi` of the publication in the
+  corresponding samples metadata table!
+
 - Publication DOI.
 
 > ⚠️ Mandatory value
 
 ## sample_name
 
-- Must correspond to the `sample_name` of the publication in the corresponding
-  sample metadata table.
-- Unique identifier for that sample as used in publication.
+:heavy_check_mark: Must correspond to the `sample_name` of the publication in the corresponding
+  samples metadata table.
+- Unique identifier for that sample as used in publication
+  - If samples are referred to by multiple names, use the most informative
 
 > ⚠️ Mandatory value
 
 ## archive
 
-- In most cases should correspond to the `archive` of the publication in the
-  corresponding sample metadata table!
+:heavy_check_mark: In most cases should correspond to the `archive` of the publication in the
+  corresponding samples metadata table!
+
 - The archive the library's data is stored on.
   - Should be an established long-term stable archive.
   - Generally set up academic institutions e.g. EBI or Universities (rather than
@@ -78,36 +83,38 @@ Library columns are as follows:
 - In some cases this will vary, for example if there IS an ERS code, however
   only consensus sequences are uploaded
 
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
+Must follow categories specified in `assets/enums/<column>.json`
 
 > ⚠️ Mandatory value
 
 ## archive_project
 
-- Must correspond to the `archive_project` of the publication in the
-  corresponding sample metadata table!
-- A project level accession code under which all libraries of a project are
-  assigned to.
-- Specific examples:
+:heavy_check_mark: Must correspond to the `archive_project` of the publication in the
+  corresponding samples metadata table!
 
-  - Archive: ENA/SRA/DDBJ: should be _primary_ accession code beginning with
+- A project level accession code under which all samples of a project are assigned to
+- Specific examples:
+- Archive: ENA/SRA/DDBJ: should be _primary_ accession code beginning with
     `PRJ`. [Example](https://www.ebi.ac.uk/ena/browser/view/PRJNA438985).
 
 - Missing value: `None`
 
-## archive_sample_accession
+## archive_accession
 
-- Must correspond to the sample `archive_accession` of the publication in the
-  corresponding sample metadata table!
+:heavy_check_mark: Must correspond to the sample `archive_accession` of the publication in the
+  corresponding samples metadata table!
+
 - Should be a single accession ID.
 - For ENA/SRA: These should be **secondary** accession IDs to keep as close to
   data as possible (e.g. SRS, ERS, not SAMEA - see below).
-- If non-NCBI/ENA, use as close to sample-level as possible.
-  - e.g. when different extracts of one sample incorrectly uploaded as samples.
+- If non-NCBI/ENA, use as close to sample-level as possible
+  - e.g. for Dryad/Figshare, use the numeric ID after 'file_steam' in the per-file download URL
   - For GenBank consensus sequences: if the ENA/SRA sample accession ID does
     not exist, reuse the GenBank sequence ID for both sample and run accessions.
     However always where possible prefer ENA/SRA secondary accession IDs.
   - For for Dryad/Figshare, use the numeric ID after 'file_steam' in the per-file download URL
+- Multiple can be separated with commas
+  - e.g. when different extracts of one sample incorrectly uploaded as samples
 
 > ⚠️ Mandatory value
 
@@ -140,7 +147,7 @@ Library columns are as follows:
     - [Gansauge et al. (2020) Nature protocols](https://doi.org/10.1038/s41596-020-0338-0).
     - [Troll et al. (2019) BMC Genomics (a.k.a. SRSLY)](https://doi.org/10.1186/.s12864-019-6355-0)
 
-> ⚠️ Must follow categories specified in `assets/enums/strand_type.json`
+Must follow categories specified in `assets/enums/strand_type.json`
 
 > ⚠️ If unknown and cannot be inferred from the publication, specify `None`
 
@@ -164,8 +171,7 @@ Library columns are as follows:
   and Kircher', use polymerase cited there. If you go down a citation chain,
   'as in X, as in Y, as in Z', specify `None`.
 
-> ⚠️ Must follow categories specified in
-> `assets/enums/library_polymerase.json`
+Must follow categories specified in `assets/enums/library_polymerase.json`
 
 > ⚠️ If unknown and cannot be
 > inferred from the publication, specify `None`
@@ -177,8 +183,7 @@ Library columns are as follows:
   - If no treatment performed, indicate as `None`.
   - If in doubt, or different treated libraries are merged into one FASTQ/BAM file, record as `None`.
 
-> ⚠️ Must follow categories specified in
-> `assets/enums/library_treatment.json`
+Must follow categories specified in `assets/enums/library_treatment.json`
 
 > ⚠️ If unknown and cannot be
 > inferred from the publication, specify `None`
@@ -186,8 +191,6 @@ Library columns are as follows:
 > ⚠️ Mandatory value
 
 ## library_concentration
-
-> 🧫 host-associated metagenome list only!
 
 - The qPCR value of copies per µl of extract of a given library
   - Be aware of a single library sequenced multiple times. In such cases it is
@@ -203,8 +206,7 @@ Library columns are as follows:
 
 > ⚠️ If not described in the ENA table, or there is discrepency with the paper, specify: `None`
 
-> ⚠️ Must follow categories specified in
-> `assets/enums/instrument_model.json`
+Must follow categories specified in `assets/enums/instrument_model.json`
 
 ## library_layout
 
@@ -212,8 +214,7 @@ Library columns are as follows:
 - Can generally be inferred when there are either one (R1) or two (R2) FASTQ
   files, with otherwise the same file name.
 
-> ⚠️ Must follow categories specified in
-> `assets/enums/library_layout.json`
+Must follow categories specified in `assets/enums/library_layout.json`
 
 > ⚠️ Mandatory value
 
@@ -221,8 +222,7 @@ Library columns are as follows:
 
 - How the library was sequenced, i.e. whether shotgun sequenced or enriched or
   depleted using 'capture' protocols and similar.
-  - For most metagenomic samples will be shotgun (`WGS`) sequenced (due to scope of
-    AncientMetagenomeDir)
+  - For most metagenomic samples will be shotgun (`WGS`) sequenced
   - For single-genomes, this can sometimes be `Target-Capture` when dealing with whole-genome or whole-plasmid enriched samples.
   - Example of an unspecific modern DNA `depletion` protocol is [Weiß et al.
     (2020) BMC Genomics](https://doi.org/10.1186/s12864-020-06820-7).
@@ -237,7 +237,7 @@ Library columns are as follows:
 
 - Variable regions of the 16S rRNA gene that are used to identify bacterial and archaeal taxa present in oil and environmental samples. Examples are `V1-V2`, `V3-V4` and `V4-V5`.
 
-> ⚠️ Must follow categories specified in `assets/enums/amplicon_variable_region.json`
+Must follow categories specified in `assets/enums/<column>.json`
 
 > ⚠️ Mandatory value
 
@@ -248,7 +248,7 @@ Library columns are as follows:
 - For paired end libraries, count pairs (should be same number for both
   directions)
 - Use only what is reported on SRA or ENA tables (i.e., what is physically
-  in the FASTQ files), else use the missing value.
+  in the FASTQ files), else use `None`.
 
 > ⚠️ If not described in the ENA table, specify: `None`
 

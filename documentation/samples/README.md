@@ -11,12 +11,20 @@ that are specific to specific columns.
 Numeric and text fields must be filled in with `None` to indicate 'value not reported'.
 
 All column with 'defined categories' should be validated against
-`assets/enums/<column>.json`. This is to ensure data consistency.
+`assets/enums/<column>.json`. This is to ensure data consistency. E.g., all
+libraries sequenced on Illumina NextSeq 500s are listed as `NextSeq 500` (as
+defined in `assets/enums/instrument_models.json`). This is to ensure data
+consistency.
 
-If you wish to a new category, please consult with the [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab), and then add it to
-`assets/enums/<column>.json`.
+🤝 If you wish to a new category, please make a separate pull-request with your
+modification in the corresponding `assets/enums/<column>.json` file.
+
+Samples columns are as follows:
 
 ## project_name
+
+:heavy_check_mark: Must correspond to a `project_name` in the corresponding sample metadata
+  table
 
 - Format: `SurnameYYYY` (YYYY in numeric format)
 - Due to restrictions in regex (used for validation checks), **punctuation (e.g.
@@ -37,22 +45,25 @@ If you wish to a new category, please consult with the [agni-bioinformatics-lab]
 
 ## publication_year
 
-- Must correspond to the `publication_year` of the publication in the
+:heavy_check_mark: Must correspond to the `publication_year` of the publication in the
   corresponding libraries metadata table!
+
 - YYYY format.
 
 > ⚠️ Mandatory value
 
 ## publication_doi
 
-- Must correspond to the `publication_doi` of the publication in the
+:heavy_check_mark: Must correspond to the `publication_doi` of the publication in the
   corresponding libraries metadata table!
+
 - Publication DOI.
 
 > ⚠️ Mandatory value
 
 ## site_name
 
+- Сorresponds to the specific location where the sample was collected
 - As reported in publication
 - Accents are allowed
 - Missing name: `None`
@@ -85,7 +96,7 @@ If you wish to a new category, please consult with the [agni-bioinformatics-lab]
 
 > ⚠️ [MIxS v5](https://gensc.org/mixs/) compliant field
 
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
+Must follow categories specified in `assets/enums/<column>.json`
 
 > ⚠️ Mandatory value
 
@@ -115,10 +126,11 @@ If you wish to a new category, please consult with the [agni-bioinformatics-lab]
 
 ## sample_name
 
+:heavy_check_mark: Must correspond to the `sample_name` of the publication in the corresponding
+  libraries metadata table.
+
 - Unique identifier for that sample as used in publication
-  - In most cases this should be the name of the host _individual_ (for host-associated samples)
   - If samples are referred to by multiple names, use the most informative
-  - For environmental samples: if samples cannot be **directly** linked to data files by any names in the publication, generate names in the format e.g. [sequence]\_[depth]\_[original_name]
 
 > ⚠️ Mandatory value
 
@@ -126,32 +138,26 @@ If you wish to a new category, please consult with the [agni-bioinformatics-lab]
 
 - Description of the object, site, or immediate environment the sample was obtained from, following [Environment
   Ontology](https://www.ebi.ac.uk/ols/ontologies/envo)
-  - e.g. midden, cave, ocean, lake, archeological site
+  - e.g. ocean, lake, oilfield
 
 > ⚠️ partly [MIxS v5](https://gensc.org/mixs/) compliant field, following
 
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
+Must follow categories specified in `assets/enums/<column>.json`
 
 > ⚠️ Mandatory value
 
 ## material
 
 - Sample type DNA was extracted from
-
-  - e.g. dental calculus, palaeofaeces, intestinal, chewing gum
-  - e.g. permafrost, lake sediment, peat soil, bone
-  - e.g. tooth, bone, dental calculus
-
-- For host-associated single genome list only:
-  - If genome is derived from multiple tissue types from the same individual (e.g. bone and soft tissue) then the entry should simply be listed as 'tissue'
+  - e.g. water, мarine sediment, soil
 
 > ⚠️ Partly [MIxS v5](https://gensc.org/mixs/) compliant field, i.e. term
 > [UBERON](https://www.ebi.ac.uk/ols/ontologies/uberon) (anatomy) or
 > [ENVO](https://www.ebi.ac.uk/ols/ontologies/envo) (everything else). If you
-> can't find something close enough, please ping
-> @spaam-community/ancientmetagenomedir-coreteam
+> can't find something close enough, please write
+> https://github.com/agni-bioinformatics-lab
 
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
+Must follow categories specified in `assets/enums/<column>.json`
 
 > ⚠️ Mandatory value
 
@@ -164,35 +170,39 @@ If you wish to a new category, please consult with the [agni-bioinformatics-lab]
 
 ## archive
 
-- In most cases should correspond to the `archive` of the publication in the
+:heavy_check_mark: In most cases should correspond to the `archive` of the publication in the
   corresponding libraries metadata table!
+
 - The archive the library's data is stored on.
   - Should be an established long-term stable archive.
   - Generally set up academic institutions e.g. EBI or Universities (rather than
     companies, e.g. GitHub).
 - e.g. [ENA](https://www.ebi.ac.uk/ena),
-  [SRA](https://www.ncbi.nlm.nih.gov/sra), [OAGR](https://www.oagr.org/).
+  [SRA](https://www.ncbi.nlm.nih.gov/sra).
 - In some cases this will vary, for example if there IS an ERS code, however
   only consensus sequences are uploaded
 
-> ⚠️ Must follow categories specified in `assets/enums/<column>.json`
+Must follow categories specified in `assets/enums/<column>.json`
 
 > ⚠️ Mandatory value
 
 ## archive_project
 
+:heavy_check_mark: Must correspond to the `archive_project` of the publication in the
+  corresponding libraries metadata table!
+
 - A project level accession code under which all samples of a project are assigned to
 - Specific examples:
-
   - Archive: ENA/SRA/DDBJ: should be _primary_ accession code beginning with `PRJ`. [Example](https://www.ebi.ac.uk/ena/browser/view/PRJNA438985).
-  - Archive: MG-RAST: should be accession code beginning with `mgp`. [Example](https://www.mg-rast.org/mgmain.html?mgpage=project&project=mgp13354).
-  - Archive: Dryad/FIGSHARE etc.: use the dataset's overall DOI as archive project accession.
 
 - Missing value: `None`
 
 ## archive_accession
 
-- Of _sample_, where possible
+:heavy_check_mark: Must correspond to the sample `archive_accession` of the publication in the
+  corresponding libraries metadata table!
+
+- Should be a single accession ID.
 - For ENA/SRA: These should be **secondary** accession IDs to keep as close to
   data as possible (e.g. SRS, ERS, not SAMEA - see below)
 - If non-NCBI/ENA, use as close to sample-level as possible
