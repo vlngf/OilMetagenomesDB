@@ -154,8 +154,7 @@ Must follow categories specified in `assets/enums/<column>.json`
 > ⚠️ Partly [MIxS v5](https://gensc.org/mixs/) compliant field, i.e. term
 > [UBERON](https://www.ebi.ac.uk/ols/ontologies/uberon) (anatomy) or
 > [ENVO](https://www.ebi.ac.uk/ols/ontologies/envo) (everything else). If you
-> can't find something close enough, please write [agni-bioinformatics-lab]
-> (https://github.com/agni-bioinformatics-lab)
+> can't find something close enough, please write [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab)
 
 Must follow categories specified in `assets/enums/<column>.json`
 
