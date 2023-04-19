@@ -119,9 +119,8 @@ Must follow categories specified in `assets/enums/<column>.json`
 
 ## depth
 
-- Sediment only
-- Depth of sample from top of sequence (cm)
-- If reported as a range (e.g. 130-132 cm), take approximate mid-point
+- Depth of sample from top of sequence (m)
+- If reported as a range (e.g. 130-132 m), take approximate mid-point
 - Use `None` if not a sequence (e.g. from surface of an open site)
 
 ## sample_name
