@@ -20,8 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install pandas jsonschema
+            python -m pip install --upgrade pip
+            pip install pandas jsonschema
 
       - name: Check modified files
         run: |
@@ -43,22 +43,25 @@ jobs:
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
         
 
-      - name: Check for removed lines/cells and added lines 
+      - name: Check for removed lines/cells and added lines
         run: |
             git fetch origin main
-            for FILE in common_libraries/common_libraries.tsv common_samples/common_samples.tsv
+            for FULL_PATH in common_libraries/common_libraries.tsv common_samples/common_samples.tsv
             do
+              FILE=$(basename $FULL_PATH)
               DIFF_OUTPUT=$(git diff origin/main...HEAD -- $FILE)
               if echo $DIFF_OUTPUT | grep -q "^-"
               then
-                echo -e "\e[31mLines/cells were removed in $FILE\e[0m"
+                echo -e "\e[31mLines/cells were removed in $FILE. Here's the diff:\e[0m"
+                echo "$DIFF_OUTPUT"
                 exit 1
               fi
               if echo $DIFF_OUTPUT | grep -q "^+"
               then
-                echo -e "\e[32mLines were added in $FILE\e[0m"
+                echo -e "\e[32mLines were added in $FILE. Here's the diff:\e[0m"
+                echo "$DIFF_OUTPUT"
               fi
-            done        
+            done  
 
       - name: Validate common_libraries
         run: python scripts/validate_libraries.py
