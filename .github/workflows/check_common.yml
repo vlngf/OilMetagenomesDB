@@ -41,7 +41,8 @@ jobs:
               exit 1
             fi
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
-            echo -e "\033[32mNo modified files except data\033[0m"
+            echo -e "\033[38;5;40mNo modified files except data\033[0m"
+
 
       - name: Validate common_libraries
         run: |
