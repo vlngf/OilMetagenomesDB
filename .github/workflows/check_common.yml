@@ -41,6 +41,23 @@ jobs:
           fi
           echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
 
+      - name: Check for removed lines/cells and added lines 
+        run: |
+            git fetch origin main
+            for FILE in common_libraries/common_libraries.tsv common_samples/common_samples.tsv
+            do
+              DIFF_OUTPUT=$(git diff origin/main...HEAD -- $FILE)
+              if echo $DIFF_OUTPUT | grep -q "^-"
+              then
+                echo -e "\e[31mLines/cells were removed in $FILE\e[0m"
+                exit 1
+              fi
+              if echo $DIFF_OUTPUT | grep -q "^+"
+              then
+                echo -e "\e[32mLines were added in $FILE\e[0m"
+              fi
+            done        
+
       - name: Validate common_libraries
         run: python scripts/validate_libraries.py
         if: contains(env.MODIFIED_FILES, 'common_libraries.tsv')
