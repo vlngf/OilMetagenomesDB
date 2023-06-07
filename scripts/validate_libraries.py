@@ -2,10 +2,11 @@
 import pandas as pd
 import json
 from jsonschema import validate, Draft7Validator
+import os
 
 def validate_libraries():
     # Load the data
-    df = pd.read_csv('assets/commons/common_libraries.tsv', sep='\t')
+    df = pd.read_csv(os.getenv('FILE_PATH'), sep='\t')
 
     # Load the schema
     with open('assets/commons/common_libraries.json') as f:

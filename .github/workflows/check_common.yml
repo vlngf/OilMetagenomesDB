@@ -40,12 +40,17 @@ jobs:
             then
               exit 1
             fi
-            echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV 
+            echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
+            echo -e "\e[32mNo modified files except data\e[0m"
 
       - name: Validate common_libraries
-        run: python scripts/validate_libraries.py
+        run: |
+            export FILE_PATH=${{ github.workspace }}/common_libraries/common_libraries.tsv
+            python scripts/validate_libraries.py
         if: contains(env.MODIFIED_FILES, 'common_libraries.tsv')
 
       - name: Validate common_samples
-        run: python scripts/validate_samples.py
+        run: |
+            export FILE_PATH=${{ github.workspace }}/common_samples/common_samples.tsv
+            python scripts/validate_samples.py
         if: contains(env.MODIFIED_FILES, 'common_samples.tsv')
