@@ -29,7 +29,8 @@ jobs:
             ERROR=false
             for FILE in $MODIFIED_FILES
             do
-              if [[ $FILE != "common_libraries/*.tsv" && $FILE != "common_samples/*.tsv" ]]
+              FILENAME=$(basename $FILE)
+              if [[ $FILENAME != "common_libraries.tsv" && $FILENAME != "common_samples.tsv" ]]
               then
                 echo -e "\e[31mInvalid file modified: $FILE\e[0m"
                 ERROR=true
@@ -39,7 +40,7 @@ jobs:
             then
               exit 1
             fi
-            echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
+            echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV 
 
       - name: Validate common_libraries
         run: python scripts/validate_libraries.py
