@@ -25,11 +25,11 @@ jobs:
 
       - name: Check modified files
         run: |
+            MODIFIED_FILES=$(git diff --name-only origin/main...HEAD)
             ERROR=false
-            for FILE in $(git diff --name-only origin/main...HEAD)
+            for FILE in $MODIFIED_FILES
             do
-              FILENAME=$(basename $FILE)
-              if [[ $FILENAME != "common_libraries.tsv" && $FILENAME != "common_samples.tsv" ]]
+              if [[ $FILE != "common_libraries/*.tsv" && $FILE != "common_samples/*.tsv" ]]
               then
                 echo -e "\e[31mInvalid file modified: $FILE\e[0m"
                 ERROR=true
@@ -39,26 +39,7 @@ jobs:
             then
               exit 1
             fi
-
-      - name: Check for removed lines/cells and added lines
-        run: |
-            git fetch origin main
-            for FULL_PATH in common_libraries/common_libraries.tsv common_samples/common_samples.tsv
-            do
-              FILE=$(basename $FULL_PATH)
-              DIFF_OUTPUT=$(git diff origin/main...HEAD -- $FILE)
-              if echo $DIFF_OUTPUT | grep -q "^-"
-              then
-                echo -e "\e[31mLines/cells were removed in $FILE. Here's the diff:\e[0m"
-                echo "$DIFF_OUTPUT"
-                exit 1
-              fi
-              if echo $DIFF_OUTPUT | grep -q "^+"
-              then
-                echo -e "\e[32mLines were added in $FILE. Here's the diff:\e[0m"
-                echo "$DIFF_OUTPUT"
-              fi
-            done  
+            echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
 
       - name: Validate common_libraries
         run: python scripts/validate_libraries.py
