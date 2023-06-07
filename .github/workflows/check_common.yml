@@ -31,7 +31,7 @@ jobs:
           do
             if [[ $FILE != "common_libraries/*.tsv" && $FILE != "common_samples/*.tsv" ]]
             then
-              echo "Invalid file modified: $FILE"
+              echo -e "\e[31mInvalid file modified: $FILE\e[0m"
               ERROR=true
             fi
           done
