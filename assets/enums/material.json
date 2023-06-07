@@ -6,6 +6,14 @@
         "produced water",
         "oil field soil",
         "injected water",
-        "мarine sediment"
+        "мarine sediment", 
+        "seawater", 
+        "oil field production water", 
+        "bituminous sand", 
+        "petroleum", 
+        "oil contaminated soil", 
+        "oil sludge", 
+        "produced fluid", 
+        "clean water"
     ]
 }

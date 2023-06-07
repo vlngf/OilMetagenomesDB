@@ -4,6 +4,14 @@
     "formation brine",
     "oil well",
     "soil",
-    "мarine sediment cores",
+    "мarine sediment cores", 
+    "reservoir", 
+    "well", 
+    "ocean", 
+    "lake", 
+    "injection well", 
+    "production well", 
+    "subsurface oil sand", 
+    "flooded oil reservoir"
   ]
 }

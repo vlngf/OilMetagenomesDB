@@ -1,3 +1,6 @@
 {
-  "enum": ["PAIRED", "SINGLE"]
+  "enum": [
+    "paired",
+    "single"
+  ]
 }

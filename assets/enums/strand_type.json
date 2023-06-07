@@ -1,3 +1,7 @@
 {
-  "enum": ["single", "double", "unknown"]
+  "enum": [
+    "single", 
+    "double", 
+    "unknown"
+  ]
 }

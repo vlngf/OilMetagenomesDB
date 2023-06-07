@@ -1,0 +1,48 @@
+name: Data Validation
+
+on:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas jsonschema
+
+      - name: Check modified files
+        run: |
+          MODIFIED_FILES=$(git diff --name-only HEAD^ HEAD)
+          ERROR=false
+          for FILE in $MODIFIED_FILES
+          do
+            if [[ $FILE != "common_libraries/*.tsv" && $FILE != "common_samples/*.tsv" ]]
+            then
+              echo "Invalid file modified: $FILE"
+              ERROR=true
+            fi
+          done
+          if $ERROR
+          then
+            exit 1
+          fi
+          echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
+
+      - name: Validate common_libraries
+        run: python scripts/validate_libraries.py
+        if: contains(env.MODIFIED_FILES, 'common_libraries.tsv')
+
+      - name: Validate common_samples
+        run: python scripts/validate_samples.py
+        if: contains(env.MODIFIED_FILES, 'common_samples.tsv')
