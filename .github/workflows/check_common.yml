@@ -43,7 +43,6 @@ jobs:
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
             echo -e "\033[38;5;40mNo modified files except data\033[0m"
 
-
       - name: Validate common_libraries
         run: |
             export FILE_PATH=${{ github.workspace }}/common_libraries/common_libraries.tsv
