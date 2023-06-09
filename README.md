@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="image\git_img_top.png" width="250" height="100" />
+  <img src="assets\image\git_img_top.png" width="250" height="100" />
 </p>
 <h2 align="center">Community curated database of oil metagenomes</h2>
 
@@ -130,4 +130,3 @@ When filling in the data, each sample from the publication will get a new row. F
 * If latitude and longitude are not specified, if the publication has only a very approximate location (such as a region), then click in the center of that region and record the latitude and longitude to 2 decimal places only.
   * If only a country with no additional information is specified as a sample location, enter the coordinates of the middle of that particular country, but without the decimal places.
 * Be sure to record the correct archive_accession. Check out the README.md. These normally should be ‘SRA sample’ IDs (i.e. ERS or SRS for the ENA and NCBI SRA respectively), however please ask the coreteam if you are in doubt or have a different archive. Careful: You may have multiple ERS/SRS codes per sample as some people upload each library as a different ‘sample’. If this is the case be sure to include all the sample accessions comma separated list: ERRXXXX,ERRXXXXX,ERRXXXX. Always go with the sample accession rather than the run accession.
-
