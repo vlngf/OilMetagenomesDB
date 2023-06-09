@@ -46,11 +46,11 @@ jobs:
       - name: Validate common_libraries
         run: |
             export FILE_PATH=${{ github.workspace }}/common_libraries/common_libraries.tsv
-            python scripts/validate_libraries.py
+            python scripts/check_modified_libraries.py
         if: contains(env.MODIFIED_FILES, 'common_libraries.tsv')
 
       - name: Validate common_samples
         run: |
             export FILE_PATH=${{ github.workspace }}/common_samples/common_samples.tsv
-            python scripts/validate_samples.py
+            python scripts/check_modified_samples.py
         if: contains(env.MODIFIED_FILES, 'common_samples.tsv')
