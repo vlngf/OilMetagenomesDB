@@ -1,1 +1,1 @@
-assets/documentation/libraries/README.md
+[Link to libraries README](../assets/documentation/libraries/README.md)
