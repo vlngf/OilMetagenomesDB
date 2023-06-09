@@ -44,7 +44,7 @@ jobs:
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
             echo -e "\033[38;5;40mNo modified files except data\033[0m"
 
-      - name: Validate modified files
+      - name: Check old rows in modified common_libraries.tsv and common_samples.tsv
         run: |
             MODIFIED_FILES=(${{ env.MODIFIED_FILES }})
             for FILE in "${MODIFIED_FILES[@]}"
