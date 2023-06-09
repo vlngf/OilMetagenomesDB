@@ -17,8 +17,5 @@ merged = df_fork.merge(df_pr, how='outer', indicator=True)
 
 # Check if any of the old rows have been modified or deleted
 if (merged['_merge'] == 'left_only').any():
-    print("\033[31mOld rows in the common_samples.tsv have been modified or deleted\033[0m")
+    print("\033[31mOld rows in common_samples.tsv have been modified or deleted\033[0m")
     exit(1)
-
-# Everything is OK
-print("\033[92mNo old rows have been modified or deleted in common_samples.tsv\033[0m")
