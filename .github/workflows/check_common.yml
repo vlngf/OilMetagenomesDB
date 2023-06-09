@@ -40,7 +40,7 @@ jobs:
             then
               exit 1
             fi
-            MODIFIED_FILES=$(echo $MODIFIED_FILES | tr '\n' ',')
+            MODIFIED_FILES=$(echo $MODIFIED_FILES | tr '\n' ' ')
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
             echo -e "\033[38;5;40mNo modified files except data\033[0m"
 
