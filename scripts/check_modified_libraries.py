@@ -13,8 +13,7 @@ subprocess.run(["git", "checkout", "FETCH_HEAD", "--", os.environ["FILE_PATH"]])
 df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
 
 # Check if any of the old rows have been modified or deleted
-common = df_pr.merge(df_fork, how='inner')
-if not common.equals(df_fork):
+if not df_fork.isin(df_pr).all().all():
     print("Old rows in the file have been modified or deleted")
     exit(1)
 
