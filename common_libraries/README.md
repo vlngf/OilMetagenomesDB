@@ -1,1 +1,1 @@
-[README common_libraries](../../documentation/libraries)
+../../documentation/libraries/README.md
