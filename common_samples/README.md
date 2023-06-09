@@ -1,1 +1,1 @@
-..\assets\documentation\samples\README.md
+..\..\assets\documentation\samples\README.md
