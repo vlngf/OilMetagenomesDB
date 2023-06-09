@@ -1,1 +1,1 @@
-../../documentation/samples/README.md
+[Link to samples README](../assets/documentation/samples/README.md)
