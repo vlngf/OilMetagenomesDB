@@ -1,1 +1,1 @@
-../../documentation/libraries/README.md
+documentation/libraries/README.md
