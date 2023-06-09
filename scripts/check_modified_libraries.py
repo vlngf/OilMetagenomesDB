@@ -21,4 +21,5 @@ if (merged['_merge'] == 'left_only').any():
     exit(1)
 
 # Everything is OK
-print("\033[92mNo old rows have been modified or deleted\033[0m")
+print("\033[32mNo old rows have been modified or deleted in common_libraries.tsv\033[0m")
+
