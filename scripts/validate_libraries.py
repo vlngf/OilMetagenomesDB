@@ -1,29 +1,36 @@
-# validate_libraries.py
+import subprocess
+import os
 import pandas as pd
 import json
-from jsonschema import validate, Draft7Validator
-import os
+from jsonschema import validate, ValidationError
 
-def validate_libraries():
-    # Load the data
-    df = pd.read_csv(os.getenv('FILE_PATH'), sep='\t')
+# Путь к файлу
+file_path = os.environ["FILE_PATH_libraries"]
 
-    # Load the schema
-    with open('assets/commons/common_libraries.json') as f:
-        schema = json.load(f)
+# Загрузка данных после pull request
+after_pull = pd.read_csv(file_path, sep="\t")
 
-    # Convert the data to a list of dictionaries
-    data = df.to_dict(orient='records')
+# Получение файла до pull request
+subprocess.run(["git", "fetch", "origin", "main"])
+subprocess.run(["git", "checkout", "FETCH_HEAD", "--", file_path])
 
-    # Validate each record
-    v = Draft7Validator(schema)
-    errors = sorted(v.iter_errors(data), key=lambda e: e.path)
-    for error in errors:
-        print(error.message)
+# Загрузка данных до pull request
+before_pull = pd.read_csv(file_path, sep="\t")
 
-    assert not errors, "The common_libraries.tsv file does not match the schema"
-    
-    print("Validation of common_libraries.tsv against the schema was successful.")
-    
-if __name__ == "__main__":
-    validate_libraries()
+# Возврат к текущей версии файла
+subprocess.run(["git", "checkout", "--", file_path])
+
+# Находим строки, которые были добавлены
+new_rows = after_pull[~after_pull.isin(before_pull)].dropna()
+
+# Загрузка схемы JSON
+with open("assets/commons/common_libraries.json", "r") as file:
+    schema = json.load(file)
+
+# Валидация каждой новой строки
+for idx, row in new_rows.iterrows():
+    try:
+        validate(instance=row.to_dict(), schema=schema)
+        # print(f"Валидация прошла успешно для строки {idx}")
+    except ValidationError as e:
+        print(f"Ошибка в строке {idx}, колонка '{e.path[0]}', значение '{row[e.path[0]]}': {e.message}")

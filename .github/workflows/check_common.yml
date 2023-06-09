@@ -59,3 +59,11 @@ jobs:
                 echo -e "\033[38;5;40mNo old rows have been modified or deleted in common_samples.tsv\033[0m"
               fi
             done
+
+      - name: Check new rows in modified common_libraries.tsv and common_samples.tsv
+        run: |
+            python validate_libraries.py 
+            python validate_samples.py
+        env:
+          FILE_PATH_libraries: common_libraries/common_libraries.tsv
+          FILE_PATH_samples: common_samples/common_samples.tsv
