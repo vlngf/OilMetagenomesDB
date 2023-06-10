@@ -17,6 +17,11 @@ subprocess.run(["git", "checkout", "FETCH_HEAD", "--", file_path])
 # Загрузка данных до pull request
 before_pull = pd.read_csv(file_path, sep="\t")
 
+print("Таблица before_pull:")
+print(before_pull)
+print("Таблица after_pull:")
+print(after_pull)
+
 # Возврат к текущей версии файла
 subprocess.run(["git", "checkout", "--", file_path])
 
