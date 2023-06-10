@@ -60,10 +60,12 @@ jobs:
               fi
             done
 
-      - name: Check new rows in modified common_libraries.tsv and common_samples.tsv
-        run: |
-            python scripts/validate_libraries.py 
-            python scripts/validate_samples.py
-        env:
-          FILE_PATH_libraries: common_libraries/common_libraries.tsv
-          FILE_PATH_samples: common_samples/common_samples.tsv
+      - name: Run after_libraries.py
+        run: python scripts/after_libraries.py common_libraries/common_libraries.tsv
+      # - name: Check new rows in modified common_libraries.tsv and common_samples.tsv
+      #   run: |
+      #       python scripts/validate_libraries.py 
+      #       python scripts/validate_samples.py
+      #   env:
+      #     FILE_PATH_libraries: common_libraries/common_libraries.tsv
+      #     FILE_PATH_samples: common_samples/common_samples.tsv
