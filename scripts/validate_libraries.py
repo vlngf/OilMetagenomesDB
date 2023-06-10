@@ -26,7 +26,8 @@ print(after_pull)
 subprocess.run(["git", "checkout", "--", file_path])
 
 # Находим строки, которые были добавлены
-new_rows = after_pull[~after_pull.isin(before_pull)].dropna()
+merged = pd.merge(after_pull, before_pull, how='outer', indicator=True)
+new_rows = merged[merged['_merge'] == 'right_only']
 
 # Выводим новые строки
 print("Новые строки:")
