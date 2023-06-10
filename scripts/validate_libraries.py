@@ -3,10 +3,8 @@ import pandas as pd
 import json
 from jsonschema import validate, ValidationError
 
-# Путь к файлу до изменения
 before_file_path = os.environ["FILE_PATH_libraries"]
-# Путь к файлу после изменения
-after_file_path = os.environ["GITHUB_WORKSPACE"] + "/" + os.environ["FILE_PATH_libraries"]
+after_file_path = os.path.join(os.environ["GITHUB_WORKSPACE"], before_file_path)
 
 # Загрузка данных до изменения
 before_pull = pd.read_csv(before_file_path, sep="\t")
