@@ -1,11 +1,21 @@
 import pandas as pd
-import sys
+import os
+import subprocess
 
-if len(sys.argv) < 2:
-    print("Please provide the path to the TSV file as a command-line argument.")
-    sys.exit(1)
+# Load the file from the pull request
+df_pr = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
 
-tsv_path = sys.argv[1]
+# Fetch the version of the file when the fork was created
+subprocess.run(["git", "fetch", "origin", "main"])
+subprocess.run(["git", "checkout", "FETCH_HEAD", "--", os.environ["FILE_PATH"]])
 
-df = pd.read_csv(tsv_path, sep='\t')
-print(df)
+# Load the old file
+df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
+
+# Find the rows that are in the new file but not in the old file
+new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
+
+# Check if any new rows are found
+if not new_rows.empty:
+    print("\033[31mNew rows added to common_libraries.tsv:\033[0m")
+    print(new_rows)
