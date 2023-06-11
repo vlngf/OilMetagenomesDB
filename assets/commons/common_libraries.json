@@ -1,4 +1,48 @@
 {
+    "project_name":                  {"description": "Название проекта, в формате ФимилияАвтораГод", 
+                                      "example": "zilov2023", 
+                                      "possible_values": "Уникальное для статьи",
+                                      "type": "string", 
+                                      "required": true},
+
+    "publication_year":              {"description": "Год публикации, например 2023",
+                                      "example": "2023",
+                                      "possible_values": "-",
+                                      "type": "integer",
+                                      "required": true},
+
+    "publication_doi":               {"description": "Дои статьи, не должен содержать http://", 
+                                      "example": "10.1007/s00253-018-8766-2", 
+                                      "possible_values": "Уникальное для статьи",
+                                      "type": "string", 
+                                      "required": true,
+                                      "pattern": "^10.\\d{4,9}\\/[^,]+$"},
+
+    "sample_name":                   {"description": "Какую айдишку использовало исследование для этого семлпа.  Берем из статьи!! Если в статье нет- берем из NCBI", 
+                                      "example": "a1", 
+                                      "possible_values": "-",
+                                      "type": "string", 
+                                      "required": true},
+
+    "archive":                       {"description": "Архив в котором хранятся данные библиотеки", 
+                                      "example": "sra", 
+                                      "possible_values": "Прописано в enums",
+                                      "type": "string", 
+                                      "required": true,
+                                      "$ref": "assets/enums/archive.json"},
+          
+    "archive_project":               {"description": "Код проекта со всеми данными по образцам (PRJ). В статье может указываться код набора экспериментов (SRP), код эксперимента (SRX), код sample (SRS). Через эти обозначеня в NCBI можно найти код проекта", 
+                                      "example": "prjna604781, prjeb9855", 
+                                      "possible_values": "Уникальное для статьи",
+                                      "type": "string", 
+                                      "required": true},
+
+    "archive_accession":             {"description": "Код данных для sample, начинается SRS для SRA или ERS для ENA", 
+                                      "example": "srs5536770", 
+                                      "possible_values": "Уникально глобально",
+                                      "type": "string", 
+                                      "required": true},
+
     "library_name":                  {"description": "Лабораторное название секвенированной библиотеки", 
                                       "example": "16s5_samples_set", 
                                       "possible_values": "-",
