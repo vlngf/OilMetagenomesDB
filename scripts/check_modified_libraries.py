@@ -17,8 +17,8 @@ df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
 
 new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
 
-# Remove new_rows from df_fork
-df_fork = df_fork.drop(new_rows.index)
+# Remove new_rows from df_pr
+df_pr = df_pr.drop(new_rows.index)
 
 # Check if df_fork and df_pr are identical
 if not df_fork.equals(df_pr):
