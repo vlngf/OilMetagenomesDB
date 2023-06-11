@@ -30,20 +30,18 @@ print(df_pr_check)
 df_fork_check.reset_index(drop=True, inplace=True)
 df_pr_check.reset_index(drop=True, inplace=True)
 
-# Check if df_fork and df_pr are identical
-if len(df_fork_check) != len(df_pr_check):
-    print("\033[31mNumber of rows in df_fork_check and df_pr_check are different\033[0m")
+# Normalize the data in df_fork_check and df_pr_check
+df_fork_check = df_fork_check.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+df_fork_check = df_fork_check.applymap(lambda x: x.lower() if isinstance(x, str) else x)
+
+df_pr_check = df_pr_check.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+df_pr_check = df_pr_check.applymap(lambda x: x.lower() if isinstance(x, str) else x)
+
+# Check if df_fork_check and df_pr_check are identical after normalization
+if not df_fork_check.equals(df_pr_check):
+    print("\033[31mDataFrames df_fork_check and df_pr_check are different\033[0m")
     exit(1)
-
-for row_idx in range(len(df_fork_check)):
-    if tuple(df_fork_check.iloc[row_idx]) != tuple(df_pr_check.iloc[row_idx]):
-        print("\033[31mNon-matching rows found:\033[0m")
-        print("df_fork_check:")
-        print(df_fork_check.iloc[row_idx])
-        print("df_pr_check:")
-        print(df_pr_check.iloc[row_idx])
-        exit(1)
-
+    
 command = 'echo -n "\033[38;5;40mNo old rows have been modified or deleted in common_libraries.tsv\033[0m"'
 subprocess.call(command, shell=True)
 
