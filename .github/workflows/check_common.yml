@@ -44,7 +44,7 @@ jobs:
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
             echo -e "\033[38;5;40mNo modified files except data\033[0m"
 
-      - name: Check old rows in modified common_libraries.tsv and common_samples.tsv
+      - name: Check old rows in modified tsv; Validate jsonschema
         run: |
             MODIFIED_FILES=(${{ env.MODIFIED_FILES }})
             for FILE in "${MODIFIED_FILES[@]}"
@@ -59,16 +59,3 @@ jobs:
                 echo -e "\033[38;5;40mNo old rows have been modified or deleted in common_samples.tsv\033[0m"
               fi
             done
-            
-      - name: Check old rows in modified common_libraries.tsv
-        run: |
-            export FILE_PATH=${{ github.workspace }}/common_libraries/common_libraries.tsv
-            python scripts/after_libraries.py
-
-      # - name: Check new rows in modified common_libraries.tsv and common_samples.tsv
-      #   run: |
-      #       python scripts/validate_libraries.py 
-      #       python scripts/validate_samples.py
-      #   env:
-      #     FILE_PATH_libraries: common_libraries/common_libraries.tsv
-      #     FILE_PATH_samples: common_samples/common_samples.tsv
