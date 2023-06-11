@@ -29,7 +29,7 @@ subprocess.call(command, shell=True)
 new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
 
 # Вывод содержимого new_rows
-print("Содержимое new_rows:")
+print("\nСодержимое new_rows:")
 print(new_rows)
 
 schema_file = "assets/commons/common_libraries.json"
