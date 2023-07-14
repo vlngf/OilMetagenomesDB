@@ -17,7 +17,7 @@ df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
 
 # Check string uniqueness in df_fork
 if df_fork.duplicated().any():
-    print("Rows are not unique")
+    print("Rows are not unique in common_libraries.tsv")
     sys.exit(1)
 
 new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
