@@ -15,6 +15,11 @@ subprocess.run(["git", "checkout", "FETCH_HEAD", "--", os.environ["FILE_PATH"]])
 # Load the old file
 df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
 
+# Check string uniqueness in df_fork
+if df_fork.duplicated().any():
+    print("Rows are not unique")
+    sys.exit(1)
+
 new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
 
 df_fork_check = df_fork.copy()
