@@ -15,6 +15,11 @@ subprocess.run(["git", "checkout", "FETCH_HEAD", "--", os.environ["FILE_PATH"]])
 # Load the old file
 df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
 
+# Check string uniqueness in df_fork
+if df_fork.duplicated().any():
+    print("Rows are not unique in common_libraries.tsv")
+    sys.exit(1)
+
 # Merge the two DataFrames and create a new column '_merge' indicating where each row is from
 merged = df_fork.merge(df_pr, how='outer', indicator=True)
 
