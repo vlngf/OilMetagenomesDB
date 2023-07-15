@@ -20,7 +20,7 @@ if df_fork.duplicated().any():
     print("Rows are not unique in common_libraries.tsv")
     sys.exit(1)
 
-new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
+new_rows = df_pr.loc[df_pr.index[len(df_fork):]]
 
 df_fork_check = df_fork.copy()
 
