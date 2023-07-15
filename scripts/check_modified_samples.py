@@ -31,7 +31,7 @@ if (merged['_merge'] == 'left_only').any():
 command = 'echo -n "\033[38;5;40mNo old rows have been modified or deleted in common_samples.tsv\033[0m"'
 subprocess.call(command, shell=True)
 
-new_rows = df_pr[~df_pr.isin(df_fork)].dropna()
+new_rows = df_pr.loc[df_pr.index[len(df_fork):]]
 
 # Загрузка схемы JSON
 with open("assets/commons/common_samples.json", "r") as file:
