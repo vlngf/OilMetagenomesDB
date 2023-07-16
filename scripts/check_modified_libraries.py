@@ -71,12 +71,11 @@ errors_found = False  # Флаг для отслеживания наличия 
 
 for idx, row in new_rows.iterrows():
     try:
-        row_json = row.to_json(orient='index')
-        validate(instance=json.loads(row_json), schema=schema)
+        validate(instance=row.to_dict(), schema=schema)
         print(f"Валидация прошла успешно для строки {idx}")
     except ValidationError as e:
         errors_found = True
-        print(f"Ошибка в строке {idx}, колонка '{e.path[0]}', значение '{row[e.path[0]]}': {e.message}")
+        print(f"Ошибка в строке {idx}: {e.message}")
 
 # Проверка флага наличия ошибок
 if errors_found:
