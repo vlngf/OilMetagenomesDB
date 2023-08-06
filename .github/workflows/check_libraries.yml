@@ -1,0 +1,28 @@
+name: Check libraries
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Git reference'
+        required: false
+        default: 'main'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.ref }} # использует введенный ref или значение по умолчанию 'main'
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas jsonschema

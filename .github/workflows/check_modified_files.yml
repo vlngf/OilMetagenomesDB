@@ -1,4 +1,4 @@
-name: Data Validation
+name: Check modified files
 
 on:
   pull_request:
@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
             python -m pip install --upgrade pip
-            pip install pandas jsonschema
+            pip install pandas
 
       - name: Check modified files
         run: |
@@ -44,34 +44,26 @@ jobs:
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
             echo -e "\033[38;5;40mNo modified files except data\033[0m"
 
-      - name: Check old rows in modified tsv; Validate jsonschema
+      - name: Run check_samples.yml и/или check_libraries.yml
         run: |
             MODIFIED_FILES=(${{ env.MODIFIED_FILES }})
             for FILE in "${MODIFIED_FILES[@]}"
             do
-              if [[ $FILE == *"common_libraries.tsv"* ]]; then
+                if [[ $FILE == *"common_libraries.tsv"* ]]; then
                 export FILE_PATH=${{ github.workspace }}/$FILE
-                python scripts/check_modified_libraries.py
-              elif [[ $FILE == *"common_samples.tsv"* ]]; then
+                echo "Run check_libraries.yml workflow"
+                curl -X POST \
+                    -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+                    -H "Accept: application/vnd.github.v3+json" \
+                    "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/actions/workflows/check_libraries.yml/dispatches" \
+                    -d '{"ref":"main"}'
+                elif [[ $FILE == *"common_samples.tsv"* ]]; then
                 export FILE_PATH=${{ github.workspace }}/$FILE
-                python scripts/check_modified_samples.py
-              fi
+                echo "Run check_samples.yml workflow"
+                curl -X POST \
+                    -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+                    -H "Accept: application/vnd.github.v3+json" \
+                    "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/actions/workflows/check_samples.yml/dispatches" \
+                    -d '{"ref":"main"}'
+                fi
             done
-
-      - name: Save df_pr_check and df_fork_check as artifacts
-        uses: actions/upload-artifact@v2
-        with:
-         name: comparison-results
-         path: |
-            df_pr_check.csv
-            df_fork_check.csv
-        
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-         name: comparison-results
-         path: comparison-results
-    
-      - name: Compare CSV files
-        run: |
-            python scripts/compare_csv.py
