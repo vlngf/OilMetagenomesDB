@@ -50,19 +50,25 @@ jobs:
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
             echo -e "\033[38;5;40mNo modified files except data\033[0m"          
 
-      - name: Run check_libraries и/или check_samples
+      - name: Run jobs (check_libraries, check_samples)
         id: set-variable
         run: |
             MODIFIED_FILES=(${{ env.MODIFIED_FILES }})
             for FILE in "${MODIFIED_FILES[@]}"
             do
               if [[ $FILE == *"common_libraries.tsv"* ]]; then
+                export FILE_PATH_libraries=${{ github.workspace }}/$FILE
                 echo "::set-output name=variable_libraries::1"
               elif [[ $FILE == *"common_samples.tsv"* ]]; then
+                export FILE_PATH_samples=${{ github.workspace }}/$FILE
                 echo "::set-output name=variable_samples::1"
               fi
             done
-                
+      - name: Output variables
+        run: |
+            echo "FILE_PATH_libraries = $FILE_PATH_libraries"
+            echo "FILE_PATH_samples = $FILE_PATH_samples"
+    
   check_libraries:
     
     needs: precheck
@@ -70,11 +76,10 @@ jobs:
     if: needs.precheck.outputs.variable_libraries == '1'
 
     steps:
-
-      - name: Check libraries
-        run: |
-          echo "Run job check_libraries"
       
+      - name: Compare df_pr and df_fork
+        run: |
+            python scripts/compare_df.py
 
   check_samples:
 
