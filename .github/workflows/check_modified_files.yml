@@ -76,7 +76,7 @@ jobs:
     steps:
       - name: List files in /home/runner/work/OilMetagenomesDB/
         run: |
-            find /home/runner/work/OilMetagenomesDB/
+            python scripts/check_modified_libraries.py
 
   check_samples:
 
