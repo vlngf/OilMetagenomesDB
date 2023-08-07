@@ -75,7 +75,7 @@ jobs:
           
   job_libraries:
 
-    if: needs.precheck.outputs.variable_libraries == '1'
+    if: steps.precheck.outputs.variable_libraries == '1'
     runs-on: ubuntu-latest
 
     steps:
@@ -86,7 +86,7 @@ jobs:
 
   job_samples:
 
-    if: needs.precheck.outputs.variable_samples == '1'
+    if: steps.precheck.outputs.variable_samples == '1'
     runs-on: ubuntu-latest
 
     steps:
