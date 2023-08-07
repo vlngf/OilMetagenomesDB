@@ -22,7 +22,11 @@ jobs:
         run: |
             python -m pip install --upgrade pip
             pip install pandas
-
+            
+      - name: Check token availability
+        run: | 
+            echo "Token exists if following is true: ${{ !!secrets.GITHUB_TOKEN }}"
+          
       - name: Check modified files
         run: |
             MODIFIED_FILES=$(git diff --name-only origin/main...HEAD)
@@ -53,7 +57,7 @@ jobs:
                 export FILE_PATH=${{ github.workspace }}/$FILE
                 echo "Run check_libraries.yml workflow"
                 curl -X POST \
-                    -H "Authorization: Bearer ${{ secrets.TOKEN }}" \
+                    -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
                     -H "Accept: application/vnd.github.v3+json" \
                     "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/actions/workflows/check_libraries.yml/dispatches" \
                     -d '{"ref":"main"}'
@@ -61,7 +65,7 @@ jobs:
                 export FILE_PATH=${{ github.workspace }}/$FILE
                 echo "Run check_samples.yml workflow"
                 curl -X POST \
-                    -H "Authorization: Bearer ${{ secrets.TOKEN }}" \
+                    -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
                     -H "Accept: application/vnd.github.v3+json" \
                     "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/actions/workflows/check_samples.yml/dispatches" \
                     -d '{"ref":"main"}'
