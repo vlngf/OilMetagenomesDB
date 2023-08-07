@@ -33,7 +33,7 @@ jobs:
             echo "B is going to work"
           else
             echo "Skipping job B and go to c"
-            exit 0
+            return 0
           fi
       - name: Check run_job_b variable
         run: |
