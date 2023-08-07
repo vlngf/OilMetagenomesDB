@@ -9,13 +9,7 @@ jobs:
     outputs:
       variable: ${{ steps.set-variable.outputs.variable }}
     steps:
-    - name: Set variable
-      id: set-variable
-      run: echo "variable=1" > variable.txt
-    - name: Output variable
-      id: output-variable
-      run: echo "variable=$(cat variable.txt)" 
-      env:
-        variable: ${{ steps.set-variable.outputs.variable }}
-    - name: Print variable
-      run: echo ${{ steps.set-variable.outputs.variable }}
+    - name: Set and print variable
+      run: |
+        variable=1
+        echo "variable=$variable"
