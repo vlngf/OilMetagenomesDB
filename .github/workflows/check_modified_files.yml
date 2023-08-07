@@ -64,16 +64,14 @@ jobs:
                 echo "::set-output name=variable_samples::1"
               fi
             done
-      - name: Output variables
-        run: |
-            echo "FILE_PATH_libraries = $FILE_PATH_libraries"
-            echo "FILE_PATH_samples = $FILE_PATH_samples"
-    
+
   check_libraries:
     
     needs: precheck
     runs-on: ubuntu-latest
     if: needs.precheck.outputs.variable_libraries == '1'
+    env:
+        FILE_PATH: /home/runner/work/OilMetagenomesDB/OilMetagenomesDB/common_libraries.tsv
 
     steps:
       
