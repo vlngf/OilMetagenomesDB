@@ -33,9 +33,3 @@ print()
 # Вывод содержимого new_rows
 print("\nСодержимое new_rows:")
 print(new_rows)
-
-# Save df_pr_check to a CSV file
-df_pr_check.to_csv("df_pr_check.csv", index=False)
-
-# Save df_fork_check to a CSV file
-df_fork_check.to_csv("df_fork_check.csv", index=False)
