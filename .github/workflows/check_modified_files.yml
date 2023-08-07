@@ -53,20 +53,21 @@ jobs:
       - name: Run job_libraries и/или job_samples
         id: check_files
         run: |
-            echo "run_libraries=false" > run_libraries
-            echo "run_samples=false" > run_samples
             MODIFIED_FILES=(${{ env.MODIFIED_FILES }})
             for FILE in "${MODIFIED_FILES[@]}"
             do
               if [[ $FILE == *"common_libraries.tsv"* ]]; then
-                  echo "run_libraries=true" > run_libraries
+                echo "run_libraries=true" >> $GITHUB_ENV
               elif [[ $FILE == *"common_samples.tsv"* ]]; then
-                  echo "run_samples=true" > run_samples
+                echo "run_samples=true" >> $GITHUB_ENV
               fi
             done
-            echo "run_libraries=$(cat run_libraries)" >> $GITHUB_ENV
-            echo "run_samples=$(cat run_samples)" >> $GITHUB_ENV
-
+      - name: Set Outputs
+        id: set_outputs
+        run: |
+            echo "::set-output name=run_libraries::${{ env.run_libraries }}"
+            echo "::set-output name=run_samples::${{ env.run_samples }}"
+          
   job_libraries:
 
     needs: precheck
