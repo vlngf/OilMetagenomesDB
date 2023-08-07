@@ -1,49 +1,30 @@
-name: test
+name: Example Workflow
+
 on:
   workflow_dispatch:
+
 jobs:
   a:
-    name: a
     runs-on: ubuntu-latest
+    outputs:
+      variable: ${{ steps.set-variable.outputs.variable }}
     steps:
-      - run: echo "A"
-      - name: Set run_job_b variable
-        id: set
-        run: |
-          echo "run_job_b" >> run_job_b.txt
-      - name: Upload run_job_b artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: run_job_b
-          path: run_job_b.txt
+    - name: Set variable
+      id: set-variable
+      run: echo "variable=1" >> $GITHUB_ENV
 
   b:
-    name: b
     needs: a
     runs-on: ubuntu-latest
+    if: needs.a.outputs.variable == '1'
     steps:
-      - name: Download run_job_b artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: run_job_b
-      - name: Check run_job_b variable
-        run: |
-          VARIABLE=$(cat run_job_b.txt)
-          if [ "$VARIABLE" = "run_job_" ]; then
-            echo "B is going to work"
-          else
-            echo "Skipping job B and go to c"
-            exit 2
-          fi
-      - name: Check run_job_b variable
-        run: |
-          echo "B is working now"
+    - name: B is working
+      run: echo "b is working"
 
   c:
-    name: c
     needs: a
     runs-on: ubuntu-latest
+    if: needs.a.outputs.variable == '2'
     steps:
-      - name: Check c
-        run: | 
-          echo "C is working now"
+    - name: C is working
+      run: echo "c is working"
