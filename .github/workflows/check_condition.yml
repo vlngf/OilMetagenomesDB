@@ -10,25 +10,12 @@ jobs:
       - name: Set run_job_b variable
         id: set
         run: |
-          echo "yes" > run_job_b.txt
+          echo "run_job_b=yes" >> $GITHUB_ENV
 
   b:
     name: b
     needs: a
     runs-on: ubuntu-latest
+    if: ${{ env.run_job_b == 'yes' }}
     steps:
-      - name: Check if run_job_b.txt exists
-        id: check_file
-        run: |
-          if [ -f "run_job_b.txt" ]; then
-            echo "The file run_job_b.txt exists."
-          else
-            echo "The file run_job_b.txt does not exist."
-            exit 1
-          fi
-
-      - name: Run job B if file exists
-        if: steps.check_file.outcome == 'success'
-        run: |
-          echo "B"
-
+      - run: echo "B"
