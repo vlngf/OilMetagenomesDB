@@ -70,11 +70,9 @@ jobs:
     needs: precheck
     runs-on: ubuntu-latest
     if: needs.precheck.outputs.variable_libraries == '1'
-    env:
-        FILE_PATH: /home/runner/work/OilMetagenomesDB/OilMetagenomesDB/common_libraries.tsv
 
     steps:
-      - name: List files in /home/runner/work/OilMetagenomesDB/
+      - name: List files
         run: |
             python scripts/check_modified_libraries.py
 
