@@ -17,8 +17,12 @@ jobs:
     - name: Set output variables
       id: set-variable
       run: |
-        echo "variable_b=1" >> $GITHUB_PATH
-        echo "variable_c=2" >> $GITHUB_PATH
+        echo "variable_b=1" >> variable_b.txt
+        echo "variable_c=2" >> variable_c.txt
+    - name: Set outputs from files
+      run: |
+        echo "variable_b=$(cat variable_b.txt)" >> $GITHUB_ENV
+        echo "variable_c=$(cat variable_c.txt)" >> $GITHUB_ENV
 
   b:
     needs: a
