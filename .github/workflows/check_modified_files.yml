@@ -74,10 +74,9 @@ jobs:
         FILE_PATH: /home/runner/work/OilMetagenomesDB/OilMetagenomesDB/common_libraries.tsv
 
     steps:
-      
-      - name: Compare df_pr and df_fork
+      - name: List files in /home/runner/work/OilMetagenomesDB/
         run: |
-            python scripts/compare_df.py
+            ls /home/runner/work/OilMetagenomesDB/
 
   check_samples:
 
