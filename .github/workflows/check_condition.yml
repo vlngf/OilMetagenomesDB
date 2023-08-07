@@ -11,9 +11,11 @@ jobs:
       variable_c: ${{ steps.set-variable.outputs.variable_c }}
     steps:
     - name: Set and print variable
+      id: set-variable
       run: |
-        variable_b=1
-        variable_c=2
+        echo "::set-output name=variable_b::1"
+        echo "::set-output name=variable_c::2"
+        
   b:
     needs: a
     runs-on: ubuntu-latest
