@@ -8,13 +8,14 @@ jobs:
     steps:
       - run: echo "A"
       - name: Set run_job_b variable
+        id: set
         run: |
-          echo "run_job_b=yes" >> $GITHUB_ENV
+          echo "yes" > run_job_b.txt
 
   b:
     name: b
     needs: a
     runs-on: ubuntu-latest
-    if: env.run_job_b == 'yes'
+    if: ${{ fileExists('run_job_b.txt') }}
     steps:
       - run: echo "B"
