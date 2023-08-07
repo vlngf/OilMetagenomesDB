@@ -1,13 +1,19 @@
-name: Check modified files
+name: Data validation
 
 on:
   pull_request:
 
 jobs:
-  validate:
+
+  precheck:
+
     runs-on: ubuntu-latest
+    outputs:
+        run_libraries: ${{ steps.check_files.outputs.run_libraries }}
+        run_samples: ${{ steps.check_files.outputs.run_samples }}
 
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -22,10 +28,6 @@ jobs:
         run: |
             python -m pip install --upgrade pip
             pip install pandas
-            
-      - name: Check token availability
-        run: | 
-            echo "Token exists if following is true: ${{ !!secrets.WF_TOKEN }}"
           
       - name: Check modified files
         run: |
@@ -48,26 +50,41 @@ jobs:
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
             echo -e "\033[38;5;40mNo modified files except data\033[0m"
 
-      - name: Run check_samples.yml и/или check_libraries.yml
+      - name: Run job_libraries и/или job_samples
+        id: check_files
         run: |
             MODIFIED_FILES=(${{ env.MODIFIED_FILES }})
             for FILE in "${MODIFIED_FILES[@]}"
             do
-                if [[ $FILE == *"common_libraries.tsv"* ]]; then
-                export FILE_PATH=${{ github.workspace }}/$FILE
-                echo "Run check_libraries.yml workflow"
-                curl -X POST \
-                    -H "Authorization: Bearer ${{ secrets.WF_TOKEN }}" \
-                    -H "Accept: application/vnd.github.v3+json" \
-                    "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/actions/workflows/check_libraries.yml/dispatches" \
-                    -d '{"ref":"main"}'
-                elif [[ $FILE == *"common_samples.tsv"* ]]; then
-                export FILE_PATH=${{ github.workspace }}/$FILE
-                echo "Run check_samples.yml workflow"
-                curl -X POST \
-                    -H "Authorization: Bearer ${{ secrets.WF_TOKEN }}" \
-                    -H "Accept: application/vnd.github.v3+json" \
-                    "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/actions/workflows/check_samples.yml/dispatches" \
-                    -d '{"ref":"main"}'
-                fi
+              if [[ $FILE == *"common_libraries.tsv"* ]]; then
+                  echo "Run job_libraries"
+                  echo "::set-output name=run_libraries::true"
+              elif [[ $FILE == *"common_samples.tsv"* ]]; then
+                  echo "Run job_samples"
+                  echo "::set-output name=run_samples::true"
+              fi
             done
+
+  job_libraries:
+
+    needs: precheck
+    if: needs.precheck.outputs.run_libraries == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Install dependencies
+        run: |
+          echo "Run job_libraries"
+
+  job_samples:
+
+    needs: precheck
+    if: needs.precheck.outputs.run_libraries == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Install dependencies
+        run: |
+          echo "Run job_samples"
