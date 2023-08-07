@@ -76,7 +76,7 @@ jobs:
     steps:
       - name: List files in /home/runner/work/OilMetagenomesDB/
         run: |
-            ls /home/runner/work/OilMetagenomesDB/OilMetagenomesDB
+            find /home/runner/work/OilMetagenomesDB/
 
   check_samples:
 
