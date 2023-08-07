@@ -7,16 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "A"
-      - id: set
+      - name: Set run_job_b variable
         run: |
-          echo "::set-output name=run_job_b::yes"
-    outputs:
-      run_job_b: ${{ steps.set.outputs.run_job_b }}
+          echo "run_job_b=yes" >> $GITHUB_ENV
+
   b:
     name: b
+    needs: a
     runs-on: ubuntu-latest
-    needs:
-      - a
-    if: needs.a.outputs.run_job_b == 'yes'
+    if: env.run_job_b == 'yes'
     steps:
       - run: echo "B"
