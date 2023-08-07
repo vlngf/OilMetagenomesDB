@@ -16,6 +16,19 @@ jobs:
     name: b
     needs: a
     runs-on: ubuntu-latest
-    if: ${{ fileExists('run_job_b.txt') }}
     steps:
-      - run: echo "B"
+      - name: Check if run_job_b.txt exists
+        id: check_file
+        run: |
+          if [ -f "run_job_b.txt" ]; then
+            echo "The file run_job_b.txt exists."
+          else
+            echo "The file run_job_b.txt does not exist."
+            exit 1
+          fi
+
+      - name: Run job B if file exists
+        if: steps.check_file.outcome == 'success'
+        run: |
+          echo "B"
+
