@@ -51,6 +51,7 @@ jobs:
             echo -e "\033[38;5;40mNo modified files except data\033[0m"          
 
       - name: Run check_libraries и/или check_samples
+        id: set-variable
         run: |
             MODIFIED_FILES=(${{ env.MODIFIED_FILES }})
             for FILE in "${MODIFIED_FILES[@]}"
