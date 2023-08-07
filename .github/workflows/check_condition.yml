@@ -10,7 +10,7 @@ jobs:
       - name: Set run_job_b variable
         id: set
         run: |
-          echo "run_job_b=yes" >> run_job_b.txt
+          echo "run_job_b" >> run_job_b.txt
       - name: Upload run_job_b artifact
         uses: actions/upload-artifact@v2
         with:
@@ -29,7 +29,7 @@ jobs:
       - name: Check run_job_b variable
         run: |
           VARIABLE=$(cat run_job_b.txt)
-          if [ "$VARIABLE" = "yes" ]; then
+          if [ "$VARIABLE" = "run_job_b" ]; then
             echo "B"
           else
             echo "Skipping job B"
