@@ -16,7 +16,7 @@ jobs:
   b:
     needs: a
     runs-on: ubuntu-latest
-    if: needs.a.outputs.variable == '1'
+    if: needs.a.outputs.variable == 'variable=1'
     steps:
     - name: B is working
       run: echo "b is working"
