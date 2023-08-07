@@ -13,9 +13,11 @@ jobs:
     - name: Set and print variable
       id: set-variable
       run: |
-        echo "::set-output name=variable_b::1"
-        echo "::set-output name=variable_c::2"
-        
+        echo "variable_b=1" >> $GITHUB_ENV
+        echo "variable_c=2" >> $GITHUB_ENV
+        echo "variable_b=1" >> $GITHUB_OUTPUT_PATH
+        echo "variable_c=2" >> $GITHUB_OUTPUT_PATH
+
   b:
     needs: a
     runs-on: ubuntu-latest
@@ -27,7 +29,7 @@ jobs:
   c:
     needs: a
     runs-on: ubuntu-latest
-    if: needs.a.outputs.variable_c == '3'
+    if: needs.a.outputs.variable_c == '2'
     steps:
     - name: C is working
       run: echo "c is working"
