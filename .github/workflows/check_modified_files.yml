@@ -49,29 +49,33 @@ jobs:
             MODIFIED_FILES=$(echo $MODIFIED_FILES | tr '\n' ' ')
             echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
             echo -e "\033[38;5;40mNo modified files except data\033[0m"
+            
+      - name: Set initial values for variable_libraries and variable_samples
+        run: |
+            echo "variable_libraries=0" >> $GITHUB_ENV
+            echo "variable_samples=0" >> $GITHUB_ENV
 
       - name: Run job_libraries и/или job_samples
-        id: check_files
         run: |
             MODIFIED_FILES=(${{ env.MODIFIED_FILES }})
             for FILE in "${MODIFIED_FILES[@]}"
             do
               if [[ $FILE == *"common_libraries.tsv"* ]]; then
-                echo "run_libraries=true" >> $GITHUB_ENV
+                echo "variable_libraries=1" >> $GITHUB_ENV
               elif [[ $FILE == *"common_samples.tsv"* ]]; then
-                echo "run_samples=true" >> $GITHUB_ENV
+                echo "variable_samples=1" >> $GITHUB_ENV
               fi
             done
-      - name: Set Outputs
-        id: set_outputs
+          
+      - name: Print variable values
         run: |
-            echo "::set-output name=run_libraries::${{ env.run_libraries }}"
-            echo "::set-output name=run_samples::${{ env.run_samples }}"
+            echo "variable_libraries=${{ env.variable_libraries }}"
+            echo "variable_samples=${{ env.variable_samples }}"
+          
           
   job_libraries:
 
-    needs: precheck
-    if: needs.precheck.outputs.run_libraries == 'true'
+    if: needs.precheck.outputs.variable_libraries == '1'
     runs-on: ubuntu-latest
 
     steps:
@@ -82,8 +86,7 @@ jobs:
 
   job_samples:
 
-    needs: precheck
-    if: needs.precheck.outputs.run_samples == 'true'
+    if: needs.precheck.outputs.variable_samples == '1'
     runs-on: ubuntu-latest
 
     steps:
