@@ -10,13 +10,15 @@ jobs:
       variable_b: ${{ steps.set-variable.outputs.variable_b }}
       variable_c: ${{ steps.set-variable.outputs.variable_c }}
     steps:
-    - name: Set and print variable
-      id: set-variable
+    - name: Set variables
       run: |
         echo "variable_b=1" >> $GITHUB_ENV
         echo "variable_c=2" >> $GITHUB_ENV
-        echo "variable_b=1" >> $GITHUB_OUTPUT_PATH
-        echo "variable_c=2" >> $GITHUB_OUTPUT_PATH
+    - name: Set output variables
+      id: set-variable
+      run: |
+        echo "variable_b=1" >> $GITHUB_PATH
+        echo "variable_c=2" >> $GITHUB_PATH
 
   b:
     needs: a
