@@ -10,6 +10,10 @@ jobs:
       variable_b: ${{ steps.set-variable.outputs.variable_b }}
       variable_c: ${{ steps.set-variable.outputs.variable_c }}
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Set and print variable
       id: set-variable
       run: |
@@ -17,6 +21,9 @@ jobs:
         echo "::set-output name=variable_c::2"
     - name: Print working directory
       run: pwd
+    - name: Check script
+      run: |
+        python scripts/check_script.py
         
   b:
     needs: a
@@ -25,6 +32,9 @@ jobs:
     steps:
     - name: Print working directory
       run: pwd
+    - name: Check script
+      run: |
+        python scripts/check_script.py
   c:
     needs: a
     runs-on: ubuntu-latest
