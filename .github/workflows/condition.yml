@@ -21,9 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.a.outputs.variable_b == '1'
     steps:
-    - name: B is working
+    - name: Check PlatformIO
       run: |
-        python scripts/check_script.py
+        pio system info
 
   c:
     needs: a
