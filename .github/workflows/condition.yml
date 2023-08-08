@@ -15,16 +15,16 @@ jobs:
       run: |
         echo "::set-output name=variable_b::1"
         echo "::set-output name=variable_c::2"
+    - name: Print working directory
+      run: pwd
         
   b:
     needs: a
     runs-on: ubuntu-latest
     if: needs.a.outputs.variable_b == '1'
     steps:
-    - name: Check PlatformIO
-      run: |
-        pio system info
-
+    - name: Print working directory
+      run: pwd
   c:
     needs: a
     runs-on: ubuntu-latest
