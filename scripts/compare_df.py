@@ -5,6 +5,8 @@ import json
 from jsonschema import validate, ValidationError
 import sys
 
+print("it's working")
+
 # Fetch the version of the file when the fork was created
 subprocess.run(["git", "fetch", "origin", "main"])
 subprocess.run(["git", "checkout", "FETCH_HEAD", "--", os.environ["FILE_PATH"]])

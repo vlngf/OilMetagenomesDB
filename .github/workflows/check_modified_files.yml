@@ -72,9 +72,15 @@ jobs:
     if: needs.precheck.outputs.variable_libraries == '1'
 
     steps:
-      - name: List files
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Run script compare_df.py
         run: |
-            python scripts/check_modified_libraries.py
+            python scripts/compare_df.py
 
   check_samples:
 
