@@ -8,14 +8,14 @@ import sys
 print("it's working")
 
 # Load the file from the pull request
-df_pr = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
+df_pr = pd.read_csv(os.environ["/home/runner/work/OilMetagenomesDB/OilMetagenomesDB/common_libraries/common_libraries.tsv"], sep="\t")
 
 # Fetch the version of the file when the fork was created
 subprocess.run(["git", "fetch", "origin", "main"])
-subprocess.run(["git", "checkout", "FETCH_HEAD", "--", os.environ["FILE_PATH"]])
+subprocess.run(["git", "checkout", "FETCH_HEAD", "--", os.environ["/home/runner/work/OilMetagenomesDB/OilMetagenomesDB/common_libraries/common_libraries.tsv"]])
 
 # Load the old file
-df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
+df_fork = pd.read_csv(os.environ["/home/runner/work/OilMetagenomesDB/OilMetagenomesDB/common_libraries/common_libraries.tsv"], sep="\t")
 
 new_rows = df_pr.loc[df_pr.index[len(df_fork):]]
 
