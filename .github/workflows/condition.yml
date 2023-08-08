@@ -1,0 +1,34 @@
+name: Example Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  a:
+    runs-on: ubuntu-latest
+    outputs:
+      variable_b: ${{ steps.set-variable.outputs.variable_b }}
+      variable_c: ${{ steps.set-variable.outputs.variable_c }}
+    steps:
+    - name: Set and print variable
+      id: set-variable
+      run: |
+        echo "::set-output name=variable_b::1"
+        echo "::set-output name=variable_c::2"
+        
+  b:
+    needs: a
+    runs-on: ubuntu-latest
+    if: needs.a.outputs.variable_b == '1'
+    steps:
+    - name: B is working
+      run: |
+        python scripts/check_script.py
+
+  c:
+    needs: a
+    runs-on: ubuntu-latest
+    if: needs.a.outputs.variable_c == '2'
+    steps:
+    - name: C is working
+      run: echo "c is working"
