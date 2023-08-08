@@ -7,14 +7,15 @@ import sys
 
 print("it's working")
 
+# Load the file from the pull request
+df_pr = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
+
 # Fetch the version of the file when the fork was created
 subprocess.run(["git", "fetch", "origin", "main"])
 subprocess.run(["git", "checkout", "FETCH_HEAD", "--", os.environ["FILE_PATH"]])
 
 # Load the old file
 df_fork = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
-# Load the file from the pull request
-df_pr = pd.read_csv(os.environ["FILE_PATH"], sep="\t")
 
 new_rows = df_pr.loc[df_pr.index[len(df_fork):]]
 
@@ -40,7 +41,7 @@ comparison_result = df_pr_check.compare(df_fork_check)
 
 # Вывод различий
 if comparison_result.empty:
-    print("CSV files are identical")
+    print("CSV files are identical, let's continue validation")
 else:
     print("Differences between CSV files:")
     print(comparison_result)
