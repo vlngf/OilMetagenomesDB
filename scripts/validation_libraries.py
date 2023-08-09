@@ -29,6 +29,7 @@ df_pr_check = df_pr.drop(new_rows.index)
 # Print the content of the new rows added in the pull request
 print("\nContent of new_rows:")
 print(new_rows)
+print()
 
 # Compare the DataFrames of the pull request and the main branch
 comparison_result = df_pr_check.compare(df_fork_check)
