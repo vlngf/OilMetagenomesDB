@@ -6,6 +6,7 @@ from jsonschema import ValidationError
 import sys
 import re 
 import numpy as np
+import csv
 
 # Read the common_libraries.tsv from the pull request into a DataFrame
 df_pr = pd.read_csv(os.environ["LIBRARIES_PATH"], sep="\t")
@@ -100,3 +101,38 @@ if error_flag:
     sys.exit(1)
 else:
     print("\033[38;5;40mSuccessful validation of common_libraries.tsv\033[0m")
+
+# Все, что выше, правильно работает
+
+def convert_value(value):
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        try:
+            return float(value)
+        except (ValueError, TypeError):
+            return value
+
+def read_tsv_with_mixed_types(file_path, columns):
+    result = {col: [] for col in columns}
+
+    with open(file_path) as tsvfile:
+        data = csv.DictReader(tsvfile, delimiter="\t")
+
+        for row in data:
+            for col, check in columns.items():
+                if check:
+                    result[col].append(convert_value(row[col]))
+                else:
+                    result[col].append(row[col])
+
+columns_to_check = {
+    "publication_year": True,
+    "library_concentration": True,
+    "PCR_cycle_count": True,
+    "read_count": True,
+    "download_sizes": True,
+}
+
+data = read_tsv_with_mixed_types(new_rows, columns_to_check)
+print(data)
