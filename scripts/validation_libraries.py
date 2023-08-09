@@ -67,7 +67,8 @@ columns_to_remove = ["publication_year", "library_concentration", "PCR_cycle_cou
 columns = new_rows.columns.drop(columns_to_remove)
 
 # Replace NaN values with None in new_rows
-new_rows = new_rows.where((pd.notna(new_rows)), None)
+# new_rows = new_rows.where((pd.notna(new_rows)), None)
+new_rows = new_rows.replace('nan', None)
 
 # Define the path to the JSON schema files
 schemas_path = os.path.join(os.environ["GITHUB_WORKSPACE"], 'schemas_libraries')
