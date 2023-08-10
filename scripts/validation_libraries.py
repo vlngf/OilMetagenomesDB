@@ -92,45 +92,21 @@ for column in columns:
 # Print the final validation result, exit with an error code if any validation failed
 if error_flag:
     print("\033[31mFailed validation of common_libraries.tsv\033[0m")
-    # sys.exit(1)
 else:
     print("\033[38;5;40mSuccessful validation of common_libraries.tsv\033[0m")
 
 # Все, что выше, правильно работает
 
-def convert_value(value):
-    try:
-        converted_value = int(value)
-        return converted_value
-    except (ValueError, TypeError):
-        try:
-            converted_value = float(value)
-            if np.isnan(converted_value):
-                return None
-            return converted_value
-        except (ValueError, TypeError):
-            return value
+subprocess.run(["git", "checkout", "HEAD"])
 
-def process_dataframe_with_mixed_types(df, columns):
-    result = {col: [] for col in columns}
+data = pd.read_csv(os.environ["LIBRARIES_PATH"], sep='\t')
 
-    for _, row in df.iterrows():
-        for col, check in columns.items():
-            if check:
-                result[col].append(convert_value(row[col]))
-            else:
-                result[col].append(row[col])
+columns_to_validate = ['publication_year', 'library_concentration', 'PCR_cycle_count', 'read_count', 'download_sizes']
 
-    return result
-
-columns_to_check = {
-    "publication_year": True,
-    "library_concentration": True,
-    "PCR_cycle_count": True,
-    "read_count": True,
-    "download_sizes": True,
-}
-
-# Предполагая, что new_rows уже определен как датафрейм pandas
-data = process_dataframe_with_mixed_types(new_rows, columns_to_check)
-print(data)
+for index, row in data.iterrows():
+    for col in columns_to_validate:
+        value = row[col]
+        if '.' in str(value):
+            print(f"Value with dot found in row {index}, column {col}: {value}")
+        else:
+            print(f"Value without dot found in row {index}, column {col}: {value}")
