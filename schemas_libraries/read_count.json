@@ -6,7 +6,8 @@
             "description": "Сколько прочтений в файлах FASTQ. Находит парсер", 
             "example": "215326", 
             "possible_values": "-",
-            "type": "integer"
+            "type": "string",
+            "pattern": "^(\\d+)$"
         }
     }
 }

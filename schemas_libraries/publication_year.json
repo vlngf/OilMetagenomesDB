@@ -6,9 +6,8 @@
             "description": "Год публикации, например 2023",
             "example": 2023,
             "possible_values": "-",
-            "type": "integer",
-            "minimum": 1900,
-            "maximum": 2023
+            "type": "string",
+            "pattern": "^(19[0-9]{2}|20[0-2][0-9]|2023)$"
         }
     }
 }

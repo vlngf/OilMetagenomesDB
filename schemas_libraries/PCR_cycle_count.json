@@ -6,7 +6,7 @@
             "description": "Количество циклов ПЦР", 
             "example": "25", 
             "possible_values": "-",
-            "type": ["integer", "null"],
+            "type": "string",
             "pattern": "^(\\d+|None)$"
         }
     }
