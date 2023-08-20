@@ -1,6 +1,5 @@
 import pandas as pd
-import numpy as np
-import os, sys, re, json, subprocess
+import os, sys, json, subprocess
 from jsonschema import validate, ValidationError
 
 # Read the DataFrame used for comparison purposes
