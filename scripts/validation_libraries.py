@@ -77,3 +77,5 @@ print(formatted_output)
 if error_value:
     print("\033[31mInvalid values found\033[0m")
     exit(1)
+else:
+    print("\033[38;5;40mNo invalid values found\033[0m")
