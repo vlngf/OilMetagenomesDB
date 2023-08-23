@@ -52,32 +52,7 @@ All column with 'defined categories' should be validated against
 
 If you wish to a new category, please consult with the [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab), and then add it to `assets/enums/<column>.json`.
 
-Sample columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/documentation/samples)):
-* project name
-* publication year
-* data publication doi
-* site name
-* latitude
-* longitude
-* geo loc name
-* study  primary focus
-* sequence  name
-* depth
-* temprature
-* pH
-* salinity
-* nitrate ions
-* phosphate ions
-* sulfate ions
-* Ca2+
-* Mg2+
-* sample name
-* feature
-* material
-* sampling date
-* archive
-* archive project
-* archive accession
+Sample columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/assets/documentation/samples)):
 
 ## Libraries Column Specifications
   The LIBRARIES tables store information about each specific reed from the library - id_ in databases, sequencing type (paired-end, single-end), sequencing strategy (WGS, RNA-Seq, amplicon), links to downloads and publications, etc.
@@ -93,31 +68,7 @@ libraries sequenced on Illumina NextSeq 500s are listed as `NextSeq 500` (as
 defined in `assets/enums/instrument_models.json`). This is to ensure data
 consistency.
 
-If you wish to a new category, please make a separate pull-request with your
-modification in the corresponding `assets/enums/<column>.json` file.
-
-Library columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/documentation/libraries)):
-* project name
-* publication year
-* data publication doi
-* sample name
-* archive
-* archive project
-* archive sample accession
-* library name
-* strand type
-* library polymerase
-* library treatment
-* library concentration
-* instrument model
-* library layout
-* library strategy
-* amplicon variable region
-* read count
-* archive data accession
-* download links
-* download md5s
-* download sizes
+Library columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/assets/documentation/libraries)):
 
 ## Contributing
 Samples added to the OilMetagenomeDB should come from published studies. Samples should also be available in publicly accessible databases (e.g., EBI ENA or NCBI SRA).
