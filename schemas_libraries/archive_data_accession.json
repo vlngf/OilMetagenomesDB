@@ -2,5 +2,6 @@
     "description": "The result of the SRR experiment", 
     "example": "srr7754480", 
     "possible_values": "Unique to the archive",
+    "type": "string",
     "pattern": "^(srr)\\d+"
 }

@@ -1,5 +1,5 @@
 {
-    "description": "DOI of the article, must not contain http://",
+    "description": "DOI of the article",
     "example": "10.1007/s00253-018-8766-2",
     "possible_values": "Unique to the article",
     "type": "string",

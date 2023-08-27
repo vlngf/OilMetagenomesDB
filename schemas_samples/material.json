@@ -1,7 +1,7 @@
 {
     "description": "The type of sample from which bacterial dna was isolated",
     "example": "oil field production water",
-    "possible_values": "Registered in enums",
+    "possible_values": "Registered in enum",
     "type": "string",
     "enum": ["filtered produced water from oil",
              "water and oil",

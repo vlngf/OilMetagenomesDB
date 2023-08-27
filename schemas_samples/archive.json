@@ -1,7 +1,7 @@
 {
     "description": "The archive where the library data is stored", 
     "example": "sra", 
-    "possible_values": "Registered in enums",
+    "possible_values": "Registered in enum",
     "type": "string", 
     "enum": ["ena",
              "sra",
