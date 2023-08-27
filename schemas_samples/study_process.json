@@ -1,7 +1,7 @@
 {
     "description": "The biochemical process that is studied in the article",
     "example": "bioremediation",
-    "possible_values": "Registered in enums",
+    "possible_values": "Registered in enum",
     "type": "string",
     "enum": ["bioremediation", 
              "meor", 
