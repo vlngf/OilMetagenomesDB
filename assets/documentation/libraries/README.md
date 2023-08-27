@@ -6,7 +6,7 @@ This page describes columns definitions for all library-level lists. Icons indic
 
 Library columns are as follows:
 
-| Feature | <div style="width:300px">Description</div> | Example | Possible values | Type, pattern, enum |
+| Feature | Description | Example | Possible values | Type, pattern, enum |
 | :---: | :---: | :---: | :---: | :---: |
 | project_name | Name of the project, <br> AuthorYear format | Zilov2023 | Unique to the article | "type": "string", <br> "pattern": "\^[A-Z][a-z]+\\\d{4}$" |
 | publication_year | Year of publication, <br> YYYY format | 2023 | Unique to the article | "type": "string", <br> "pattern": "^(19[0-9]{2}\|20[0-2][0-9]\|2023)$" |
