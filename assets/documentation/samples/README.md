@@ -1,228 +1,40 @@
 # OilMetagenomesDB - Samples Column Specifications
 
-This page describes columns definitions for all sample-level lists. Icons indicate columns
-that are specific to specific columns.
-
-- 🏞: oilfield environmental metagenomes
-- 🦠: crude oil metagenomes
-
-Numeric and text fields must be filled in with `None` to indicate 'value not reported'.
-
-All column with 'defined categories' should be validated against
-`assets/enums/<column>.json`. This is to ensure data consistency. E.g., all
-libraries sequenced on Illumina NextSeq 500s are listed as `NextSeq 500` (as
-defined in `assets/enums/instrument_models.json`). This is to ensure data
-consistency.
-
-🤝 If you wish to a new category, please make a separate pull-request with your
-modification in the corresponding `assets/enums/<column>.json` file.
-
-Samples columns are as follows:
-
-## project_name
-
-:heavy_check_mark: Must correspond to a `project_name` in the corresponding sample metadata
-  table
-
-- Format: `SurnameYYYY` (YYYY in numeric format)
-- Due to restrictions in regex (used for validation checks), **punctuation (e.g.
-  hyphens or spaces) or characters with accents cannot be used**.
-  - Use the non-accented version (e.g. ã or ä become a).
-  - If the first author has multiple or hyphenated surnames, write them all
-    together capitalising each surname.
-- If a same author/year combination already exists, please append a single lower
-  case character (`b`, `c`, `d` etc.) to the key.
-  - The already existing key does not need to be updated. `b` indicates the
-    'second' key added.
-  - e.g. SurnameYYYY (original), SurnameYYYYb (first duplicate),
-    SurnameYYYYc (second duplicate) etc.
-
-> ⚠️ [MIxS v5](https://gensc.org/mixs/) compliant field
-
-> ⚠️ Mandatory value
-
-## publication_year
-
-:heavy_check_mark: Must correspond to the `publication_year` of the publication in the
-  corresponding libraries metadata table!
-
-- YYYY format.
-
-> ⚠️ Mandatory value
-
-## publication_doi
-
-:heavy_check_mark: Must correspond to the `publication_doi` of the publication in the
-  corresponding libraries metadata table!
-
-- Publication DOI.
-
-> ⚠️ Mandatory value
-
-## site_name
-
-- Сorresponds to the specific location where the sample was collected
-- As reported in publication
-- Accents are allowed
-- Missing name: `None`
-
-## latitude
-
-- Decimal format
-- Maximum three decimals
-- In WGS84 projection (coordinates taken from Google Maps is recommended, range
-  90 to -90)
-- Can be searched in wider literature, rough location is acceptable but use
-  fewer decimals
-- Missing value: `None`
-
-## longitude
-
-- Decimal format
-- Maximum three decimals
-- In WGS84 projection (coordinates taken from Google Maps is recommended, range
-  180 to -180)
-- Can be searched in wider literature, rough location is acceptable but use
-  fewer decimals
-- Missing value: `None`
-
-## geo_loc_name
-
-- Based on modern day definitions
-- Must be based on [INDSC Country list](http://www.insdc.org/country.html)
-- Missing name: `None`
-
-> ⚠️ [MIxS v5](https://gensc.org/mixs/) compliant field
-
-Must follow categories specified in `assets/enums/<column>.json`
-
-> ⚠️ Mandatory value
-
-## study_primary_focus
-
-- What area of research was the focus of the study
-- These are generalised categories such as 'ecological', or 'industrial',
-  with a combination of those (in that order) also allowed.
-
-> ⚠️ this does NOT necessarily imply that the data can only be used for
-> the same purposes. This column is only to facilitate faster bibliographic
-> review for equivalent dataset generation
-
-## sequence_name
-
-- Sediment cores only
-- Identifier for sequence sample was taken from, e.g. core_3, or zone_a19
-- Typically cores, or quadrant/square of excavation
-- Missing value: `None`
-
-## depth
-
-- Depth of sample from top of sequence (m)
-- If reported as a range (e.g. 130-132 m), take approximate mid-point
-- Use `None` if not a sequence (e.g. from surface of an open site)
-
-## sample_name
-
-:heavy_check_mark: Must correspond to the `sample_name` of the publication in the corresponding
-  libraries metadata table.
-
-- Unique identifier for that sample as used in publication
-  - If samples are referred to by multiple names, use the most informative
-
-> ⚠️ Mandatory value
-
-## feature
-
-- Description of the object, site, or immediate environment the sample was obtained from, following [Environment
-  Ontology](https://www.ebi.ac.uk/ols/ontologies/envo)
-  - e.g. ocean, lake, oilfield
-
-> ⚠️ partly [MIxS v5](https://gensc.org/mixs/) compliant field, following
-
-Must follow categories specified in `assets/enums/<column>.json`
-
-> ⚠️ Mandatory value
-
-## material
-
-- Sample type DNA was extracted from
-  - e.g. water, мarine sediment, soil
-
-> ⚠️ Partly [MIxS v5](https://gensc.org/mixs/) compliant field, i.e. term
-> [UBERON](https://www.ebi.ac.uk/ols/ontologies/uberon) (anatomy) or
-> [ENVO](https://www.ebi.ac.uk/ols/ontologies/envo) (everything else). If you
-> can't find something close enough, please write [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab)
-
-Must follow categories specified in `assets/enums/<column>.json`
-
-> ⚠️ Mandatory value
-
-## sampling_date
-
-- Year of sampling of (sub-)sample for DNA analysis in YYYY format
-- Missing value: `None`
-
-> ⚠️ [MIxS v5](https://gensc.org/mixs/) compliant field
-
-## archive
-
-:heavy_check_mark: In most cases should correspond to the `archive` of the publication in the
-  corresponding libraries metadata table!
-
-- The archive the library's data is stored on.
-  - Should be an established long-term stable archive.
-  - Generally set up academic institutions e.g. EBI or Universities (rather than
-    companies, e.g. GitHub).
-- e.g. [ENA](https://www.ebi.ac.uk/ena),
-  [SRA](https://www.ncbi.nlm.nih.gov/sra).
-- In some cases this will vary, for example if there IS an ERS code, however
-  only consensus sequences are uploaded
-
-Must follow categories specified in `assets/enums/<column>.json`
-
-> ⚠️ Mandatory value
-
-## archive_project
-
-:heavy_check_mark: Must correspond to the `archive_project` of the publication in the
-  corresponding libraries metadata table!
-
-- A project level accession code under which all samples of a project are assigned to
-- Specific examples:
-  - Archive: ENA/SRA/DDBJ: should be _primary_ accession code beginning with `PRJ`. [Example](https://www.ebi.ac.uk/ena/browser/view/PRJNA438985).
-
-- Missing value: `None`
-
-## archive_accession
-
-:heavy_check_mark: Must correspond to the sample `archive_accession` of the publication in the
-  corresponding libraries metadata table!
-
-- Should be a single accession ID.
-- For ENA/SRA: These should be **secondary** accession IDs to keep as close to
-  data as possible (e.g. SRS, ERS, not SAMEA - see below)
-- If non-NCBI/ENA, use as close to sample-level as possible
-  - e.g. for Dryad/Figshare, use the numeric ID after 'file_steam' in the per-file download URL
-- Multiple can be separated with commas
-  - e.g. when different extracts of one sample incorrectly uploaded as samples
-
-> ⚠️ Mandatory value
-
-<details>
-  <summary>Expand to show location of ERS codes on ENA</summary>
-  
-  ![Location of ERS
-  codes](../images/tutorials/spaam-AncientMetagenomeDir_ena_ers_location.png)
-  
-  Select the 'secondary_sample_accesion' and 'sample_alias' columns.
-
-</details>
-<details>
-  <summary>Expand to show location of SRS codes on SRA</summary>
-
-![Location of ERS
-  codes](../images/tutorials/spaam-AncientMetagenomeDir_sra_srs_location.png)
-
-The SRS code is to the left of the SAMEA-like code under the **sample:** field
-
-</details>
+This page describes columns definitions for all sample-level lists. 
+
+Sample columns are as follows:
+
+| Feature | Description | Example | Possible values | Type, pattern, enum |
+| :---: | :---: | :---: | :---: | :---: |
+| project_name | Name of the project, <br> AuthorYear format | Zilov2023 | Unique to the article | "type": "string", <br> "pattern": "\^[A-Z][a-z]+\\\d{4}$" |
+| publication_year | Year of publication, <br> YYYY format | 2023 | Unique to the article | "type": "string", <br> "pattern": "^(19[0-9]{2}\|20[0-2][0-9]\|2023)$" |
+| publication_doi | Doi articles | 10.1007/s00253-018-8766-2 | Unique to the article | "type": "string", <br> "pattern": "^10\\\\.\\\d{4,9}\\\\/[^,]+$" |
+| oil_reservoir | The name of the oil field should be written in the article or found by coordinates | romashkinskoe | Unique to the article | "type": "string", <br> "pattern": "^([^A-Z]*\|None)$" |
+| oil_wells | The ID of the well in the article | A1 | Unique to the article | "type": "string", <br> "pattern": "^([^A-Z]*\|None)$" |
+| latitude | The latitude at which the sample was taken | 1000.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| longitude | The longitude at which the sample was taken | 1000.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| geo_loc_name | The country where the well/field is located, from where samples were taken for analysis | usa | Registered in enum | [enum](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/geo_loc_name.json) |
+| study_primary_focus | The focus of the research in the article | ecology | Registered in enum | [enum](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/study_primary_focus.json) |
+| study_process | The biochemical process that is studied in the article | bioremediation | Registered in enum | [enum](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/study_process.json) |
+| depth | Sampling depth in meters | 1000.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| temp | Temperature in Celsius | 100.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| pH | Sample acidity | 10.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| salinity | Specify in ppt, if 10% is specified, write 100; <br> 1 ppt = 1000 mg/l | 0.5 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| API | Specify in API units. <br> For example: 0.932 g/cm3 = 932 kg/m3 =20 API | 20 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\|None)$" |
+| NO3- | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| PO43- | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| SO42- | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| Ca2+ | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| Mg2+ | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| Na+ | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| K+ | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| Cl- | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| HCO3- | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| acetate | We specify in mg/l | 5.0 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None)$" |
+| sample_name | What kind of ID was used by the study for this sample. <br> We take it from the article. If not in the article, we take it from NCBI | a1 | Unique to the article | "type": "string", <br> "pattern": "\^[^A-Z]*$" |
+| feature | Description of the medium from which the sample was obtained | reservoir | Registered in enum | [enum](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/feature.json) |
+| material | The type of sample from which bacterial dna was isolated | oil field production water | Registered in enum | [enum](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/material.json) |
+| collection_date | Date of sample collection | 2020 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\|None)$" |
+| archive | The archive where the library data is stored | sra | Registered in enum | [enum](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/archive.json) |
+| archive_project | Project code with all sample data (PRJ). The article may specify the code of a set of experiments (SRP), experiment code (SRX), sample code (SRS). <br> Through these designations in NCBI, you can find the project code | prjna604781 | Unique to the article | "type": "string", <br> "pattern": "^(prj\|srp\|srx\|srs)[a-z]*\\\d+$" |
+| archive_accession | Data code for sample, <br> starts SRS for SRA or ERS for ENA | srs5536770 | Unique globally | "type": "string", <br> "pattern": "^(srs\|ers)\\\d+$" |

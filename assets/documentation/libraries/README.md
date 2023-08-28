@@ -1,6 +1,6 @@
 # OilMetagenomesDB - Libraries Column Specifications
 
-This page describes columns definitions for all library-level lists. Icons indicate columns that are specific to specific columns.
+This page describes columns definitions for all library-level lists.
 
 Library columns are as follows:
 
