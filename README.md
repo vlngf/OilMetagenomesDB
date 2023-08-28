@@ -10,8 +10,9 @@
   [![github-license](https://img.shields.io/github/license/agni-bioinformatics-lab/OilMetagenomesDB?style=social&logo=github)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB)
 
 </div>
- 
-:octocat: Community curated database of the metagenome of oil and oil fields🛢️🦠
+
+<a name="top"></a>
+Community :octocat: curated database of the metagenome of oil and oil fields🛢️🦠
 
 + [Description](#description)
 + [Usage](#usage)
@@ -39,8 +40,11 @@ Basic commands for the command line:
 * `git push` - update the GitHub repository
  
 If you find dataset validation errors or think of a new dataset validation, then write me @rakhmanovtr 
- 
-## Samples Column Specifications
+
+<span id="samples-column-specifications"></span>
+## Samples Column Specifications [![Up](assets\image\git_img_up.png)](#top)
+
+
 The SAMPLE tables stores information about the sample, its type, date of collection, geographic coordinates, depth of sample extraction, etc.
 
 - 🏞: oilfield environmental metagenomes
@@ -55,7 +59,8 @@ If you wish to a new category, please consult with the [agni-bioinformatics-lab]
 
 Sample columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/assets/documentation/samples)):
 
-## Libraries Column Specifications
+<span id="libraries-column-specifications"></span>
+## Libraries Column Specifications [![Up](assets\image\git_img_up.png)](#top)
   The LIBRARIES tables store information about each specific reed from the library - id_ in databases, sequencing type (paired-end, single-end), sequencing strategy (WGS, RNA-Seq, amplicon), links to downloads and publications, etc.
 
 - 🏞: oilfield environmental metagenomes
@@ -71,12 +76,14 @@ consistency.
 
 Library columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/assets/documentation/libraries)):
 
-## Contributing
+<span id="contributing"></span>
+## Contributing [![Up](assets\image\git_img_up.png)](#top)
 Samples added to the OilMetagenomeDB should come from published studies. Samples should also be available in publicly accessible databases (e.g., EBI ENA or NCBI SRA).
 
 When filling in the data, each sample from the publication will get a new row. For guidance on what information to add to each column see the README.md for a handy guide.
 
-### Some tips
+<span id="some-tips"></span>
+### Some tips [![Up](assets\image\git_img_up.png)](#top)
 * Do not add spaces at the end of data entries, for example the "geo_loc_name" column is checked against a predetermined list of countries, so if you type “Netherlands ” rather than just “Netherlands” they’ll be an issue as it won’t match.
 * To check the columns that must match a predefined list, see enums
 * If latitude and longitude are not specified, if the publication has only a very approximate location (such as a region), then click in the center of that region and record the latitude and longitude to 2 decimal places only.
