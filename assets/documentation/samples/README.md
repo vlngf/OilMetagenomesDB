@@ -1,7 +1,5 @@
 # OilMetagenomesDB - Samples Column Specifications
 
-![check_dataset paasing](https://img.shields.io/badge/check__dataset-passing-brightgreen)
-
 This page describes columns definitions for all sample-level lists. Icons indicate columns
 that are specific to specific columns.
 
