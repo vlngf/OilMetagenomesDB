@@ -13,12 +13,12 @@
  
 :octocat: Community curated database of the metagenome of oil and oil fields🛢️🦠
 
-+ [Description](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#description)
-+ [Usage](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#usage)
-+ [Samples Column Specifications](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#samples-column-specifications)
-+ [Libraries Column Specifications](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#libraries-column-specifications)
-+ [Contributing](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#contributing)
-  + [Some tips](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/README.md#some-tips)
++ [Description](#description)
++ [Usage](#usage)
++ [Samples Column Specifications](#samples-column-specifications)
++ [Libraries Column Specifications](#libraries-column-specifications)
++ [Contributing](#contributing)
+  + [Some tips](#some-tips)
   
 ## Description
 This list contains information on crude oil metagenome and environmental metagenome in oil fields. Here you can find the name of publications, years of publications, DOI, type of samples, geographic location of sample collection, and associated conditions.
