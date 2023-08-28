@@ -24,7 +24,8 @@ Community :octocat: curated database of the metagenome of oil and oil fields🛢
 ## Description
 This list contains information on crude oil metagenome and environmental metagenome in oil fields. Here you can find the name of publications, years of publications, DOI, type of samples, geographic location of sample collection, and associated conditions.
 
-## Usage
+<span id="usage"></span>
+## Usage [![Up](assets/image/git_img_up.png)](#top)
 To download the latest stable version of the OilMetagenomeDB example list and add data, follow these steps:
 1. Go to the OilMetagenomeDB repository;
 2. Copy the SSH key in the "<> Code" tab;
@@ -42,8 +43,7 @@ Basic commands for the command line:
 If you find dataset validation errors or think of a new dataset validation, then write me @rakhmanovtr 
 
 <span id="samples-column-specifications"></span>
-## Samples Column Specifications [![Up](assets\image\git_img_up.png)](#top)
-
+## Samples Column Specifications [![Up](assets/image/git_img_up.png)](#top)
 
 The SAMPLE tables stores information about the sample, its type, date of collection, geographic coordinates, depth of sample extraction, etc.
 
@@ -60,7 +60,7 @@ If you wish to a new category, please consult with the [agni-bioinformatics-lab]
 Sample columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/assets/documentation/samples)):
 
 <span id="libraries-column-specifications"></span>
-## Libraries Column Specifications [![Up](assets\image\git_img_up.png)](#top)
+## Libraries Column Specifications [![Up](assets/image/git_img_up.png)](#top)
   The LIBRARIES tables store information about each specific reed from the library - id_ in databases, sequencing type (paired-end, single-end), sequencing strategy (WGS, RNA-Seq, amplicon), links to downloads and publications, etc.
 
 - 🏞: oilfield environmental metagenomes
@@ -77,13 +77,13 @@ consistency.
 Library columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/assets/documentation/libraries)):
 
 <span id="contributing"></span>
-## Contributing [![Up](assets\image\git_img_up.png)](#top)
+## Contributing [![Up](assets/image/git_img_up.png)](#top)
 Samples added to the OilMetagenomeDB should come from published studies. Samples should also be available in publicly accessible databases (e.g., EBI ENA or NCBI SRA).
 
 When filling in the data, each sample from the publication will get a new row. For guidance on what information to add to each column see the README.md for a handy guide.
 
 <span id="some-tips"></span>
-### Some tips [![Up](assets\image\git_img_up.png)](#top)
+### Some tips [![Up](assets/image/git_img_up.png)](#top)
 * Do not add spaces at the end of data entries, for example the "geo_loc_name" column is checked against a predetermined list of countries, so if you type “Netherlands ” rather than just “Netherlands” they’ll be an issue as it won’t match.
 * To check the columns that must match a predefined list, see enums
 * If latitude and longitude are not specified, if the publication has only a very approximate location (such as a region), then click in the center of that region and record the latitude and longitude to 2 decimal places only.
