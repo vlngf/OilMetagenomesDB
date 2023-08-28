@@ -5,9 +5,10 @@
 
 <div align="center">
   
-  ![check_dataset paasing](https://img.shields.io/badge/check__dataset-passing-brightgreen)
-  ![Latest Release](https://img.shields.io/badge/Latest__Release-v0.1-orange)
-  
+  [![github-watchers](https://img.shields.io/github/watchers/agni-bioinformatics-lab/OilMetagenomesDB?label=Watch&style=social&logo=github)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB)
+  [![github-stars](https://img.shields.io/github/stars/agni-bioinformatics-lab/OilMetagenomesDB?style=social&logo=github)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB)
+  [![github-license](https://img.shields.io/github/license/agni-bioinformatics-lab/OilMetagenomesDB?style=social&logo=github)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB)
+
 </div>
  
 :octocat: Community curated database of the metagenome of oil and oil fields🛢️🦠
@@ -81,11 +82,3 @@ When filling in the data, each sample from the publication will get a new row. F
 * If latitude and longitude are not specified, if the publication has only a very approximate location (such as a region), then click in the center of that region and record the latitude and longitude to 2 decimal places only.
   * If only a country with no additional information is specified as a sample location, enter the coordinates of the middle of that particular country, but without the decimal places.
 * Be sure to record the correct archive_accession. Check out the README.md. These normally should be ‘SRA sample’ IDs (i.e. ERS or SRS for the ENA and NCBI SRA respectively), however please ask the coreteam if you are in doubt or have a different archive. Careful: You may have multiple ERS/SRS codes per sample as some people upload each library as a different ‘sample’. If this is the case be sure to include all the sample accessions comma separated list: ERRXXXX,ERRXXXXX,ERRXXXX. Always go with the sample accession rather than the run accession.
-
-| Feature | Description | Example | Possible values | Type, pattern, enum |
-| :---: | :---: | :---: | :---: | :---: |
-| project_name | Name of the project, <br> AuthorYear format | Zilov2023 | Unique to the article | "type": "string", <br> "pattern": "\^[A-Z][a-z]+\\\d{4}$" |
-| publication_year | Year of publication, <br> YYYY format | 2023 | Unique to the article | "type": "string", <br> "pattern": "^(19[0-9]{2}\|20[0-2][0-9]\|2023)$" |
-| publication_doi | Doi articles | 10.1007/s00253-018-8766-2 | Unique to the article | "type": "string", <br> "pattern": "^10\\\\.\\\d{4,9}\\\\/[^,]+$" |
-| sample_name | What kind of ID was used by the study for this sample. <br> We take it from the article. If not in the article, we take it from NCBI | a1 | Unique to the article | "type": "string", <br> "pattern": "\^[^A-Z]*$" |
-| archive | The archive where the library data is stored | sra | Registered in enum | [enum](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_libraries/archive.json) |
