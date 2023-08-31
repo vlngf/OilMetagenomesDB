@@ -3,5 +3,5 @@
     "example": "srs5536770", 
     "possible_values": "Unique globally",
     "type": "string",
-    "pattern": "^(srs|ers)\\d+$"
+    "pattern": "^(SRS|ERS)\\d+$"
 }
