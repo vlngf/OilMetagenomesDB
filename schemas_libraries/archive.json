@@ -3,7 +3,7 @@
     "example": "sra", 
     "possible_values": "Registered in enum",
     "type": "string", 
-    "enum": ["ena",
-             "sra",
-             "ddbj"]
+    "enum": ["ENA",
+             "SRA",
+             "DDBJ"]
 }
