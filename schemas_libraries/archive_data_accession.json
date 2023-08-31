@@ -3,5 +3,5 @@
     "example": "srr7754480", 
     "possible_values": "Unique to the archive",
     "type": "string",
-    "pattern": "^(srr)\\d+"
+    "pattern": "^(SRR)\\d+"
 }
