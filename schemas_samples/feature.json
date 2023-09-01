@@ -4,7 +4,6 @@
     "possible_values": "db_common",
     "type": "string",
     "enum": ["oil reservoir",
-             "unknown",
              "flooded oil reservoir",
              "sea",
              "soil",
@@ -12,5 +11,6 @@
              "littoral zone",
              "wastewater treatment plant",
              "underground gas storage",
+             "unknown",     
              "None"]
 }
