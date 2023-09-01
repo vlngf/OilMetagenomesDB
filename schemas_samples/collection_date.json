@@ -3,5 +3,5 @@
     "example": 2020,
     "possible_values": "db_common",
     "type": "string",
-    "pattern": "^(\\d+|None)$"
+    "pattern": "^(\\d+|None|unknown)$"
 }
