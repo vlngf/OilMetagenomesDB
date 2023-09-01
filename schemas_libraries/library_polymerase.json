@@ -3,5 +3,5 @@
     "example": "fastpfu polymerase", 
     "possible_values": "db_common",
     "type": "string",
-    "pattern": "^([^A-Z]*|None)$"
+    "pattern": "^([^A-Z]*|None|unknown)$"
 }
