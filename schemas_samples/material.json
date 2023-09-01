@@ -1,6 +1,6 @@
 {
     "description": "The type of sample from which bacterial dna was isolated",
-    "example": "oil field production water",
+    "example": "crude oil",
     "possible_values": "db_common",
     "type": "string",
     "enum": ["core",
