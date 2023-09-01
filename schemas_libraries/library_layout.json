@@ -4,5 +4,6 @@
     "possible_values": "article_common",
     "type": "string",
     "enum": ["paired",
-             "single"]
+             "single",
+             "unknown"]
 }
