@@ -1,6 +1,6 @@
 {
     "description": "The archive where the library data is stored", 
-    "example": "sra", 
+    "example": "SRA", 
     "possible_values": "article_common",
     "type": "string", 
     "enum": ["ENA",
