@@ -80,7 +80,7 @@ def main():
     
     if non_unique_columns:
         print(f"\033[31mColumns with non-unique values: {', '.join(non_unique_columns)}\033[0m")
-        exit(1)
+        sys.exit(1)
     else:
         print("\033[38;5;40mAll specified columns have unique values\033[0m")
     
@@ -99,7 +99,7 @@ def main():
 
     if error_value:
         print("\033[31mInvalid values found\033[0m")
-        exit(1)
+        sys.exit(1)
     else:
         print("\033[38;5;40mNo invalid values found\033[0m")
 
