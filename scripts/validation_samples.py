@@ -20,6 +20,7 @@ def fetch_and_checkout_branch(branch_name, path):
 def compare_dataframes(df1, df2):
     df1_check = df1.drop(df1.loc[df1.index[len(df2):]].index)
     comparison_result = df1_check.compare(df2)
+    comparison_result.index += 2
     return comparison_result
 
 # Return a dictionary that groups the indices of duplicate rows
