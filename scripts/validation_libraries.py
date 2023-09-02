@@ -1,6 +1,7 @@
 import pandas as pd
 import os, sys, json, subprocess
 from jsonschema import validate, ValidationError
+from collections import defaultdict
 
 # Read the DataFrame used for comparison purposes
 def read_dataframe_for_compare(path):
