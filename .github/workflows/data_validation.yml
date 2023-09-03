@@ -102,7 +102,7 @@ jobs:
             COMMENT_BODY+="\n\nResults: *Success* or whatever you want here."
             PAYLOAD=$(echo '{}' | jq --arg body "$COMMENT_BODY" '.body = $body')
             COMMENTS_URL=$(jq -r .pull_request.comments_url "$GITHUB_EVENT_PATH")
-            curl -s -S -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            curl -s -S -H "Authorization: token ${{ secrets.PR_TOKEN }}" \
                  -H "Accept: application/vnd.github.v3+json" \
                  -X POST --data "$PAYLOAD" "$COMMENTS_URL"
 
