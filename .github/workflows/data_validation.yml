@@ -100,12 +100,12 @@ jobs:
       - name: Set GitHub Token for Libraries
         run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
 
-      # Post validation results to discussion
-      - name: Create or Update Discussion for Libraries
+      # Post validation results to conversation
+      - name: Create or Update Comment for Libraries
         run: |
-          curl -X POST -H "Authorization: token $GH_TOKEN" \
-          -d '{"title": "Validation Results for Libraries", "body": "Your validation results for Libraries here."}' \
-          "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/discussions"
+            curl -X POST -H "Authorization: token $GH_TOKEN" \
+            -d '{"body": "Your validation results for Libraries here."}' \
+            "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/issues/${{ github.event.pull_request.number }}/comments"
 
   # Job to validate common_samples.tsv          
   check_samples:
@@ -136,9 +136,9 @@ jobs:
 
       - name: Set GitHub Token for Samples
         run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
-
-      - name: Create or Update Discussion for Samples
+        
+      - name: Create or Update Comment for Samples
         run: |
-          curl -X POST -H "Authorization: token $GH_TOKEN" \
-          -d '{"title": "Validation Results for Samples", "body": "Your validation results for Samples here."}' \
-          "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/discussions"
+            curl -X POST -H "Authorization: token $GH_TOKEN" \
+            -d '{"body": "Your validation results for Samples here."}' \
+            "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/issues/${{ github.event.pull_request.number }}/comments"
