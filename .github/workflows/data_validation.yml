@@ -96,6 +96,17 @@ jobs:
         run: |
             python scripts/validation_libraries.py
 
+      # Set the GitHub Token
+      - name: Set GitHub Token for Libraries
+        run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
+
+      # Post validation results to discussion
+      - name: Create or Update Discussion for Libraries
+        run: |
+          curl -X POST -H "Authorization: token $GH_TOKEN" \
+          -d '{"title": "Validation Results for Libraries", "body": "Your validation results for Libraries here."}' \
+          "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/discussions"
+
   # Job to validate common_samples.tsv          
   check_samples:
     needs: precheck
@@ -119,7 +130,15 @@ jobs:
             python -m pip install --upgrade pip
             pip install pandas jsonschema
       
-      # Run script validation for common_samples.tsv
       - name: Run script validation_samples.py
         run: |
             python scripts/validation_samples.py
+
+      - name: Set GitHub Token for Samples
+        run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Create or Update Discussion for Samples
+        run: |
+          curl -X POST -H "Authorization: token $GH_TOKEN" \
+          -d '{"title": "Validation Results for Samples", "body": "Your validation results for Samples here."}' \
+          "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/discussions"
