@@ -3,5 +3,5 @@
     "example": "PRJNA604781, PRJEB9855", 
     "possible_values": "article_common",
     "type": "string",
-    "pattern": "^(PRJ|SRP|SRX|SRA)[A-Z]*\\d+$"
+    "pattern": "^(PRJ|SRP|SRX|SRS)[A-Z]*\\d+$"
 }

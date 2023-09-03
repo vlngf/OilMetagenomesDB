@@ -1,5 +1,5 @@
 {
-    "description": "Research strategy: amplicons, full metagenome, metatranscriptome, metabolome", 
+    "description": "Research strategy", 
     "example": "amplicon", 
     "possible_values": "db_common",
     "type": "string",
