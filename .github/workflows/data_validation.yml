@@ -100,6 +100,10 @@ jobs:
       - name: Set GitHub Token for Libraries
         run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
 
+      # Print Environment Variables to Debug
+      - name: Print environment variables
+        run: env
+
       # Post validation results to conversation
       - name: Create or Update Comment for Libraries
         run: |
@@ -137,6 +141,9 @@ jobs:
 
       - name: Set GitHub Token for Libraries
         run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Print environment variables
+        run: env
         
       - name: Create or Update Comment for Samples
         run: |
