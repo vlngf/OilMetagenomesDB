@@ -103,7 +103,8 @@ jobs:
       # Post validation results to conversation
       - name: Create or Update Comment for Libraries
         run: |
-            curl -X POST -H "Authorization: token $GH_TOKEN" \
+            curl -v -X POST \
+            -H "Authorization: token ${{ env.GH_TOKEN }}" \
             -d '{"body": "Your validation results for Libraries here."}' \
             "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/issues/${{ github.event.pull_request.number }}/comments"
 
@@ -134,11 +135,12 @@ jobs:
         run: |
             python scripts/validation_samples.py
 
-      - name: Set GitHub Token for Samples
+      - name: Set GitHub Token for Libraries
         run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
         
       - name: Create or Update Comment for Samples
         run: |
-            curl -X POST -H "Authorization: token $GH_TOKEN" \
-            -d '{"body": "Your validation results for Samples here."}' \
+            curl -v -X POST \
+            -H "Authorization: token ${{ env.GH_TOKEN }}" \
+            -d '{"body": "Your validation results for Libraries here."}' \
             "https://api.github.com/repos/agni-bioinformatics-lab/OilMetagenomesDB/issues/${{ github.event.pull_request.number }}/comments"
