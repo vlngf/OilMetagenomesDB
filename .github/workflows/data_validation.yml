@@ -96,12 +96,15 @@ jobs:
         run: |
             python scripts/validation_libraries.py
 
-      # Set GitHub Token for Libraries
-      - name: Use GitHub Token
+      - name: Post Comment to PR
         run: |
-            curl -H "Authorization: token ${GH_TOKEN}" https://api.github.com/user
-        env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+            COMMENT_BODY="Validation for common_libraries.tsv has been completed."
+            COMMENT_BODY+="\n\nResults: *Success* or whatever you want here."
+            PAYLOAD=$(echo '{}' | jq --arg body "$COMMENT_BODY" '.body = $body')
+            COMMENTS_URL=$(jq -r .pull_request.comments_url "$GITHUB_EVENT_PATH")
+            curl -s -S -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                 -H "Accept: application/vnd.github.v3+json" \
+                 -X POST --data "$PAYLOAD" "$COMMENTS_URL"
 
   # Job to validate common_samples.tsv          
   check_samples:
@@ -129,9 +132,3 @@ jobs:
       - name: Run script validation_samples.py
         run: |
             python scripts/validation_samples.py
-
-      - name: Use GitHub Token
-        run: |
-            curl -H "Authorization: token ${GH_TOKEN}" https://api.github.com/user
-        env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
