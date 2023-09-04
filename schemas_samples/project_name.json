@@ -1,5 +1,5 @@
 {
-    "description": "Project name, in the format AuthorYear",
+    "description": "Name of the project, AuthorYear format",
     "example": "Zilov2023",
     "possible_values": "article_common",
     "type": "string",
