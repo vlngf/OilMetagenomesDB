@@ -1,8 +1,8 @@
 # OilMetagenomesDB - Samples Column Specifications
 
-This page describes columns definitions for all sample-level lists. 
+This page describes columns definitions for all sample-level lists. Also there is a dictionary that describes materials column.
 
-Sample columns are as follows:
+## Sample columns:
 
 | Feature | Description | Example | Possible values | Type, pattern, enum |
 | :---: | :---: | :---: | :---: | :---: |
@@ -38,3 +38,38 @@ Sample columns are as follows:
 | archive | The archive where the library data is stored | SRA | article_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/archive.json) |
 | archive_project | Project code with all sample data (PRJ). The article may specify the code of a set of experiments (SRP), experiment code (SRX), sample code (SRS). <br> Through these designations in NCBI, you can find the project code | PRJNA604781 | article_common | "type": "string", <br> "pattern": "^(PRJ\|SRP\|SRX\|SRS)[A-Z]*\\\d+$" |
 | archive_accession | Data code for sample, <br> starts SRS for SRA or ERS for ENA | SRS5536770 | db_uniq | "type": "string", <br> "pattern": "^(SRS\|ERS)\\\d+$" |
+
+
+## Dictionary for Materials Column:
+
+**seawater** - often taken from oil spills
+
+**production fluid** - the undivided oil production fluid that has not yet separated
+
+**formation water** - water that is together with oil and solid phase, but which contains very little oil
+
+**injection water** - water that is pumped in to pump out oil under pressure
+
+**oil contaminated soil** - soil contaminated with oil
+
+**soil** - just soil without oil, control
+
+**crude oil** - pure oil, high percentage of hydrocarbons
+
+**core** - a cylindrical rock sample that is extracted from a well for laboratory analysis
+
+**reservoir fluids** - same as reservoir brine, may be what is produced but also called in an oil reservoir, a mixture of water, oil and solids, not yet stratified
+
+**drilling mud** - is what's needed to lubricate the drill
+
+**drilling cuttings** - cuttings that go back to the ground when drilling
+
+**oil sands** - refers to a type of unconventional petroleum deposit that consists of a mixture of sand, water, clay, and bitumen, often refers to surface mining
+
+**clean water** - often the control of any water
+
+**solid** - solid phase formed after extraction
+
+**grounded water** - underground water that has little connection to the reservoir itself
+
+**pipeline solids** - sediment on the pipeline, usually taken to check for corrosion.
