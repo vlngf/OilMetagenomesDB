@@ -6,13 +6,21 @@
 
 <div align="center">
   
-  [![github-watchers](https://img.shields.io/github/watchers/agni-bioinformatics-lab/OilMetagenomesDB?label=Watch&style=social&logo=github)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB)
-  [![github-stars](https://img.shields.io/github/stars/agni-bioinformatics-lab/OilMetagenomesDB?style=social&logo=github)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB)
-  [![github-license](https://img.shields.io/github/license/agni-bioinformatics-lab/OilMetagenomesDB?style=social&logo=github)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB)
+<a href="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB">
+  <img src="https://img.shields.io/github/watchers/agni-bioinformatics-lab/OilMetagenomesDB?label=Watch&style=social&logo=github" alt="github-watchers">
+</a>
+<a href="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB">
+  <img src="https://img.shields.io/github/stars/agni-bioinformatics-lab/OilMetagenomesDB?style=social&logo=github" alt="github-stars">
+</a>
+<a href="https://github.com/agni-bioinformatics-lab/OilMetagenomesDB">
+  <img src="https://img.shields.io/github/license/agni-bioinformatics-lab/OilMetagenomesDB?style=social&logo=github" alt="github-license">
+</a>
 
 </div>
 
-Community :octocat: curated database of the metagenome of oil and oil fields🛢️🦠
+<br/>
+
+Community <img src="https://github.githubassets.com/images/icons/emoji/octocat.png" alt="octocat" style="height: 1em;"> curated database of the metagenome of oil and oil fields🛢️🦠
 
 + [Description](#description)
 + [Usage](#usage)
