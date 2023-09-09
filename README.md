@@ -20,7 +20,7 @@
 
 <br/>
 
-Community :octocat: curated database of the metagenome of oil and oil fields🛢️🦠
+Community <img src="https://github.githubassets.com/images/icons/emoji/octocat.png" alt="octocat" style="height: 1em;"> curated database of the metagenome of oil and oil fields🛢️🦠
 
 + [Description](#description)
 + [Usage](#usage)
