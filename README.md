@@ -40,16 +40,8 @@ To download the latest stable version of the OilMetagenomeDB example list and ad
 2. Copy the SSH key in the "<> Code" tab;
 3. Use the command line to download the directory;
 4. Go to the sample list of interest and complete the .tsv file in your spreadsheet program (for example, LibreOffice Calc, Microsoft Excel) or in the programming language of your choice (for example, R);
-
-Basic commands for the command line:
-* `git` - check if Git installed
-* `git clone` <link> - cloning repo on your computer
-* `git status` - check the changes
-* `git commit -m "add script.py with greeting"` - save change in repository (-m is some message of what you’ve done)
-* `git status` - check that commit is created 
-* `git push` - update the GitHub repository
  
-If you find dataset validation errors or think of a new dataset validation, then write me @rakhmanovtr 
+If you find dataset validation errors or think of a new dataset validation, then write in issue in our GitHub repository. 
 
 <span id="samples-column-specifications"></span>
 ## Samples Column Specifications [![Up](assets/image/git_img_up.png)](#top)
