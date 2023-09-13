@@ -31,7 +31,12 @@ Community <img src="https://github.githubassets.com/images/icons/emoji/octocat.p
 + [Anknowlegments](#anknowlegments)
   
 ## Description
-This list contains information of oil connected metagenomes which include crude oil samples, samples from the different part of oil production system in oil fields, also the samples from contaminated soil. This database is crucial for the use of metagenomic oil samples in machine learning. It follows the FAIR data organization principles. In here you can find the name of publications, years of publications, DOI, type of samples, geographic location of sample collection, and associated physical or chemical conditions.
+This list contains information of oil connected metagenomes which include crude oil samples, samples from the different part of oil production system in oil fields, also the samples from contaminated soil and water. This database is crucial for the use of metagenomic oil samples in machine learning. It follows the FAIR data organization principles. In here you can find the name of publications, years of publications, DOI, type of samples, geographic location of sample collection, and associated physical or chemical conditions.
+
+
+The database will release bug fix updates on issues from the github that have been reported every half a year. You can always create the issues and make a tag to become our contributor.
+
+Our next update will include a web-based application for user-friendly addition of new specimen information to the database.
 
 <span id="usage"></span>
 ## Usage [![Up](assets/image/git_img_up.png)](#top)
@@ -86,4 +91,4 @@ When filling in the data, each sample from the publication will get a new row. F
 * Be sure to record the correct archive_accession. Check out the README.md. These normally should be ‘SRA sample’ IDs (i.e. ERS or SRS for the ENA and NCBI SRA respectively), however please ask the coreteam if you are in doubt or have a different archive. Careful: You may have multiple ERS/SRS codes per sample as some people upload each library as a different ‘sample’. If this is the case be sure to include all the sample accessions comma separated list: ERRXXXX,ERRXXXXX,ERRXXXX. Always go with the sample accession rather than the run accession.
 
 ## Anknowlegments [![Up](assets/image/git_img_up.png)](#top)
- We aimed to create a comprehensive database to serve as the foundation for our machine learning models, as no existing database provides such extensive insights into oil metagenomic patterns. And our team would like to express our gratitude to [AncientMetagenomeDir](http://www.spaam-community.org/AncientMetagenomeDir/) for inspiring us to create this public database.
+ We aimed to create a comprehensive database to serve as the foundation for our machine learning models, as no existing database provides such extensive insights into oil metagenomic patterns. And our team would like to express our gratitude to [AncientMetagenomeDir](http://www.spaam-community.org/AncientMetagenomeDir/) for inspiring us to create this public database. We would also like to thank ITMO University, AGNI and Tatneft for supporting the project.
