@@ -31,12 +31,12 @@ Community <img src="https://github.githubassets.com/images/icons/emoji/octocat.p
 + [Anknowlegments](#anknowlegments)
   
 ## Description
-This list contains information of oil connected metagenomes which include crude oil samples, samples from the different part of oil production system in oil fields, also the samples from contaminated soil and water. This database is crucial for the use of metagenomic oil samples in machine learning. It follows the FAIR data organization principles. In here you can find the name of publications, years of publications, DOI, type of samples, geographic location of sample collection, and associated physical or chemical conditions.
+This list contains information of oil connected metagenomes which include crude oil samples, samples from the different parts of oil production system in oil fields, also the samples from contaminated soil and water. This database is crucial for the use of metagenomic oil samples in machine learning. It follows the FAIR data organization principles. Here you can find the name of publications, years of publications, DOI, type of samples, geographic location of sample collection, and associated physical or chemical conditions.
 
 
-The database will release bug fix updates on issues from the github that have been reported every half a year. You can always create the issues and make a tag to become our contributor.
+The database will release bug fix updates on issues from the GitHub that have been reported every half a year. You can always create new issues and make a tag to become our contributor.
 
-Our next update will include a web-based application for user-friendly addition of new specimen information to the database.
+Our next update will include a web-based application for the user-friendly addition of new specimen information to the database.
 
 <span id="usage"></span>
 ## Usage [![Up](assets/image/git_img_up.png)](#top)
@@ -46,12 +46,12 @@ To download the latest stable version of the OilMetagenomeDB example list and ad
 3. Use the command line to download the directory;
 4. Go to the sample list of interest and complete the .tsv file in your spreadsheet program (for example, LibreOffice Calc, Microsoft Excel) or in the programming language of your choice (for example, R);
  
-If you find dataset validation errors or think of a new dataset validation, then write in issue in our GitHub repository. 
+If you find dataset validation errors or think of a new dataset validation, please create an [issue](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/issues) in our GitHub repository. 
 
 <span id="samples-column-specifications"></span>
 ## Samples Column Specifications [![Up](assets/image/git_img_up.png)](#top)
 
-The SAMPLE tables stores information about the sample before it was sequenced: the type, date of collection, geographic coordinates, depth, temperature of sample extraction, material of sample, etc.
+The SAMPLE tables stores information about the sample before it was sequenced: type, date of collection, geographic coordinates, depth, temperature of sample extraction, material of sample, etc.
 
 Numeric and text fields must be filled in with "None" (capitalized) to indicate 'there can be no value meaningfully' or "unknownn" to indicate 'value is not known, but theoretically could be'. For example, if only water is being tested in a sample and there is no oil in the sample, the API index would be "None" because there is no oil in that sample and there can be no viscosity index. Conversely, if the viscosity index in the "crude oil" sample was not measured, then the API column should be set to "unknown".
 
