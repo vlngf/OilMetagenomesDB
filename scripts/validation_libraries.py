@@ -62,7 +62,7 @@ def validate_new_rows(new_rows, schemas_path, starting_index):
         if len(column_results) == 0:
             column_results.append("Valid column")
         validation_results[column] = column_results
-    return validation_results, error_value
+    return error_value
 
 # Main execution
 def main():
