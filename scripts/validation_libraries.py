@@ -90,7 +90,7 @@ def main():
         print("\033[38;5;40mDuplicate rows not found\033[0m")
     
     # Check uniqueness of specified columns
-    columns_to_check = ['archive_data_accession']
+    columns_to_check = ['download_links', 'download_md5s', 'archive_data_accession']
     non_unique_columns = check_column_uniqueness(df_pr, columns_to_check)
     if non_unique_columns:
         print(f"\033[31mColumns with non-unique values: {', '.join(non_unique_columns)}\033[0m")
