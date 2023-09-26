@@ -109,8 +109,9 @@ def main():
     validation_results, error_value = validate_new_rows(new_rows, schemas_path, df_fork.shape[0])
 
     # Print the validation results
-    formatted_output = json.dumps(validation_results, ensure_ascii=False, indent=1)
-    print(formatted_output)
+    if validation_results:
+        formatted_output = json.dumps(validation_results, ensure_ascii=False, indent=1)
+        print(formatted_output)
 
     if error_value:
         print("\033[31mInvalid values found\033[0m")
