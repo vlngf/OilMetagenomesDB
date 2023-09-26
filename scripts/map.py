@@ -52,6 +52,11 @@ slider_html = f'''
 </style>
 <div id="depth-slider" style="margin-top: 50px; width: 80%; margin-left: 10%;"></div>
 <p id="slider-values" style="text-align: center;"></p>
+<div id="button-container" style="text-align: center; margin-top: 20px;">
+    <button id="red-button" style="background-color: red; color: white;">Toggle Red Markers</button>
+    <button id="gray-button" style="background-color: gray; color: white;">Toggle Gray Markers</button>
+    <button id="green-button" style="background-color: green; color: white;">Toggle Green Markers</button>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {{
@@ -60,7 +65,17 @@ slider_html = f'''
         const max_val = {max_depth};
         const markers = document.querySelectorAll(".leaflet-interactive");
         markers.forEach((marker, idx) => {{
-            marker.setAttribute('data-depth', depths[idx]);
+            const depth = depths[idx];
+            let valueType;
+            if (depth === "unknown") {{
+                valueType = 'unknown';
+            }} else if (depth === "nan") {{
+                valueType = 'none';
+            }} else {{
+                valueType = 'float';
+            }}
+            marker.setAttribute('data-depth', depth);
+            marker.setAttribute('data-value-type', valueType);
         }});
         
         var slider = document.getElementById('depth-slider');
@@ -94,6 +109,38 @@ slider_html = f'''
                 }}
             }});
             document.getElementById("slider-values").innerHTML = "Depth Range: " + values.map(val => val + "m").join(" to ");
+        }});
+        
+        const redButton = document.getElementById('red-button');
+        const grayButton = document.getElementById('gray-button');
+        const greenButton = document.getElementById('green-button');
+        
+        let noneVisible = true;
+        let unknownVisible = true;
+        let floatVisible = true;
+        
+        function toggleMarkers(valueType, isVisible) {{
+            markers.forEach(marker => {{
+                const value = marker.getAttribute('data-value-type');
+                if (value === valueType) {{
+                    marker.style.display = isVisible ? '' : 'none';
+                }}
+            }});
+        }}
+        
+        redButton.addEventListener('click', function() {{
+            noneVisible = !noneVisible;
+            toggleMarkers('none', noneVisible);
+        }});
+        
+        grayButton.addEventListener('click', function() {{
+            unknownVisible = !unknownVisible;
+            toggleMarkers('unknown', unknownVisible);
+        }});
+        
+        greenButton.addEventListener('click', function() {{
+            floatVisible = !floatVisible;
+            toggleMarkers('float', floatVisible);
         }});
     }});
 </script>
