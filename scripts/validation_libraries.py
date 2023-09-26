@@ -59,7 +59,8 @@ def validate_new_rows(new_rows, schemas_path, starting_index):
                 error_message = e.message.replace('\\\\', '\\')
                 column_results.append(f"Invalid (Row {index+2}): {error_message}")
                 error_value = True
-        validation_results[column] = column_results
+        if column_results:
+            validation_results[column] = column_results
     return validation_results, error_value
 
 # Main execution
