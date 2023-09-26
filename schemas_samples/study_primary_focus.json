@@ -4,6 +4,6 @@
     "possible_values": "article_common",
     "type": "string",
     "enum": ["ecology",
-             "industy",
-             "ecology/industy"]
+             "industry",
+             "ecology/industry"]
 }
