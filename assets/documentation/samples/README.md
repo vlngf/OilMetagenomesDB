@@ -13,7 +13,7 @@ This page describes columns definitions for all sample-level lists. Also there i
 | oil_wells | The ID of the well in the article | A1 | db_common | "type": "string", <br> "pattern": "^.+$" |
 | latitude | The latitude at which the sample was taken | 1000.0 | db_common | "type": "string", <br> "pattern": "^(-?)(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | longitude | The longitude at which the sample was taken | 1000.0 | db_common | "type": "string", <br> "pattern": "^(-?)(\\\d+\\\\.\\\d+\|None\|unknown)$" |
-| geo_loc_name | The country where the well/field is located, from where samples were taken for analysis | Usa | db_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/geo_loc_name.json) |
+| geo_loc_name | The country where the well/field is located, from where samples were taken for analysis | USA | db_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/geo_loc_name.json) |
 | study_primary_focus | The focus of the research in the article | ecology | article_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/study_primary_focus.json) |
 | study_process | The biochemical process that is studied in the article | bioremediation | article_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_samples/study_process.json) |
 | depth | Sampling depth in meters | 1000.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
