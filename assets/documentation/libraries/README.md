@@ -6,7 +6,7 @@ Library columns are as follows:
 
 | Feature | Description | Example | Possible values | Type, pattern, enum |
 | :---: | :---: | :---: | :---: | :---: |
-| project_name | Name of the project, <br> AuthorYear format | Zilov2023 | article_common | "type": "string", <br> "pattern": "\^[A-Z][a-z]+\\\d{4}$" |
+| project_name | Name of the project, <br> AuthorYear format | Zilov2023 | article_common | "type": "string", <br> "pattern": "\^[A-Z][a-zA-Z]+\\\d{4}$" |
 | publication_year | Year of publication, <br> YYYY format | 2023 | article_common | "type": "string", <br> "pattern": "^(19[0-9]{2}\|20[0-2][0-9]\|2023)$" |
 | publication_doi | DOI of the articles | 10.1007/s00253-018-8766-2 | article_common | "type": "string", <br> "pattern": "^10\\\\.\\\d{4,9}\\\\/[^,]+$" |
 | sample_name | What kind of ID was used by the study for this sample. <br> We take it from the article. If not in the article, we take it from NCBI | A1 | article_uniq | "type": "string", <br> "pattern": "^.+$" |
@@ -22,7 +22,7 @@ Library columns are as follows:
 | instrument_model | Sequencer model. <br> Specified in the article | illumina hiseq4000 | db_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_libraries/instrument_model.json) |
 | library_layout | The sequencing method (one-sided or two-sided) can be understood by the number of FASTQ files (1 or 2, respectively) | paired | article_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_libraries/library_layout.json) |
 | library_strategy | Research strategy | amplicon | db_common | Specified in an enum <br> [(link)](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/blob/main/schemas_libraries/library_strategy.json) |
-| amplicon_variable_region | Variable regions of the 16S rRNA gene, which are used to identify taxa of bacteria and archaea. <br> Specified in the article | v3-v4 | db_common | "type": "string", <br> pattern": "^(None\|unknown\|(v[1-9]\|v1-v2\|v2-v3\|v3-v4\|v4-v5\|v5-v6\|v6-v7\|v7-v8\|v8-v9\|v1-v3\|v6-v8)(, ?(v[1-9]\|v1-v2\|v2-v3\|v3-v4\|v4-v5\|v5-v6\|v6-v7\|v7-v8\|v8-v9\|v1-v3\|v6-v8))*)$" |
+| amplicon_variable_region | Variable regions of the 16S rRNA gene, which are used to identify taxa of bacteria and archaea. <br> Specified in the article | v3-v4 | db_common | "type": "string", <br> pattern": "^(None\|unknown\|(v[1-9]\|v1-v2\|v2-v3\|v3-v4\|v4-v5\|v5-v6\|v6-v7\|v7-v8\|v8-v9\|v1-v3\|v6-v8)(, ?(v[1-9]\|v1-v2\|v2-v3\|v3-v4\|v3-v5\|v4-v5\|v5-v6\|v6-v7\|v7-v8\|v8-v9\|v1-v3\|v6-v8))*)$" |
 | read_count | How many reads are in the FASTQ files. <br> Finds the parser | 215326 | article_uniq | "type": "string", <br> "pattern": "^(\\\d+)$" |
 | archive_data_accession | The result of the SRR experiment | SRR7754480 | db_uniq | "type": "string", <br> "pattern": "^(SRR)\\\d+" |
 | download_links | A link to download each raw data file. <br> Finds the parser | https&#58;//sra-pub-run- <br> odp.s3.amazonaws.com/ <br> sra/SRR7754480/SRR7754480 | article_uniq | "type": "string", <br> "pattern": "^(http\|ftp)" |
