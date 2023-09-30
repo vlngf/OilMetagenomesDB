@@ -56,10 +56,8 @@ jobs:
             for FILE in "${MODIFIED_FILES[@]}"
             do
               if [[ $FILE == *"common_libraries.tsv"* ]]; then
-                export FILE_PATH_libraries=${{ github.workspace }}/$FILE
                 echo "::set-output name=variable_libraries::1"
               elif [[ $FILE == *"common_samples.tsv"* ]]; then
-                export FILE_PATH_samples=${{ github.workspace }}/$FILE
                 echo "::set-output name=variable_samples::1"
               fi
             done
