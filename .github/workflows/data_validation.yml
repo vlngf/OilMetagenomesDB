@@ -123,9 +123,11 @@ jobs:
 
   # Job to validate SRS of data
   check_srs:
-    needs: [check_libraries, check_samples]
     runs-on: ubuntu-latest
-        
+    if: |
+      (needs.check_libraries.result == 'success' || needs.check_libraries.result == 'skipped') &&
+      (needs.check_samples.result == 'success' || needs.check_samples.result == 'skipped')
+    
     steps:
     
       - name: Checkout code
