@@ -45,11 +45,23 @@ Our next update will include a web-based application for the user-friendly addit
 
 <span id="usage"></span>
 ## Usage <a href="#top"><img src="assets/image/git_img_up.png" width="25" /></a>
-To download the latest stable version of the OilMetagenomeDB example list and add data, follow these steps:
-1. Go to the OilMetagenomeDB repository;
-2. Copy the SSH key in the "<> Code" tab;
-3. Use the command line to download the directory;
-4. Go to the sample list of interest and complete the .tsv file in your spreadsheet program (for example, LibreOffice Calc, Microsoft Excel) or in the programming language of your choice (for example, R);
+<details>
+  <summary>🎋Click for branch creation tutorial</summary>
+
+  ![git_gif_guide_1](assets/gif/git_gif_guide_1.gif)
+</details>
+
+<details>
+  <summary>📋Click to learn data addition and pull request review</summary>
+
+  ![git_gif_guide_2](assets/gif/git_gif_guide_2.gif)
+</details>
+
+<details>
+  <summary>⚙️Click to view data validation</summary>
+
+  ![git_gif_guide_3](assets/gif/git_gif_guide_3.gif)
+</details>
  
 If you find dataset validation errors or think of a new dataset validation, please create an [issue](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/issues) in our GitHub repository. 
 
