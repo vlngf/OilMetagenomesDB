@@ -73,9 +73,9 @@ The SAMPLE tables stores information about the sample before it was sequenced: t
 Numeric and text fields must be filled in with "None" (capitalized) to indicate 'there can be no value meaningfully' or "unknownn" to indicate 'value is not known, but theoretically could be'. For example, if only water is being tested in a sample and there is no oil in the sample, the API index would be "None" because there is no oil in that sample and there can be no viscosity index. Conversely, if the viscosity index in the "crude oil" sample was not measured, then the API column should be set to "unknown".
 
 All column with 'defined categories' should be validated against
-`assets/enums/<column>.json`. This is necessary to ensure data consistency.
+`schemas_samples/<column>.json`. This is necessary to ensure data consistency.
 
-If you wish to a new category, please consult with the [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab), and then add it to `assets/enums/<column>.json`.
+If you wish to a new category, please consult with the [agni-bioinformatics-lab](https://github.com/agni-bioinformatics-lab), and then add it to `schemas_samples/<column>.json`.
 
 Sample columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/assets/documentation/samples)):
 
@@ -86,9 +86,9 @@ Sample columns are as follows ([documentation](https://github.com/agni-bioinform
 Numeric and text fields must be filled in with "None" (capitalized) to indicate 'there can be no value meaningfully' or "unknownn" to indicate 'value is not known, but theoretically could be'. For example, if only water is being tested in a sample and there is no oil in the sample, the API index would be "None" because there is no oil in that sample and there can be no viscosity index. Conversely, if the viscosity index in the "crude oil" sample was not measured, then the API column should be set to "unknown".
 
 All column with 'defined categories' should be validated against
-`assets/enums/<column>.json`. This is to ensure data consistency. E.g., all
+`schemas_libraries/<column>.json`. This is to ensure data consistency. E.g., all
 libraries sequenced on Illumina NextSeq 500s are listed as `NextSeq 500` (as
-defined in `assets/enums/instrument_models.json`). This is to ensure data
+defined in `schemas_libraries/instrument_model.json`). This is to ensure data
 consistency.
 
 Library columns are as follows ([documentation](https://github.com/agni-bioinformatics-lab/OilMetagenomesDB/tree/main/assets/documentation/libraries)):
