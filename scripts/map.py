@@ -2,9 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
+from PIL import Image
 import folium
 import json
 import re 
+import io
 
 # Read data from the URL into a DataFrame and correct the 'depth' column to numeric values
 df = pd.read_csv("https://raw.githubusercontent.com/agni-bioinformatics-lab/OilMetagenomesDB/main/common_samples/common_samples.tsv", sep="\\t", decimal=".", engine='python')
@@ -22,7 +24,7 @@ def get_color(depth):
         return 'red'
 
 # Create a Folium map object and iterate through DataFrame rows to add markers
-m = folium.Map(location=[47, 2], zoom_start=3, tiles="http://services.arcgisonline.com/arcgis/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}", attr="© OpenStreetMap contributors")
+m = folium.Map(location=[47, 2], zoom_start=2, tiles="http://services.arcgisonline.com/arcgis/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}", attr="© OpenStreetMap contributors")
 for index, row in df.iterrows():
     value1 = row['archive_project']
     value2 = row['study_primary_focus']
@@ -38,6 +40,10 @@ for index, row in df.iterrows():
 
 # Save the map as an HTML file
 m.save("index.html")
+
+img_data = m._to_png(5)
+img = Image.open(io.BytesIO(img_data))
+img.save('assets/image/git_img_map_folium.png')
 
 # Process depth values and prepare slider HTML element with embedded JS for interactivity
 depth_values = [str(row["depth"]) for _, row in df.iterrows()]
