@@ -82,6 +82,7 @@ slider_html = f'''
             }}
             marker.setAttribute('data-depth', depth);
             marker.setAttribute('data-value-type', valueType);
+            marker.setAttribute('data-visible', 'true');
         }});
         
         var slider = document.getElementById('depth-slider');
@@ -108,7 +109,8 @@ slider_html = f'''
             const max_val = parseFloat(values[1]);
             markers.forEach(marker => {{
                 const depth = parseFloat(marker.getAttribute('data-depth'));
-                if (depth < min_val || depth > max_val) {{
+                const isVisible = marker.getAttribute('data-visible') === 'true';
+                if (depth < min_val || depth > max_val || !isVisible) {{
                     marker.style.display = 'none';
                 }} else {{
                     marker.style.display = '';
@@ -129,6 +131,7 @@ slider_html = f'''
             markers.forEach(marker => {{
                 const value = marker.getAttribute('data-value-type');
                 if (value === valueType) {{
+                    marker.setAttribute('data-visible', isVisible ? 'true' : 'false');
                     marker.style.display = isVisible ? '' : 'none';
                 }}
             }});
