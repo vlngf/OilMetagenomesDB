@@ -20,7 +20,7 @@ This page describes columns definitions for all sample-level lists. Also there i
 | temp | Temperature in Celsius | 100.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | pH | Sample acidity | 10.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | salinity | Specify in ppt, if 10% is specified, write 100; <br> 1 ppt = 1000 mg/l | 0.5 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
-| API | Specify in API units. <br> For example: 0.932 g/cm3 = 932 kg/m3 = 20 API | 20 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\|None\|unknown)$" |
+| API | Specify in API units. Must be rounded down to whole numbers. <br> For example: 0.932 g/cm3 = 932 kg/m3 = 20 API | 20 | Unique to the article | "type": "string", <br> "pattern": "^(\\\d+\|None\|unknown)$" |
 | NO3- | We specify in mg/l | 5.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | PO43- | We specify in mg/l | 5.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
 | SO42- | We specify in mg/l | 5.0 | db_common | "type": "string", <br> "pattern": "^(\\\d+\\\\.\\\d+\|None\|unknown)$" |
