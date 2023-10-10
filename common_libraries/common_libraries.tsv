@@ -81,6 +81,18 @@ Eze2021	2021	10.1186/s13568-021-01250-4	TarPit3_enrich	SRA	PRJNA612814	SRS632146
 Eze2021	2021	10.1186/s13568-021-01250-4	TarPit3_enrich	SRA	PRJNA612814	SRS6321460	TarPit3e_L001	unknown	kapa hifi hot start	unknown	unknown	unknown	illumina hiseq 2500	paired	wgs	None	7665015	SRR11310429	https://sra-pub-run-odp.s3.amazonaws.com/sra/srr11310429/srr11310429	10f6b418e082aa25ce94923720b55c03	2112218794
 Eze2021	2021	10.1186/s13568-021-01250-4	TarPit3	SRA	PRJNA612814	SRS6321459	TarPit3_L002	unknown	kapa hifi hot start	unknown	unknown	unknown	illumina hiseq 2500	paired	wgs	None	6032418	SRR11310430	https://sra-pub-run-odp.s3.amazonaws.com/sra/srr11310430/srr11310430	42405d86054a8ec3f23a4d714bd2527a	1617671122
 Eze2021	2021	10.1186/s13568-021-01250-4	TarPit3	SRA	PRJNA612814	SRS6321459	TarPit3_L001	unknown	kapa hifi hot start	unknown	unknown	unknown	illumina hiseq 2500	paired	wgs	None	6170151	SRR11310431	https://sra-pub-run-odp.s3.amazonaws.com/sra/srr11310431/srr11310431	fef00303e93da6b26aa40bf25e02edd4	1668927453
+SierraGarcia2020	2020	10.1016/j.scitotenv.2020.136646	BA-2 - oil	SRA	PRJNA729662	SRS9115670	BA-2	unknown	phi29	unknown	2.7	unknown	illumina hiseq 2500	paired	wgs	None	12169099	SRR14709827	https://sra-pub-run-odp.s3.amazonaws.com/sra/srr14709827/srr14709827	a6cd27c206af8b7bca768a5481d85f0d	1020796845
+SierraGarcia2020	2020	10.1016/j.scitotenv.2020.136646	BA-1	SRA	PRJNA729662	SRS8961956	BA-1	unknown	phi29	unknown	1.8	unknown	illumina hiseq 2500	paired	wgs	None	32552225	SRR14522141	https://sra-pub-run-odp.s3.amazonaws.com/sra/srr14522141/srr14522141	cad8664aa2f4e9bee0d857dcf70b6551	2627848220
+
+
+
+
+
+
+
+
+
+
 Gao2015	2015	10.5194/bg-12-3403-2015	Lu3095A	SRA	PRJNA246768	SRS631436	Lu3095A	double	fastpfu	None	None	25	454 gs flx+	single	amplicon	v4	3003	SRR1368290	https://sra-pub-run-odp.s3.amazonaws.com/sra/srr1368290/srr1368290	a86b0787583136da1e6f0675c97898f5	1131829
 Gao2015	2015	10.5194/bg-12-3403-2015	Lu3073A	SRA	PRJNA246768	SRS631435	Lu3073A	double	fastpfu	None	None	25	454 gs flx+	single	amplicon	v4	2965	SRR1368289	https://sra-pub-run-odp.s3.amazonaws.com/sra/srr1368289/srr1368289	f19089982ed9151e382aaeaaf51eaada	1117288
 Gao2015	2015	10.5194/bg-12-3403-2015	Lu2180A	SRA	PRJNA246768	SRS631434	Lu2180A	double	fastpfu	None	None	25	454 gs flx+	single	amplicon	v4	3127	SRR1368288	https://sra-pub-run-odp.s3.amazonaws.com/sra/srr1368288/srr1368288	5ff4183113423697e967f54bded515be	1169498
